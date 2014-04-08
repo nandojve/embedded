@@ -1,0 +1,4 @@
+embedded
+========
+
+Full embedded tree
