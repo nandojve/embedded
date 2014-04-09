@@ -1,0 +1,68 @@
+############################################################################################
+# Makefile for the project MAC_Example_3_Beacon Release Using single source files
+############################################################################################
+
+USE_WIRELESS = 0
+STACK_TYPE = ATMAC-802.15.4
+HIGHEST_STACK_LAYER=TAL
+#STACK_TYPE = LwMesh
+STACK_VERSION = Current
+
+USE_ASF = 1
+USB_CLASS_CDC_DEVICE = 1
+ASF_USB_DRIVER = 1
+ASF_TWI_DRIVER = 1
+ASF_TWIM_DRIVER = 1
+ASF_SPI_DRIVER = 1
+ASF_USART_DRIVER = 1
+ASF_EFC_DRIVER = 0
+ASF_RTC_DRIVER = 0
+ASF_TIMEOUT_SERVICE = 0
+ASF_FLASH_EFC_SERVICE = 0
+USE_SIO_MANAGER = 1
+
+# Build specific properties for WM-100-DUINO
+BOARD_TYPE = WM100_DUINO
+MCU = atxmega32a4u
+PLATFORM = xmega
+F_CPU = 32000000
+CFLAGS += -DSIO2HOST_CHANNEL=SIO_USB
+CFLAGS += -DSIO_HUB
+SIO2HOST_CHANNEL = SIO_USB
+
+## General Flags
+PROJECT = Cop-Sensors
+FORMAT = ihex
+SINGLESTEP	= -DSINGLESTEPSUPPORT
+CROUTINE = TRUE
+CFLAGS += -DMAC802_15_4
+CFLAGS += -DREDUCED_PARAM_CHECK
+CFLAGS += -DBEACON_SUPPORT
+CFLAGS += -DMAC_USER_BUILD_FEATURE_CONFIG
+CFLAGS += -DTRX_REG_RAW_VALUE
+CFLAGS += -DADC_DRIVER
+
+# Target Flags
+TARGET_DIR = .
+TARGET = $(PROJECT)
+
+# Path variables
+## Path to main project directory
+ROOT_DIR = ../../..
+
+CSRC	+= Cop-Sensors.c
+CSRC	+= drivers/Terminal.c
+CSRC	+= drivers/AT24C0x.c
+CSRC	+= drivers/AT24MAC602.c
+CSRC	+= drivers/CC2D33S.c
+CSRC	+= drivers/MPL115A2.c
+CSRC	+= drivers/VCNL40xx.c
+
+# List any extra directories to look for include files here.
+#     Each directory must be seperated by a space.
+EXTRAINCDIRS +=																	\
+	config																		\
+	drivers
+
+include																			\
+	$(ROOT_DIR)/xdk-asf-3.x/$(PLATFORM)/platform.mk

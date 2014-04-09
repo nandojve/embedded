@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "I2C_Sensors_ARM", "I2C_Sensors_ARM.cproj", "{721AF79E-12D4-439E-B4A8-7294D167EAF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{721AF79E-12D4-439E-B4A8-7294D167EAF6}.Debug|ARM.ActiveCfg = Debug|ARM
+		{721AF79E-12D4-439E-B4A8-7294D167EAF6}.Debug|ARM.Build.0 = Debug|ARM
+		{721AF79E-12D4-439E-B4A8-7294D167EAF6}.Release|ARM.ActiveCfg = Release|ARM
+		{721AF79E-12D4-439E-B4A8-7294D167EAF6}.Release|ARM.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
