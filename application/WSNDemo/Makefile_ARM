@@ -1,0 +1,62 @@
+# ASF properties
+USE_ASF = 1
+USB_CLASS_CDC_DEVICE = 1
+#ASF_TWI_DRIVER = 1
+ASF_UDP_DRIVER = 1
+ASF_SPI_DRIVER = 1
+
+# Stack properties
+STACK_TYPE = LwMesh
+STACK_VERSION = Current
+
+# Build specific properties
+TAL_TYPE = AT86RF231
+#BOARD_TYPE = LwMesh_SAM4S_EK
+BOARD_TYPE = LwMesh_SAM4S_XPLAINED
+#BOARD_TYPE = LwMesh_SAM4L_EK
+#BOARD_TYPE = LwMesh_SAMD20_PRO
+PAL_TYPE = sam4s16c
+#PAL_TYPE = sam4l4b
+#PAL_TYPE = samd20j18
+ARMTYPE = SAM4S
+#ARMTYPE = SAM4L
+#ARMTYPE = SAMD20
+MCU = atsam4s16c
+#MCU = atsam4lc4b
+#MCU = samd20j18
+PLATFORM = sam
+#PLATFORM = sam0
+#F_CPU = 12000000
+F_CPU = 32000000
+CFLAGS += -DARMTYPE=$(ARMTYPE)
+CFLAGS += -DHAL_ATSAM4S16C
+#CFLAGS += -DHAL_ATSAM4LC4B
+#CFLAGS += -DHAL_ATSAMD20J18
+#CFLAGS += -DPLATFORM_SAM4S_EK
+CFLAGS += -DPLATFORM_SAM4S_XPLAINED
+#CFLAGS += -DPLATFORM_SAM4L_EK
+#CFLAGS += -DPLATFORM_SAMD20_PRO
+
+## General Flags
+PROJECT = WSNDemo
+FORMAT = ihex
+CFLAGS += -DPHY_$(TAL_TYPE)
+
+# Target Flags
+TARGET_DIR = .
+TARGET = $(PROJECT)
+
+# Path variables
+## Path to main project directory
+ROOT_DIR = ../..
+
+CSRC	+= WSNDemo.c
+CSRC	+= otaInterface.c
+
+# List any extra directories to look for include files here.
+#     Each directory must be seperated by a space.
+EXTRAINCDIRS +=																	\
+	config
+
+include																			\
+	$(ROOT_DIR)/xdk-asf-3.x/$(PLATFORM)/platform.mk

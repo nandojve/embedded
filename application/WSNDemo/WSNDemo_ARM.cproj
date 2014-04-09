@@ -1,0 +1,748 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.1</ProjectVersion>
+    <ToolchainName>com.Atmel.ARMGCC.C</ToolchainName>
+    <ProjectGuid>{4C0B3D63-19AC-45B0-BB53-3FDA0178E0BC}</ProjectGuid>
+    <avrdevice>ATSAM4S16C</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>WSNDemo</AssemblyName>
+    <Name>WSNDemo</Name>
+    <RootNamespace>WSNDemo</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <UncachedRange />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
+    <BootSegment>2</BootSegment>
+    <eraseonlaunchrule>1</eraseonlaunchrule>
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.9.1" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.samice</avrtool>
+    <avrtoolinterface>JTAG</avrtoolinterface>
+    <com_atmel_avrdbg_tool_edbg>
+      <ToolOptions>
+        <InterfaceProperties>
+          <JtagEnableExtResetOnStartSession>false</JtagEnableExtResetOnStartSession>
+          <SwdClock>4000000</SwdClock>
+        </InterfaceProperties>
+        <InterfaceName>SWD</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.edbg</ToolType>
+      <ToolNumber>ATML0000000000000000</ToolNumber>
+      <ToolName>XPRO-EDBG</ToolName>
+    </com_atmel_avrdbg_tool_edbg>
+    <com_atmel_avrdbg_tool_samice>
+      <ToolOptions>
+        <InterfaceProperties>
+          <JtagEnableExtResetOnStartSession>true</JtagEnableExtResetOnStartSession>
+          <JtagDbgClock>0</JtagDbgClock>
+          <JtagInChain>false</JtagInChain>
+          <JtagDevicesBefore>0</JtagDevicesBefore>
+          <JtagDevicesAfter>0</JtagDevicesAfter>
+          <JtagInstrBitsBefore>0</JtagInstrBitsBefore>
+          <JtagInstrBitsAfter>0</JtagInstrBitsAfter>
+        </InterfaceProperties>
+        <InterfaceName>JTAG</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.samice</ToolType>
+      <ToolNumber>000480001393</ToolNumber>
+      <ToolName>J-Link</ToolName>
+    </com_atmel_avrdbg_tool_samice>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <ArmGcc>
+  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+  <armgcc.common.outputfiles.lss>False</armgcc.common.outputfiles.lss>
+  <armgcc.common.outputfiles.eep>False</armgcc.common.outputfiles.eep>
+  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+  <armgcc.common.outputfiles.srec>False</armgcc.common.outputfiles.srec>
+  <armgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</armgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <armgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</armgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <armgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>PHY_AT86RF231</Value>
+      <Value>HAL_ATSAMD20J18</Value>
+      <Value>PLATFORM_XPLAINED_PRO</Value>
+      <Value>F_CPU=8000000</Value>
+    </ListValues>
+  </armgcc.compiler.symbols.DefSymbols>
+  <armgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>../../../../hal/atsamd20/inc</Value>
+      <Value>../../../../phy/at86rf231/inc</Value>
+      <Value>../../../../nwk/inc</Value>
+      <Value>../../../../sys/inc</Value>
+      <Value>../../../../hal/drivers/atsamd20</Value>
+      <Value>../../../../service/inc</Value>
+      <Value>../..</Value>
+      <Value>C:\Program Files (x86)\Atmel\Atmel Studio 6.1\extensions\Atmel\ATSAMD20_PTC\6.1.0\ATSAMD20J18\toolchain\sam</Value>
+      <Value>C:\Program Files (x86)\Atmel\Atmel Studio 6.1\extensions\Atmel\ATSAMD20_PTC\6.1.0\ATSAMD20J18\toolchain\sam\samd20\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\samd20\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam4s\include</Value>
+    </ListValues>
+  </armgcc.compiler.directories.IncludePaths>
+  <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
+  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcc.compiler.optimization.PrepareDataForGarbageCollection>True</armgcc.compiler.optimization.PrepareDataForGarbageCollection>
+  <armgcc.compiler.optimization.EnableLongCalls>False</armgcc.compiler.optimization.EnableLongCalls>
+  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+  <armgcc.linker.general.GenerateMAPFile>False</armgcc.linker.general.GenerateMAPFile>
+  <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+  <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--script=../../linker/atsamd20j18.ld</armgcc.linker.miscellaneous.LinkerFlags>
+  <armgcc.preprocessingassembler.general.IncludePaths>
+    <ListValues>
+      <Value>../../../../hal/atsamd20/inc</Value>
+      <Value>../../../../phy/at86rf231/inc</Value>
+      <Value>../../../../nwk/inc</Value>
+      <Value>../../../../sys/inc</Value>
+      <Value>../../../../hal/drivers/atsamd20</Value>
+      <Value>../../../../service/inc</Value>
+      <Value>../..</Value>
+      <Value>C:\Program Files (x86)\Atmel\Atmel Studio 6.1\extensions\Atmel\ATSAMD20_PTC\6.1.0\ATSAMD20J18\toolchain\sam</Value>
+      <Value>C:\Program Files (x86)\Atmel\Atmel Studio 6.1\extensions\Atmel\ATSAMD20_PTC\6.1.0\ATSAMD20J18\toolchain\sam\samd20\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\samd20\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam4s\include</Value>
+    </ListValues>
+  </armgcc.preprocessingassembler.general.IncludePaths>
+</ArmGcc>
+    </ToolchainSettings>
+    <OutputFileName>WSNDemo</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <ArmGcc>
+  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+  <armgcc.common.outputfiles.lss>False</armgcc.common.outputfiles.lss>
+  <armgcc.common.outputfiles.eep>False</armgcc.common.outputfiles.eep>
+  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+  <armgcc.common.outputfiles.srec>False</armgcc.common.outputfiles.srec>
+  <armgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</armgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <armgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</armgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <armgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>PHY_AT86RF231</Value>
+      <Value>HAL_ATSAMD20J18</Value>
+      <Value>PLATFORM_XPLAINED_PRO</Value>
+      <Value>F_CPU=8000000</Value>
+    </ListValues>
+  </armgcc.compiler.symbols.DefSymbols>
+  <armgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>../../../../hal/atsamd20/inc</Value>
+      <Value>../../../../phy/at86rf231/inc</Value>
+      <Value>../../../../nwk/inc</Value>
+      <Value>../../../../sys/inc</Value>
+      <Value>../../../../hal/drivers/atsamd20</Value>
+      <Value>../../../../service/inc</Value>
+      <Value>../..</Value>
+      <Value>C:\Program Files (x86)\Atmel\Atmel Studio 6.1\extensions\Atmel\ATSAMD20_PTC\6.1.0\ATSAMD20J18\toolchain\sam</Value>
+      <Value>C:\Program Files (x86)\Atmel\Atmel Studio 6.1\extensions\Atmel\ATSAMD20_PTC\6.1.0\ATSAMD20J18\toolchain\sam\samd20\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\samd20\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam4s\include</Value>
+    </ListValues>
+  </armgcc.compiler.directories.IncludePaths>
+  <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
+  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcc.compiler.optimization.PrepareDataForGarbageCollection>True</armgcc.compiler.optimization.PrepareDataForGarbageCollection>
+  <armgcc.compiler.optimization.EnableLongCalls>False</armgcc.compiler.optimization.EnableLongCalls>
+  <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
+  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+  <armgcc.linker.general.GenerateMAPFile>False</armgcc.linker.general.GenerateMAPFile>
+  <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+  <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--script=../../linker/atsamd20j18.ld</armgcc.linker.miscellaneous.LinkerFlags>
+  <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
+  <armgcc.preprocessingassembler.general.IncludePaths>
+    <ListValues>
+      <Value>../../../../hal/atsamd20/inc</Value>
+      <Value>../../../../phy/at86rf231/inc</Value>
+      <Value>../../../../nwk/inc</Value>
+      <Value>../../../../sys/inc</Value>
+      <Value>../../../../hal/drivers/atsamd20</Value>
+      <Value>../../../../service/inc</Value>
+      <Value>../..</Value>
+      <Value>C:\Program Files (x86)\Atmel\Atmel Studio 6.1\extensions\Atmel\ATSAMD20_PTC\6.1.0\ATSAMD20J18\toolchain\sam</Value>
+      <Value>C:\Program Files (x86)\Atmel\Atmel Studio 6.1\extensions\Atmel\ATSAMD20_PTC\6.1.0\ATSAMD20J18\toolchain\sam\samd20\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\samd20\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam4s\include</Value>
+    </ListValues>
+  </armgcc.preprocessingassembler.general.IncludePaths>
+  <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
+</ArmGcc>
+    </ToolchainSettings>
+    <OutputFileName>WSNDemo</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <UsesExternalMakeFile>True</UsesExternalMakeFile>
+    <OutputDirectory>
+    </OutputDirectory>
+    <BuildTarget>all</BuildTarget>
+    <CleanTarget>clean</CleanTarget>
+    <ExternalMakeFilePath>Makefile_ARM</ExternalMakeFilePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\inc\hal.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\inc\hal.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\src\hal.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\src\hal.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\inc\halTimer.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\inc\halTimer.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\src\halTimer.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\src\halTimer.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\inc\halGpio.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\inc\halGpio.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\inc\halLed.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\inc\halLed.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\inc\halPhy.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\inc\halPhy.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\src\halPhy.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\src\halPhy.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\inc\halUart.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\inc\halUart.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\src\halUart.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\src\halUart.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\inc\halSleep.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\inc\halSleep.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\src\halSleep.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\src\halSleep.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\inc\samd20_xplained_pro.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\inc\samd20_xplained_pro.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAMD20_PRO\src\board_init.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAMD20_PRO\src\board_init.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\inc\hal.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\inc\hal.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\src\hal.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\src\hal.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\inc\halTimer.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\inc\halTimer.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\src\halTimer.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\src\halTimer.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\inc\halGpio.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\inc\halGpio.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\inc\halLed.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\inc\halLed.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\inc\halPhy.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\inc\halPhy.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\src\halPhy.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\src\halPhy.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\inc\halUart.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\inc\halUart.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\src\halUart.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\src\halUart.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\inc\halSleep.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\inc\halSleep.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\src\halSleep.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\src\halSleep.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\inc\sam4l_ek.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\inc\sam4l_ek.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4L_EK\src\board_init.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4L_EK\src\board_init.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\inc\hal.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\inc\hal.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\src\hal.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\src\hal.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\inc\halTimer.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\inc\halTimer.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\src\halTimer.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\src\halTimer.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\inc\halGpio.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\inc\halGpio.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\inc\halLed.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\inc\halLed.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\inc\halPhy.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\inc\halPhy.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\src\halPhy.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\src\halPhy.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\inc\halUsart.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\inc\halUsart.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\src\halUsart.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\src\halUsart.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\inc\halUsb.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\inc\halUsb.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\src\halUsb.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\src\halUsb.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\inc\halSleep.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\inc\halSleep.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\src\halSleep.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\src\halSleep.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\inc\sam4s_ek.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\inc\sam4s_ek.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_EK\src\board_init.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_EK\src\board_init.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\inc\hal.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\inc\hal.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\src\hal.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\src\hal.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\inc\halTimer.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\inc\halTimer.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\src\halTimer.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\src\halTimer.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\inc\halGpio.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\inc\halGpio.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\inc\halLed.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\inc\halLed.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\inc\halPhy.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\inc\halPhy.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\src\halPhy.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\src\halPhy.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\inc\halUart.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\inc\halUart.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\src\halUart.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\src\halUart.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\inc\halUsb.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\inc\halUsb.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\src\halUsb.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\src\halUsb.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\inc\halSleep.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\inc\halSleep.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\src\halSleep.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\src\halSleep.c</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\inc\sam4s_xplained.h">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\inc\sam4s_xplained.h</Link>
+    </Compile>
+    <Compile Include="..\..\board\LwMesh_SAM4S_XPLAINED\src\board_init.c">
+      <SubType>compile</SubType>
+      <Link>board\LwMesh_SAM4S_XPLAINED\src\board_init.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\atmega128rfa1\inc\phy.h">
+      <SubType>compile</SubType>
+      <Link>stack\phy\atmega128rfa1\inc\phy.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\atmega128rfa1\src\phy.c">
+      <SubType>compile</SubType>
+      <Link>stack\phy\atmega128rfa1\src\phy.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\atmega128rfa1\inc\atmega128rfa1.h">
+      <SubType>compile</SubType>
+      <Link>stack\phy\atmega128rfa1\inc\atmega128rfa1.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\atmega256rfr2\inc\phy.h">
+      <SubType>compile</SubType>
+      <Link>stack\phy\atmega256rfr2\inc\phy.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\atmega256rfr2\src\phy.c">
+      <SubType>compile</SubType>
+      <Link>stack\phy\atmega256rfr2\src\phy.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\atmega256rfr2\inc\atmega256rfr2.h">
+      <SubType>compile</SubType>
+      <Link>stack\phy\atmega256rfr2\inc\atmega256rfr2.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf212\inc\phy.h">
+      <SubType>compile</SubType>
+      <Link>stack\phy\at86rf212\inc\phy.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf212\src\phy.c">
+      <SubType>compile</SubType>
+      <Link>stack\phy\at86rf212\src\phy.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf212\inc\at86rf212.h">
+      <SubType>compile</SubType>
+      <Link>stack\phy\at86rf212\inc\at86rf212.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf231\inc\phy.h">
+      <SubType>compile</SubType>
+      <Link>stack\phy\at86rf231\inc\phy.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf231\src\phy.c">
+      <SubType>compile</SubType>
+      <Link>stack\phy\at86rf231\src\phy.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf231\inc\at86rf231.h">
+      <SubType>compile</SubType>
+      <Link>stack\phy\at86rf231\inc\at86rf231.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf232\inc\phy.h">
+      <SubType>compile</SubType>
+      <Link>stack\phy\at86rf232\inc\phy.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf232\src\phy.c">
+      <SubType>compile</SubType>
+      <Link>stack\phy\at86rf232\src\phy.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf232\inc\at86rf232.h">
+      <SubType>compile</SubType>
+      <Link>stack\phy\at86rf232\inc\at86rf232.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf233\inc\phy.h">
+      <SubType>compile</SubType>
+      <Link>stack\phy\at86rf233\inc\phy.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf233\src\phy.c">
+      <SubType>compile</SubType>
+      <Link>stack\phy\at86rf233\src\phy.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf233\inc\at86rf233.h">
+      <SubType>compile</SubType>
+      <Link>stack\phy\at86rf233\inc\at86rf233.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwk.h">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\inc\nwk.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwk.c">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\src\nwk.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkDataReq.h">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\inc\nwkDataReq.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkDataReq.c">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\src\nwkDataReq.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkSecurity.h">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\inc\nwkSecurity.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkSecurity.c">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\src\nwkSecurity.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkFrame.h">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\inc\nwkFrame.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkFrame.c">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\src\nwkFrame.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkGroup.h">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\inc\nwkGroup.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkGroup.c">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\src\nwkGroup.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkRoute.h">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\inc\nwkRoute.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkRoute.c">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\src\nwkRoute.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkRouteDiscovery.h">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\inc\nwkRouteDiscovery.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkRouteDiscovery.c">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\src\nwkRouteDiscovery.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkRx.h">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\inc\nwkRx.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkRx.c">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\src\nwkRx.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkTx.h">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\inc\nwkTx.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkTx.c">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\src\nwkTx.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkCommand.h">
+      <SubType>compile</SubType>
+      <Link>stack\nwk\inc\nwkCommand.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\sys\inc\sys.h">
+      <SubType>compile</SubType>
+      <Link>stack\sys\inc\sys.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\sys\src\sys.c">
+      <SubType>compile</SubType>
+      <Link>stack\sys\src\sys.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\sys\inc\sysTypes.h">
+      <SubType>compile</SubType>
+      <Link>stack\sys\inc\sysTypes.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\sys\inc\sysConfig.h">
+      <SubType>compile</SubType>
+      <Link>stack\sys\inc\sysConfig.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\sys\inc\sysTimer.h">
+      <SubType>compile</SubType>
+      <Link>stack\sys\inc\sysTimer.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\sys\src\sysTimer.c">
+      <SubType>compile</SubType>
+      <Link>stack\sys\src\sysTimer.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\sys\inc\sysEncrypt.h">
+      <SubType>compile</SubType>
+      <Link>stack\sys\inc\sysEncrypt.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\sys\src\sysEncrypt.c">
+      <SubType>compile</SubType>
+      <Link>stack\sys\src\sysEncrypt.c</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\service\inc\otaCommon.h">
+      <SubType>compile</SubType>
+      <Link>stack\service\inc\otaCommon.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\service\inc\otaClient.h">
+      <SubType>compile</SubType>
+      <Link>stack\service\inc\otaClient.h</Link>
+    </Compile>
+    <Compile Include="..\..\stack\LwMesh\Current\service\src\otaClient.c">
+      <SubType>compile</SubType>
+      <Link>stack\service\src\otaClient.c</Link>
+    </Compile>
+    <Compile Include="config\config.h">
+      <SubType>compile</SubType>
+      <Link>config\config.h</Link>
+    </Compile>
+    <Compile Include="config\conf_board.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_board.h</Link>
+    </Compile>
+    <Compile Include="config\conf_clock.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_clock.h</Link>
+    </Compile>
+    <Compile Include="config\conf_clocks.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_clocks.h</Link>
+    </Compile>
+    <Compile Include="config\conf_resources.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_resources.h</Link>
+    </Compile>
+    <Compile Include="config\conf_sleepmgr.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_sleepmgr.h</Link>
+    </Compile>
+    <Compile Include="config\conf_twim.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_twim.h</Link>
+    </Compile>
+    <Compile Include="config\conf_spi_master.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_spi_master.h</Link>
+    </Compile>
+    <Compile Include="config\conf_usart_spi.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_usart_spi.h</Link>
+    </Compile>
+    <Compile Include="config\conf_uart_serial.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_uart_serial.h</Link>
+    </Compile>
+    <Compile Include="config\conf_usb.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_usb.h</Link>
+    </Compile>
+    <Compile Include="otaInterface.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="WSNDemo.c">
+      <SubType>compile</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="config\" />
+    <Folder Include="board\" />
+    <Folder Include="board\LwMesh_SAMD20_PRO\" />
+    <Folder Include="board\LwMesh_SAMD20_PRO\inc" />
+    <Folder Include="board\LwMesh_SAMD20_PRO\src" />
+    <Folder Include="board\LwMesh_SAM4S_EK\" />
+    <Folder Include="board\LwMesh_SAM4S_EK\inc" />
+    <Folder Include="board\LwMesh_SAM4S_EK\src" />
+    <Folder Include="board\LwMesh_SAM4S_XPLAINED\" />
+    <Folder Include="board\LwMesh_SAM4S_XPLAINED\inc" />
+    <Folder Include="board\LwMesh_SAM4S_XPLAINED\src" />
+    <Folder Include="board\LwMesh_SAM4L_EK\" />
+    <Folder Include="board\LwMesh_SAM4L_EK\inc" />
+    <Folder Include="board\LwMesh_SAM4L_EK\src" />
+    <Folder Include="stack\" />
+    <Folder Include="stack\nwk\" />
+    <Folder Include="stack\phy\" />
+    <Folder Include="stack\phy\atmega128rfa1\" />
+    <Folder Include="stack\phy\atmega128rfa1\inc" />
+    <Folder Include="stack\phy\atmega128rfa1\src" />
+    <Folder Include="stack\phy\atmega256rfr2\" />
+    <Folder Include="stack\phy\atmega256rfr2\inc" />
+    <Folder Include="stack\phy\atmega256rfr2\src" />
+    <Folder Include="stack\phy\at86rf212\" />
+    <Folder Include="stack\phy\at86rf212\inc" />
+    <Folder Include="stack\phy\at86rf212\src" />
+    <Folder Include="stack\phy\at86rf231\" />
+    <Folder Include="stack\phy\at86rf231\inc" />
+    <Folder Include="stack\phy\at86rf231\src" />
+    <Folder Include="stack\phy\at86rf232\" />
+    <Folder Include="stack\phy\at86rf232\inc" />
+    <Folder Include="stack\phy\at86rf232\src" />
+    <Folder Include="stack\phy\at86rf233\" />
+    <Folder Include="stack\phy\at86rf233\inc" />
+    <Folder Include="stack\phy\at86rf233\src" />
+    <Folder Include="stack\nwk\inc" />
+    <Folder Include="stack\nwk\src" />
+    <Folder Include="stack\service\" />
+    <Folder Include="stack\sys\" />
+    <Folder Include="stack\sys\inc" />
+    <Folder Include="stack\sys\src" />
+    <Folder Include="stack\service\inc" />
+    <Folder Include="stack\service\src" />
+    <None Include="Makefile_ARM">
+      <SubType>compile</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>

@@ -1,0 +1,69 @@
+# ASF properties
+USE_ASF = 1
+USB_CLASS_CDC_DEVICE = 0
+ASF_TWI_DRIVER = 0
+ASF_UDP_DRIVER = 0
+ASF_SPI_DRIVER = 1
+ASF_USART_DRIVER = 1
+USE_SIO_MANAGER = 1
+
+# Stack properties
+USE_WIRELESS = 1
+USE_WIRELESS_OLD = 1
+STACK_TYPE = LwMesh
+STACK_VERSION = Current
+
+# Build specific properties
+#TAL_TYPE = AT86RF232
+#BOARD_TYPE = LwMesh_WM200
+#BOARD_TYPE = LwMesh_MINIKIT2
+#MCU = atxmega256a3u
+#MCU = atxmega256a3bu
+#MCU = atxmega192a3
+#PLATFORM = xmega
+#F_CPU = 24000000
+#F_CPU = 32000000
+#CFLAGS += -DHAL_ATXMEGA256A3
+#CFLAGS += -DHAL_ATXMEGA192A3
+
+#TAL_TYPE = ATMEGA128RFA1
+TAL_TYPE = ATMEGA256RFR2
+#BOARD_TYPE = KITRFA1
+BOARD_TYPE = WM100
+#BOARD_TYPE = WM100_DUINO
+#MCU = atmega128rfa1
+MCU = atmega256rfr2
+PLATFORM = mega
+F_CPU = 16000000
+#CFLAGS += -DHAL_ATMEGA128RFA1
+CFLAGS += -DHAL_ATMEGA256RFR2
+CFLAGS += -DANTENNA_DIVERSITY
+CFLAGS += -DEXT_RF_FRONT_END_CTRL
+CFLAGS += -DPHY_ENABLE_RANDOM_NUMBER_GENERATOR
+CFLAGS += -DHAL_UART_CHANNEL=0
+CFLAGS += -DMEGA_RF
+
+## General Flags
+PROJECT = WSNDemo_AVR
+FORMAT = ihex
+CFLAGS += -DPHY_$(TAL_TYPE)
+CFLAGS += -DPLATFORM_$(BOARD_TYPE)
+
+# Target Flags
+TARGET_DIR = .
+TARGET = $(PROJECT)
+
+# Path variables
+## Path to main project directory
+ROOT_DIR = ../..
+
+CSRC	+= WSNDemo.c
+CSRC	+= otaInterface.c
+
+# List any extra directories to look for include files here.
+#     Each directory must be seperated by a space.
+EXTRAINCDIRS +=																	\
+	config
+
+include																			\
+	$(ROOT_DIR)/xdk-asf-3.x/$(PLATFORM)/platform.mk

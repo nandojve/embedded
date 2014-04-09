@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "WSNDemo_AVR", "WSNDemo_AVR.cproj", "{AA202157-FAE5-4B89-AD35-DE37D4D6A982}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "WSNDemo_ARM", "WSNDemo_ARM.cproj", "{4C0B3D63-19AC-45B0-BB53-3FDA0178E0BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|AVR = Debug|AVR
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|ARM = Release|ARM
+		Release|AVR = Release|AVR
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA202157-FAE5-4B89-AD35-DE37D4D6A982}.Debug|ARM.ActiveCfg = Debug|AVR
+		{AA202157-FAE5-4B89-AD35-DE37D4D6A982}.Debug|AVR.ActiveCfg = Debug|AVR
+		{AA202157-FAE5-4B89-AD35-DE37D4D6A982}.Debug|AVR.Build.0 = Debug|AVR
+		{AA202157-FAE5-4B89-AD35-DE37D4D6A982}.Debug|Mixed Platforms.ActiveCfg = Debug|AVR
+		{AA202157-FAE5-4B89-AD35-DE37D4D6A982}.Debug|Mixed Platforms.Build.0 = Debug|AVR
+		{AA202157-FAE5-4B89-AD35-DE37D4D6A982}.Release|ARM.ActiveCfg = Release|AVR
+		{AA202157-FAE5-4B89-AD35-DE37D4D6A982}.Release|AVR.ActiveCfg = Release|AVR
+		{AA202157-FAE5-4B89-AD35-DE37D4D6A982}.Release|AVR.Build.0 = Release|AVR
+		{AA202157-FAE5-4B89-AD35-DE37D4D6A982}.Release|Mixed Platforms.ActiveCfg = Release|AVR
+		{AA202157-FAE5-4B89-AD35-DE37D4D6A982}.Release|Mixed Platforms.Build.0 = Release|AVR
+		{4C0B3D63-19AC-45B0-BB53-3FDA0178E0BC}.Debug|ARM.ActiveCfg = Debug|ARM
+		{4C0B3D63-19AC-45B0-BB53-3FDA0178E0BC}.Debug|ARM.Build.0 = Debug|ARM
+		{4C0B3D63-19AC-45B0-BB53-3FDA0178E0BC}.Debug|AVR.ActiveCfg = Debug|ARM
+		{4C0B3D63-19AC-45B0-BB53-3FDA0178E0BC}.Debug|Mixed Platforms.ActiveCfg = Debug|ARM
+		{4C0B3D63-19AC-45B0-BB53-3FDA0178E0BC}.Debug|Mixed Platforms.Build.0 = Debug|ARM
+		{4C0B3D63-19AC-45B0-BB53-3FDA0178E0BC}.Release|ARM.ActiveCfg = Release|ARM
+		{4C0B3D63-19AC-45B0-BB53-3FDA0178E0BC}.Release|ARM.Build.0 = Release|ARM
+		{4C0B3D63-19AC-45B0-BB53-3FDA0178E0BC}.Release|AVR.ActiveCfg = Release|ARM
+		{4C0B3D63-19AC-45B0-BB53-3FDA0178E0BC}.Release|Mixed Platforms.ActiveCfg = Release|ARM
+		{4C0B3D63-19AC-45B0-BB53-3FDA0178E0BC}.Release|Mixed Platforms.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
