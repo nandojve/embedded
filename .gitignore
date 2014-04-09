@@ -191,6 +191,16 @@ FakesAssemblies/
 *.sym
 *.log
 
+# IAR Files
+*.xcl
+*.r90
+*.r82
+*.ewd
+*.ewp
+*.eww
+*.s82
+*.s90
+
 # Libraries
 *.lib
 
