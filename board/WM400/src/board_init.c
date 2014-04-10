@@ -117,6 +117,14 @@ void board_init(void)
 	ioport_set_pin_peripheral_mode(COM_PORT_TX_PIN, COM_PORT_TX_MUX);
 #endif
 
+#ifdef CONF_BOARD_RS485
+	ioport_set_pin_peripheral_mode(RS485_USART_RX_PIN, RS485_USART_RX_MUX);
+	ioport_set_pin_peripheral_mode(RS485_USART_TX_PIN, RS485_USART_TX_MUX);
+	ioport_set_pin_peripheral_mode(RS485_USART_RTS_PIN, RS485_USART_RTS_MUX);
+	ioport_set_pin_dir(RS485_USART_CTS_PIN, IOPORT_DIR_OUTPUT);
+	ioport_set_pin_level(RS485_USART_CTS_PIN, IOPORT_PIN_LEVEL_LOW);
+#endif
+
 #if defined (CONF_BOARD_TWIMS1)
 	ioport_set_pin_peripheral_mode(TWIMS1_TWI_SCL_PIN, TWIMS1_TWI_SCL_MUX);
 	ioport_set_pin_peripheral_mode(TWIMS1_TWI_SDA_PIN, TWIMS1_TWI_SDA_MUX);
