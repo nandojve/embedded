@@ -1,7 +1,6 @@
 ASF_DRIVERS_TWIM_DIR			= $(ASF_DRIVERS_DIR)/twim
 
-ifeq ($(strip $(ASF_TWIM_DRIVER)),1)
-
+ifneq (, $(filter $(ASF_TWIM_DRIVER),1))
 #list C source files
 CSRC	+=																		\
 	$(ASF_DRIVERS_TWIM_DIR)/twim.c

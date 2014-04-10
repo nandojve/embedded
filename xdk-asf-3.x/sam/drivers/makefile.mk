@@ -29,6 +29,7 @@ include																			\
 		$(ASF_DRIVERS_DIR)/gpio/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/efc/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/eic/makefile.mk										\
+		$(ASF_DRIVERS_DIR)/pdca/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/pio/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/pmc/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/spi/makefile.mk										\

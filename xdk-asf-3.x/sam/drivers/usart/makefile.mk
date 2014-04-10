@@ -1,6 +1,6 @@
 ASF_DRIVERS_USART_DIR				= $(ASF_DRIVERS_DIR)/usart
 
-#ifdef ASF_USART_DRIVER
+ifneq (, $(filter $(ASF_USART_DRIVER),1))
 #list C source files
 CSRC	+=																		\
 	$(ASF_DRIVERS_USART_DIR)/usart.c
@@ -21,4 +21,4 @@ ASRC +=
 #     Each directory must be seperated by a space.
 EXTRAINCDIRS +=																	\
 	$(ASF_DRIVERS_USART_DIR)
-#endif
+endif

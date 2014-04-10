@@ -1,6 +1,6 @@
 ASF_DRIVERS_EIC_DIR				= $(ASF_DRIVERS_DIR)/eic
 
-ifdef ASF_EIC_DRIVER
+ifneq (, $(filter $(ASF_EIC_DRIVER),1))
 ifneq (, $(filter $(ARMTYPE),SAM4L))
 
 #list C source files

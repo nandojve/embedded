@@ -1,11 +1,10 @@
-ASF_DRIVERS_BPM_DIR				= $(ASF_DRIVERS_DIR)/bpm
+ASF_DRIVERS_PDCA_DIR					= $(ASF_DRIVERS_DIR)/pdca
 
-ifneq (, $(filter $(ASF_BPM_DRIVER),1))
-ifneq (, $(filter $(ARMTYPE),SAM4L))
+ifneq (, $(filter $(ASF_PDCA_DRIVER),1))
 
 #list C source files
 CSRC	+=																		\
-	$(ASF_DRIVERS_BPM_DIR)/bpm.c
+	$(ASF_DRIVERS_PDCA_DIR)/pdca.c
 
 # List C++ source files here. (C dependencies are automatically generated.)
 CPPSRC += 
@@ -22,7 +21,6 @@ ASRC +=
 # List any extra directories to look for include files here.
 #     Each directory must be seperated by a space.
 EXTRAINCDIRS +=																	\
-	$(ASF_DRIVERS_BPM_DIR)
+	$(ASF_DRIVERS_PDCA_DIR)
 
-endif
 endif
