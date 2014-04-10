@@ -1,6 +1,6 @@
 ASF_DRIVERS_EFC_DIR				= $(ASF_DRIVERS_DIR)/efc
 
-ifdef ASF_EFC_DRIVER
+ifneq (, $(filter $(ASF_EFC_DRIVER),1))
 ifneq (, $(filter $(ARMTYPE),SAM4S))
 
 #list C source files

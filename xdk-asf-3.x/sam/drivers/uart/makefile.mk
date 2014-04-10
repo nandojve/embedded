@@ -1,6 +1,6 @@
 ASF_DRIVERS_UART_DIR				= $(ASF_DRIVERS_DIR)/uart
 
-ifdef ASF_USART_DRIVER
+ifneq (, $(filter $(ASF_UART_DRIVER),1))
 ifneq (, $(filter $(ARMTYPE),SAM4S))
 
 #list C source files

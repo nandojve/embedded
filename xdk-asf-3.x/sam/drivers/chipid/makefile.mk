@@ -1,6 +1,6 @@
 ASF_DRIVERS_CHIPID_DIR				= $(ASF_DRIVERS_DIR)/chipid
 
-ifdef ASF_CHIPID_DRIVER
+ifneq (, $(filter $(ASF_CHIPID_DRIVER),1))
 #list C source files
 CSRC	+=																		\
 	$(ASF_DRIVERS_CHIPID_DIR)/chipid.c

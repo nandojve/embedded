@@ -1,6 +1,6 @@
 ASF_DRIVERS_PIO_DIR				= $(ASF_DRIVERS_DIR)/pio
 
-ifdef ASF_PIO_DRIVER
+ifneq (, $(filter $(ASF_PIO_DRIVER),1))
 ifneq (, $(filter $(ARMTYPE),SAM4S))
 
 #list C source files

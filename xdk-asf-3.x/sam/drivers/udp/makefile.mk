@@ -1,6 +1,6 @@
 ASF_DRIVERS_UDP_DIR				= $(ASF_DRIVERS_DIR)/udp
 
-ifeq ($(strip $(ASF_USB_DRIVER)),1)
+ifneq (, $(filter $(ASF_USB_DRIVER),1))
 ifneq (, $(filter $(ARMTYPE),SAM4S))
 
 CDEFS += -DUDD_ENABLE

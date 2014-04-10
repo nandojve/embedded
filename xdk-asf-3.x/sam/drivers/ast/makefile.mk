@@ -1,7 +1,7 @@
 ASF_DRIVERS_AST_DIR				= $(ASF_DRIVERS_DIR)/ast
 
 ifneq (, $(filter $(ARMTYPE),SAM4L))
-ifeq ($(strip $(ASF_AST_DRIVER)),1)
+ifneq (, $(filter $(ASF_AST_DRIVER),1))
 
 #list C source files
 CSRC	+=																		\
