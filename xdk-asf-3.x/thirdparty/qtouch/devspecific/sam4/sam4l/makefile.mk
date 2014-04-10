@@ -19,10 +19,11 @@ ASRC +=
 EXTRAINCDIRS +=																	\
 	$(ASF_THIRDPARTY_QTOUCH_DEVSPECIFIC_SELECTED_DIR)							\
 	$(ASF_THIRDPARTY_QTOUCH_DEVSPECIFIC_SELECTED_DIR)/include					\
+	$(ASF_THIRDPARTY_QTOUCH_DEVSPECIFIC_SELECTED_DIR)/common
 
 # List any extra directories to look for libraries here.
 #     Each directory must be seperated by a space.
 #     Use forward slashes for directory separators.
 #     For a directory that has spaces, enclose it in quotes.
-EXTRALIBDIRS +=																	\	
+EXTRALIBDIRS +=																	\
 	$(ASF_THIRDPARTY_QTOUCH_DEVSPECIFIC_SELECTED_DIR)/lib/gcc
