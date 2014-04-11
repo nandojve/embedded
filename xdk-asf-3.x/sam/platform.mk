@@ -230,13 +230,18 @@ LDFLAGS += -Wl,--end-group
 LDFLAGS += $(patsubst %,-L%,$(EXTRALIBDIRS))
 LDFLAGS += -Wl,--gc-sections
 ARMTYPE_BASE = $(shell echo $(ARMTYPE) | tr [:upper:] [:lower:])
+ifneq (, $(filter $(USE_SAMBA),1))
+SAMBA_PREFIX = _samba
+else
+SAMBA_PREFIX =
+endif
 ifeq ($(strip $(ARMTYPE_BASE)),sam4s)
 MCU_BASE = $(shell echo $(MCU) | gawk '{print substr($$1,1,length($$1)-1)}')
-LDFLAGS += -Wl,--script=$(PLATFORM_DIR)/utils/linker_scripts/$(ARMTYPE_BASE)/$(MCU_BASE)/gcc/flash.ld
+LDFLAGS += -Wl,--script=$(PLATFORM_DIR)/utils/linker_scripts/$(ARMTYPE_BASE)/$(MCU_BASE)/gcc/flash$(SAMBA_PREFIX).ld
 endif
 ifeq ($(strip $(ARMTYPE_BASE)),sam4l)
 MCU_BASE = $(ARMTYPE_BASE)$(shell echo $(MCU) | gawk '{print substr($$1,length($$1)-1,1)}')
-LDFLAGS += -Wl,--script=$(PLATFORM_DIR)/utils/linker_scripts/$(ARMTYPE_BASE)/$(MCU_BASE)/gcc/flash.ld
+LDFLAGS += -Wl,--script=$(PLATFORM_DIR)/utils/linker_scripts/$(ARMTYPE_BASE)/$(MCU_BASE)/gcc/flash$(SAMBA_PREFIX).ld
 endif
 LDFLAGS += -Wl,-Map=$(TARGET).map
 LDFLAGS += -Wl,--cref
@@ -356,7 +361,7 @@ all: begin gccversion sizebefore build sizeafter end
 allib: begin gccversion sizebefore buildlib sizeafter end
 
 # build target to build a HEX file.
-build: elf hex srec eep lss sym
+build: elf hex srec bin eep lss sym
 
 # build target to build a library.
 buildlib: lib
@@ -364,6 +369,7 @@ buildlib: lib
 elf: $(TARGET).elf
 hex: $(TARGET).hex
 srec: $(TARGET).srec
+bin: $(TARGET).bin
 eep: $(TARGET).eep
 lss: $(TARGET).lss
 sym: $(TARGET).sym
@@ -433,6 +439,11 @@ extcoff: $(TARGET).elf
 	@echo
 	@echo $(MSG_FLASH) $@
 	$(OBJCOPY) -O srec --srec-len 128 $< $@
+
+%.bin: %.elf
+	@echo
+	@echo $(MSG_FLASH) $@
+	$(OBJCOPY) -O binary $< $@
 
 %.eep: %.elf
 	@echo
@@ -515,6 +526,7 @@ clean_list :
 	@echo
 	@echo $(MSG_CLEANING)
 	$(REMOVE) $(TARGET).hex
+	$(REMOVE) $(TARGET).bin
 	$(REMOVE) $(TARGET).srec
 	$(REMOVE) $(TARGET).eep
 	$(REMOVE) $(TARGET).cof
