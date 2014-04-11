@@ -188,6 +188,7 @@ FakesAssemblies/
 *.lst
 *.map
 *.srec
+*.bin
 *.sym
 *.log
 
