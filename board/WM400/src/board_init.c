@@ -125,6 +125,11 @@ void board_init(void)
 	ioport_set_pin_level(RS485_USART_CTS_PIN, IOPORT_PIN_LEVEL_LOW);
 #endif
 
+#if defined (CONF_BOARD_WM_PORT)
+ioport_set_pin_peripheral_mode(WM_PORT_RX_PIN, WM_PORT_RX_MUX);
+ioport_set_pin_peripheral_mode(WM_PORT_TX_PIN, WM_PORT_TX_MUX);
+#endif
+
 #if defined (CONF_BOARD_TWIMS1)
 	ioport_set_pin_peripheral_mode(TWIMS1_TWI_SCL_PIN, TWIMS1_TWI_SCL_MUX);
 	ioport_set_pin_peripheral_mode(TWIMS1_TWI_SDA_PIN, TWIMS1_TWI_SDA_MUX);

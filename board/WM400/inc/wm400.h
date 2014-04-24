@@ -194,6 +194,18 @@
 #define RS485_USART_CTS_MUX				MUX_PB11A_USART0_CTS
 // @}
 
+//! \name USART connections to GPIO for WM design USART
+// @{
+#define WM_PORT_USART					USART1
+#define WM_PORT_USART_ID				ID_USART1
+#define WM_PORT_RX_PIN					PIN_PA15A_USART1_RXD
+#define WM_PORT_RX_GPIO					GPIO_PA15A_USART1_RXD
+#define WM_PORT_RX_MUX					MUX_PA15A_USART1_RXD
+#define WM_PORT_TX_PIN					PIN_PA16A_USART1_TXD
+#define WM_PORT_TX_GPIO					GPIO_PA16A_USART1_TXD
+#define WM_PORT_TX_MUX					MUX_PA16A_USART1_TXD
+// @}
+
 /**
  * \name LED #0 definitions
  *
