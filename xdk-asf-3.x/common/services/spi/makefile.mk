@@ -1,3 +1,5 @@
+ifneq (, $(filter $(ASF_SPI_DRIVER),1))
+
 ASF_COMMON_SERVICES_SPI_DIR				= $(ASF_COMMON_SERVICES_DIR)/spi
 
 #list C source files
@@ -35,4 +37,6 @@ EXTRAINCDIRS += 																\
 	$(ASF_COMMON_SERVICES_SPI_DIR)												\
 	$(ASF_COMMON_SERVICES_SPI_DIR)/$(PLATFORM)_spi								\
 	$(ASF_COMMON_SERVICES_SPI_DIR)/$(PLATFORM)_usart_spi
+endif
+
 endif
