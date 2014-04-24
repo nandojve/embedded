@@ -46,7 +46,7 @@
 
 #define USE_USART
 /** USART Interface */
-#define CONF_UART              COM_PORT_USART
+#define CONF_UART              WM_PORT_USART
 /** Baudrate setting */
 #define CONF_UART_BAUDRATE     (115200UL)
 /** Character length setting */
