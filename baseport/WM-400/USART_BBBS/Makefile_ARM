@@ -1,0 +1,72 @@
+############################################################################################
+# Makefile for the project MAC_Example_3_Beacon Release Using single source files
+############################################################################################
+
+USE_WIRELESS = 0
+#STACK_TYPE = LwMesh
+STACK_TYPE = ATMAC-802.15.4
+HIGHEST_STACK_LAYER=TAL
+STACK_VERSION = Current
+
+USE_ASF = 1
+ASF_AST_DRIVER = 0
+ASF_BPM_DRIVER = 1
+ASF_USB_DRIVER = 0
+USB_CLASS_CDC_DEVICE = 0
+ASF_UDP_DRIVER = 0
+ASF_TWI_DRIVER = 0
+ASF_TWIM_DRIVER = 0
+ASF_SPI_DRIVER = 0
+ASF_USART_DRIVER = 1
+ASF_PDCA_DRIVER = 0
+ASF_EFC_DRIVER = 0
+ASF_EIC_DRIVER = 1
+ASF_TC_DRIVER = 0
+ASF_WDT_DRIVER = 1
+ASF_FLASH_EFC_SERVICE = 1
+USE_SIO_MANAGER = 1
+USE_QTOUCH = 0
+
+# Build specific properties for WM-400 and RF233
+TAL_TYPE = AT86RF233
+BOARD_TYPE = WM400
+ARMTYPE = SAM4L
+MCU = sam4lc4b
+PLATFORM = sam
+F_CPU = 48000000
+CFLAGS += -DARMTYPE=$(ARMTYPE)
+CFLAGS += -DSIO_HUB
+#CFLAGS += -DSIO2HOST_CHANNEL=SIO_USB
+#SIO2HOST_CHANNEL = SIO_USB
+CFLAGS += -DSIO2HOST_CHANNEL=SIO_USART
+SIO2HOST_CHANNEL = SIO_USART
+
+## General Flags
+PROJECT = USART_BBBS_ARM
+FORMAT = ihex
+SINGLESTEP	= -DSINGLESTEPSUPPORT
+CROUTINE = TRUE
+CFLAGS += -DMAC802_15_4
+CFLAGS += -DREDUCED_PARAM_CHECK
+CFLAGS += -DBEACON_SUPPORT
+CFLAGS += -DMAC_USER_BUILD_FEATURE_CONFIG
+CFLAGS += -DTRX_REG_RAW_VALUE
+CFLAGS += -DADC_DRIVER
+
+# Target Flags
+TARGET_DIR = .
+TARGET = $(PROJECT)
+
+# Path variables
+## Path to main project directory
+ROOT_DIR = ../../..
+
+CSRC	+= USART_BBBS.c
+
+# List any extra directories to look for include files here.
+#     Each directory must be seperated by a space.
+EXTRAINCDIRS +=																	\
+	config
+
+include																			\
+	$(ROOT_DIR)/xdk-asf-3.x/$(PLATFORM)/platform.mk
