@@ -5,7 +5,7 @@
     <ProjectVersion>6.1</ProjectVersion>
     <ToolchainName>com.Atmel.AVRGCC8.C</ToolchainName>
     <ProjectGuid>{aa202157-fae5-4b89-ad35-de37d4d6a982}</ProjectGuid>
-    <avrdevice>ATmega256RFR2</avrdevice>
+    <avrdevice>ATmega128RFA1</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
     <Language>C</Language>
