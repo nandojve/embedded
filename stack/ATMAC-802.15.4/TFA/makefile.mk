@@ -2,7 +2,7 @@
 ###############################################################################
 #list C source files
 CSRC +=																			\
-	$(PATH_TFA)/$(_TAL_TYPE)/Src/tfa.c
+	$(PATH_TFA)/$(TAL_TYPE)/Src/tfa.c
 
 # List Assembler source files here.
 # Make them always end in a capital .S.  Files ending in a lowercase .s

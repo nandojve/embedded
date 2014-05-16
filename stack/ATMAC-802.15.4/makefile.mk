@@ -10,10 +10,9 @@ PATH_TAL = $(RADIO_DIR)/TAL
 PATH_TFA = $(RADIO_DIR)/TFA
 PATH_MAC = $(RADIO_DIR)/MAC
 
-_PAL_TYPE = $(strip $(MCU))
-_PAL_GENERIC_TYPE = $(strip $(PLATFORM_OLD))
-PAL_GENERIC_TYPE = $(_PAL_GENERIC_TYPE)
-_HIGHEST_STACK_LAYER = MAC
+PAL_TYPE = $(strip $(MCU))
+PAL_GENERIC_TYPE = $(strip $(PLATFORM_OLD))
+HIGHEST_STACK_LAYER = MAC
 
 # List any extra directories to look for include files here.
 #     Each directory must be seperated by a space.
@@ -25,6 +24,6 @@ EXTRAINCDIRS +=																	\
 include																			\
 	$(PATH_PAL)/$(PAL_GENERIC_TYPE)/makefile.mk									\
 	$(PATH_RESOURCE)/makefile.mk												\
-	$(PATH_TAL)/makefile.mk														\
+	$(PATH_TAL_)/makefile.mk														\
 	$(PATH_TFA)/makefile.mk														\
 	$(PATH_MAC)/makefile.mk
