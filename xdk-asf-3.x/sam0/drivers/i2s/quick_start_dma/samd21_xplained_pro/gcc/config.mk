@@ -56,6 +56,7 @@ CSRCS = \
        sam0/boards/samd21_xplained_pro/board_init.c       \
        sam0/drivers/dma/dma.c                             \
        sam0/drivers/events/events.c                       \
+       sam0/drivers/events/events_hooks.c                 \
        sam0/drivers/i2s/i2s.c                             \
        sam0/drivers/i2s/quick_start_dma/qs_i2s_dma.c      \
        sam0/drivers/port/port.c                           \
@@ -149,6 +150,7 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM0=true                               \
        -D BOARD=SAMD21_XPLAINED_PRO                       \
+       -D EVENTS_INTERRUPT_HOOKS_MODE=true                \
        -D I2S_CALLBACK_MODE=false                         \
        -D __SAMD21J18A__
 

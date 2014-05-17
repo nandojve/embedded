@@ -197,7 +197,7 @@ void main_cdc_disable(uint8_t port)
 	port = port;
 }
 
-void main_cdc_dtr_cb(bool set)
+void dtr_cb(bool set)
 {
 	if (set) {
 		stdio_usb_enable();

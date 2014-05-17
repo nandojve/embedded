@@ -335,11 +335,6 @@ tal_trx_status_t set_trx_state(trx_cmd_t trx_cmd)
 		/* Enable antenna diversity. */
 		pal_trx_bit_write(SR_ANT_EXT_SW_EN, ANT_EXT_SW_ENABLE);
 #endif
-#ifdef EXT_RF_FRONT_END_CTRL
-		/* Enable RF front end control */
-		pal_trx_bit_write(SR_PA_EXT_EN, 1);
-#endif
-
 
 		if ((trx_cmd == CMD_TRX_OFF) ||
 				(trx_cmd == CMD_FORCE_TRX_OFF)) {
@@ -355,11 +350,6 @@ tal_trx_status_t set_trx_state(trx_cmd_t trx_cmd)
 		/* Disable antenna diversity: sets pulls */
 		pal_trx_bit_write(SR_ANT_EXT_SW_EN, ANT_EXT_SW_DISABLE);
 #endif
-#ifdef EXT_RF_FRONT_END_CTRL
-		/* Disable RF front end control */
-		pal_trx_bit_write(SR_PA_EXT_EN, 0);
-#endif
-
 		{
 			uint16_t rand_value;
 

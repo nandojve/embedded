@@ -71,10 +71,7 @@ void stdio_usb_getchar (void volatile * unused, char *data)
 		return;
 	}
 
-	if(udi_cdc_is_rx_ready())
-		*data = (char)udi_cdc_getc();
-	else
-		*data = 0;
+	*data = (char)udi_cdc_getc();
 }
 
 bool stdio_usb_enable(void)

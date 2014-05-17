@@ -69,35 +69,6 @@
 
 /* === MACROS ============================================================== */
 
-#ifdef CUSTOM_PWR_TABLE
-#ifdef EXT_PA_SE2431L
-/*
- * Mapping table for FEM TX Pout (dBm).
- *     based on board characterization
- */
-FLASH_DECLARE(int8_t tx_pwr_table[16]) =
-{
-    /*PA*/ /* RF233 */  /* TX_PWR */ /* EVDD 3V0 */
-    21,  /*  4.0  */  /*  0x00  */
-    21,  /*  3.7  */  /*  0x01  */
-    21,  /*  3.4  */  /*  0x02  */
-    21,  /*  3.0  */  /*  0x03  */
-    21,  /*  2.5  */  /*  0x04  */
-    21,  /*  2.0  */  /*  0x05  */
-    21,  /*  1.0  */  /*  0x06  */
-    21,  /*  0   */  /*  0x07  */
-    20,  /*  -1   */  /*  0x08  */
-    20,  /*  -2   */  /*  0x09  */
-    19,  /*  -3   */  /*  0x0A  */
-    17,  /*  -4   */  /*  0x0B  */
-    16,  /*  -6   */  /*  0x0C  */
-    13,  /*  -8   */  /*  0x0D  */
-    9,  /*  -12  */  /*  0x0E  */
-    3,  /*  -17  */  /*  0x0F  */
-};
-#endif
-#else
-
 /*
  * Translation table converting register values to power levels (dBm).
  */
@@ -119,7 +90,6 @@ FLASH_DECLARE(int8_t tx_pwr_table[16]) = {
 	-12, /* -11.5 */
 	-17 /* -16.5 */
 };
-#endif
 
 /* === GLOBALS ============================================================= */
 

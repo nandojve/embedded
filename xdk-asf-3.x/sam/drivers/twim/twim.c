@@ -5,7 +5,7 @@
  *
  * This file defines a useful set of functions for the TWIM on SAM4L devices.
  *
- * Copyright (c) 2012-2013 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2012-2014 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -59,30 +59,28 @@
 #error There is no TWIM module on this device.
 #endif
 
-#define SET_START_VAL(unused, val)		val,
-
 /**
  * \internal
  * \brief TWIM callback function pointer array
  */
-twim_callback_t twim_callback_pointer[NUM_TWIM_CH] = { MREPEAT(NUM_TWIM_CH, SET_START_VAL, NULL) };
+twim_callback_t twim_callback_pointer[NUM_TWIM_CH];
 
 /** \internal Pointer to the applicative TWI transmit buffer. */
-static const volatile uint8_t  *twim_tx_data[NUM_TWIM_CH] = { MREPEAT(NUM_TWIM_CH, SET_START_VAL, NULL) };
+static const volatile uint8_t  *twim_tx_data[NUM_TWIM_CH] = {NULL};
 /** \internal Pointer to the applicative TWI receive buffer. */
-static volatile uint8_t *twim_rx_data[NUM_TWIM_CH] = { MREPEAT(NUM_TWIM_CH, SET_START_VAL, NULL) };
+static volatile uint8_t *twim_rx_data[NUM_TWIM_CH] = {NULL};
 /** \internal Status of the bus transfer */
-static volatile twim_transfer_status_t transfer_status[NUM_TWIM_CH] = { MREPEAT(NUM_TWIM_CH, SET_START_VAL, TWI_SUCCESS) };
+static volatile twim_transfer_status_t transfer_status[NUM_TWIM_CH];
 /** \internal Remaining number of bytes to transmit. */
-static volatile uint32_t twim_tx_nb_bytes[NUM_TWIM_CH] = { MREPEAT(NUM_TWIM_CH, SET_START_VAL, 0) };
+static volatile uint32_t twim_tx_nb_bytes[NUM_TWIM_CH] = {0};
 /** \internal Remaining number of bytes to receive. */
-static volatile uint32_t twim_rx_nb_bytes[NUM_TWIM_CH] = { MREPEAT(NUM_TWIM_CH, SET_START_VAL, 0) };
+static volatile uint32_t twim_rx_nb_bytes[NUM_TWIM_CH] = {0};
 /** \internal IT mask. */
-static volatile uint32_t twim_it_mask[NUM_TWIM_CH] = { MREPEAT(NUM_TWIM_CH, SET_START_VAL, 0) };
+static volatile uint32_t twim_it_mask[NUM_TWIM_CH];
 /** \internal Pointer to twim package */
-static volatile const struct twim_package *twim_package[NUM_TWIM_CH] = { MREPEAT(NUM_TWIM_CH, SET_START_VAL, NULL) };
+static volatile const struct twim_package *twim_package[NUM_TWIM_CH];
 /** \internal If Internal Address access is used */
-static volatile bool twim_next[NUM_TWIM_CH] = { MREPEAT(NUM_TWIM_CH, SET_START_VAL, false) };
+static volatile bool twim_next[NUM_TWIM_CH] = {false};
 
 
 /**
@@ -454,10 +452,10 @@ status_code_t twi_master_read(Twim *twim, struct twim_package *package)
 					| TWIM_NCMDR_STOP
 					| TWIM_NCMDR_TENBIT
 					| TWIM_NCMDR_REPSAME;
-			/* Update IMR through IER */
-			twim->TWIM_IER = twim_it_mask[twim_ch];
 			/* Enable master transfer */
 			twim->TWIM_CR = TWIM_CR_MEN;
+			/* Update IMR through IER */
+			twim->TWIM_IER = twim_it_mask[twim_ch];
 			/* Get data */
 #if TWIM_LOW_POWER_ENABLE
 			sleepmgr_lock_mode(SLEEPMGR_SLEEP_1);
@@ -550,10 +548,10 @@ status_code_t twi_master_read(Twim *twim, struct twim_package *package)
 		}
 	}
 
-	/* Update IMR through IER */
-	twim->TWIM_IER = twim_it_mask[twim_ch];
 	/* Enable master transfer */
 	twim->TWIM_CR = TWIM_CR_MEN;
+	/* Update IMR through IER */
+	twim->TWIM_IER = twim_it_mask[twim_ch];
 	/* Get data */
 #if TWIM_LOW_POWER_ENABLE
 	sleepmgr_lock_mode(SLEEPMGR_SLEEP_1);
@@ -631,10 +629,10 @@ status_code_t twi_master_write(Twim *twim, struct twim_package *package)
 			| TWIM_CMDR_STOP
 			| (package->ten_bit ? TWIM_CMDR_TENBIT : 0);
 
-	/* Update IMR through IER */
-	twim->TWIM_IER = twim_it_mask[twim_ch];
 	/* Enable master transfer */
 	twim->TWIM_CR = TWIM_CR_MEN;
+	/* Update IMR through IER */
+	twim->TWIM_IER = twim_it_mask[twim_ch];
 	/* Send data */
 #if TWIM_LOW_POWER_ENABLE
 	sleepmgr_lock_mode(SLEEPMGR_SLEEP_1);

@@ -56,8 +56,11 @@
 #include <compiler.h>
 #include <status_codes.h>
 
-// From module: EVSYS - Event System
+// From module: EVSYS - Event System Common
 #include <events.h>
+
+// From module: EVSYS - Event System with interupt hooks support
+#include <events_hooks.h>
 
 // From module: Generic board support
 #include <board.h>

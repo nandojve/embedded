@@ -54,7 +54,7 @@ TARGET_SRAM = delay_example_sram.elf
 CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        common2/services/delay/example/delay_example.c     \
-       common2/services/delay/sam0/cycle_counter.c        \
+       common2/services/delay/sam0/systick_counter.c      \
        sam0/boards/samd21_xplained_pro/board_init.c       \
        sam0/drivers/port/port.c                           \
        sam0/drivers/system/clock/clock_samd21/clock.c     \
@@ -145,6 +145,7 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM0=true                               \
        -D BOARD=SAMD21_XPLAINED_PRO                       \
+       -D SYSTICK_MODE                                    \
        -D __SAMD21J18A__
 
 # Extra flags to use when linking

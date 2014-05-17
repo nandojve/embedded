@@ -60,12 +60,8 @@
 /* === Prototypes ========================================================== */
 
 /* === Implementation ====================================================== */
-#if (defined __GNUC__)
-void __attribute__((weak))
-#else
-void
-#endif
-tal_rx_frame_cb(frame_info_t *rx_frame)
+
+void tal_rx_frame_cb(frame_info_t *rx_frame)
 {
 	/* Keep compiler happy. */
 	rx_frame = rx_frame;

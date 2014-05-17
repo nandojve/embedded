@@ -54,7 +54,7 @@ TARGET_SRAM = wdt_unit_test_sram.elf
 CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        common/utils/unit_test/suite.c                     \
-       common2/services/delay/sam0/cycle_counter.c        \
+       common2/services/delay/sam0/systick_counter.c      \
        sam0/boards/samd20_xplained_pro/board_init.c       \
        sam0/drivers/port/port.c                           \
        sam0/drivers/sercom/sercom.c                       \
@@ -160,6 +160,7 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM0=true                               \
        -D BOARD=SAMD20_XPLAINED_PRO                       \
+       -D SYSTICK_MODE                                    \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D USART_CALLBACK_MODE=true                        \
        -D WDT_CALLBACK_MODE=true                          \

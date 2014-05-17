@@ -60,12 +60,8 @@
 /* === Prototypes ========================================================== */
 
 /* === Implementation ====================================================== */
-#if (defined __GNUC__)
-void __attribute__((weak))
-#else
-void
-#endif
-tal_ed_end_cb(uint8_t energy_level)
+
+void tal_ed_end_cb(uint8_t energy_level)
 {
 	energy_level = energy_level; /* Keep compiler happy. */
 }

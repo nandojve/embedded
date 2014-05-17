@@ -53,7 +53,7 @@ TARGET_SRAM = tal_performance_analyzer_sram.elf
 # List of C source files.
 CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
-       common2/services/delay/sam0/cycle_counter.c        \
+       common2/services/delay/sam0/systick_counter.c      \
        sam0/boards/samd20_xplained_pro/board_init.c       \
        sam0/drivers/extint/extint.c                       \
        sam0/drivers/extint/extint_callback.c              \
@@ -222,6 +222,7 @@ CPPFLAGS = \
        -D HIGH_DATA_RATE_SUPPORT                          \
        -D PAL_USE_SPI_TRX=1                               \
        -D SPI_CALLBACK_MODE=false                         \
+       -D SYSTICK_MODE                                    \
        -D TAL_TYPE=AT86RF233                              \
        -D TC_ASYNC=true                                   \
        -D TRX_REG_RAW_VALUE                               \

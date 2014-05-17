@@ -59,8 +59,9 @@ CSRCS = \
        common/utils/stdio/write.c                         \
        sam/boards/sam4e_ek/init.c                         \
        sam/components/ethernet_phy/ksz8051mnl/ethernet_phy.c \
-       sam/drivers/gmac/gmac.c                            \
        sam/drivers/gmac/gmac_example/gmac_example.c       \
+       sam/drivers/gmac/gmac_phy.c                        \
+       sam/drivers/gmac/gmac_raw.c                        \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/pmc/sleep.c                            \
        sam/drivers/uart/uart.c                            \

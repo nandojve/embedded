@@ -221,3 +221,6 @@ FakesAssemblies/
 
 # Directories
 .dep/
+doxygen/
+iar/
+*.doxygen

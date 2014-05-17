@@ -54,7 +54,7 @@ TARGET_SRAM = example_spinctrl_sram.elf
 CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        common2/components/display/ssd1306/ssd1306.c       \
-       common2/services/delay/sam0/cycle_counter.c        \
+       common2/services/delay/sam0/systick_counter.c      \
        common2/services/gfx_mono/example_spinctrl/example_spinctrl.c \
        common2/services/gfx_mono/gfx_mono_framebuffer.c   \
        common2/services/gfx_mono/gfx_mono_generic.c       \
@@ -163,6 +163,7 @@ CPPFLAGS = \
        -D BOARD=SAMD20_XPLAINED_PRO                       \
        -D GFX_MONO_UG_2832HSWEG04=1                       \
        -D SPI_CALLBACK_MODE=true                          \
+       -D SYSTICK_MODE                                    \
        -D __SAMD20J18__
 
 # Extra flags to use when linking

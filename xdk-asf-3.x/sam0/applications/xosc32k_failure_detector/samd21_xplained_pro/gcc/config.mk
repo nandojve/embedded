@@ -56,6 +56,7 @@ CSRCS = \
        sam0/applications/xosc32k_failure_detector/xosc32k_failure_detector.c \
        sam0/boards/samd21_xplained_pro/board_init.c       \
        sam0/drivers/events/events.c                       \
+       sam0/drivers/events/events_hooks.c                 \
        sam0/drivers/port/port.c                           \
        sam0/drivers/system/clock/clock_samd21/clock.c     \
        sam0/drivers/system/clock/clock_samd21/gclk.c      \
@@ -148,6 +149,7 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM0=true                               \
        -D BOARD=SAMD21_XPLAINED_PRO                       \
+       -D EVENTS_INTERRUPT_HOOKS_MODE=true                \
        -D TC_ASYNC=true                                   \
        -D __SAMD21J18A__
 

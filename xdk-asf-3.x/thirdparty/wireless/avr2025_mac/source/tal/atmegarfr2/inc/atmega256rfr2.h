@@ -633,12 +633,6 @@
  **/
 #define SR_XTAL_MODE                    0x152, 0xF0, 4
 
-/** Constant PA_EXT_disable for sub-register SR_PA_EXT_EN */
-#define PA_EXT_DISABLE   (0)
-
-/** Constant PA_EXT_enable for sub-register SR_PA_EXT_EN */
-#define PA_EXT_ENABLE   (1)
-
 /** Offset for register CC_CTRL_0 */
 #define RG_CC_CTRL_0                    (0x153)
 

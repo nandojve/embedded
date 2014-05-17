@@ -53,10 +53,11 @@ TARGET_SRAM = osc8_calib_sram.elf
 # List of C source files.
 CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
-       common2/services/delay/sam0/cycle_counter.c        \
+       common2/services/delay/sam0/systick_counter.c      \
        sam0/applications/osc8_calib/osc8_calib.c          \
        sam0/boards/samd21_xplained_pro/board_init.c       \
        sam0/drivers/events/events.c                       \
+       sam0/drivers/events/events_hooks.c                 \
        sam0/drivers/port/port.c                           \
        sam0/drivers/sercom/sercom.c                       \
        sam0/drivers/sercom/sercom_interrupt.c             \
@@ -161,6 +162,8 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM0=true                               \
        -D BOARD=SAMD21_XPLAINED_PRO                       \
+       -D EVENTS_INTERRUPT_HOOKS_MODE=true                \
+       -D SYSTICK_MODE                                    \
        -D TC_ASYNC=true                                   \
        -D USART_CALLBACK_MODE=true                        \
        -D __SAMD21J18A__

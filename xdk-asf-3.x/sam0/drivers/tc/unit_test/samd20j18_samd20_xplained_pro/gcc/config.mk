@@ -56,6 +56,7 @@ CSRCS = \
        common/utils/unit_test/suite.c                     \
        sam0/boards/samd20_xplained_pro/board_init.c       \
        sam0/drivers/events/events.c                       \
+       sam0/drivers/events/events_hooks.c                 \
        sam0/drivers/extint/extint.c                       \
        sam0/drivers/extint/extint_callback.c              \
        sam0/drivers/port/port.c                           \
@@ -162,6 +163,7 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM0=true                               \
        -D BOARD=SAMD20_XPLAINED_PRO                       \
+       -D EVENTS_INTERRUPT_HOOKS_MODE=true                \
        -D EXTINT_CALLBACK_MODE=true                       \
        -D TC_ASYNC=true                                   \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \

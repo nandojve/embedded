@@ -166,7 +166,6 @@ CPPFLAGS = \
        -D BOARD=SAM4S_XPLAINED                            \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_                                 \
-       -D __FREERTOS__                                    \
        -D __SAM4S16C__                                    \
        -D printf=iprintf                                  \
        -D scanf=iscanf

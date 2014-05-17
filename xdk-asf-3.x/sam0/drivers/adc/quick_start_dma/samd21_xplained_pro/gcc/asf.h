@@ -63,7 +63,7 @@
 #include <dac.h>
 #include <dac_callback.h>
 
-// From module: DMA - Direct Memory Access
+// From module: DMAC - Direct Memory Access Controller
 #include <dma.h>
 #include <dma_crc.h>
 

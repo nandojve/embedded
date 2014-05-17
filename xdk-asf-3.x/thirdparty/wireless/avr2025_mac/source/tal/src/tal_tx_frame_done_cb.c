@@ -60,12 +60,8 @@
 /* === Prototypes ========================================================== */
 
 /* === Implementation ====================================================== */
-#if (defined __GNUC__)
-void __attribute__((weak))
-#else
-void
-#endif
-tal_tx_frame_done_cb(retval_t status, frame_info_t *frame)
+
+void tal_tx_frame_done_cb(retval_t status, frame_info_t *frame)
 {
 	/* Keep compiler happy. */
 	status = status;

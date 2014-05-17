@@ -56,7 +56,7 @@
 #include <compiler.h>
 #include <status_codes.h>
 
-// From module: DMA - Direct Memory Access
+// From module: DMAC - Direct Memory Access Controller
 #include <dma.h>
 #include <dma_crc.h>
 

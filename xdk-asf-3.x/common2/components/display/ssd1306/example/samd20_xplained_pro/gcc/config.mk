@@ -55,7 +55,7 @@ CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        common2/components/display/ssd1306/example/ssd1306_example.c \
        common2/components/display/ssd1306/ssd1306.c       \
-       common2/services/delay/sam0/cycle_counter.c        \
+       common2/services/delay/sam0/systick_counter.c      \
        sam0/boards/samd20_xplained_pro/board_init.c       \
        sam0/drivers/port/port.c                           \
        sam0/drivers/sercom/sercom.c                       \
@@ -154,6 +154,7 @@ CPPFLAGS = \
        -D ARM_MATH_CM0=true                               \
        -D BOARD=SAMD20_XPLAINED_PRO                       \
        -D SPI_CALLBACK_MODE=true                          \
+       -D SYSTICK_MODE                                    \
        -D __SAMD20J18__
 
 # Extra flags to use when linking

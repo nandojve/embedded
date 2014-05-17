@@ -53,7 +53,7 @@ TARGET_SRAM = coord_ncp_sram.elf
 # List of C source files.
 CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
-       common2/services/delay/sam0/cycle_counter.c        \
+       common2/services/delay/sam0/systick_counter.c      \
        sam0/boards/samd20_xplained_pro/board_init.c       \
        sam0/drivers/extint/extint.c                       \
        sam0/drivers/extint/extint_callback.c              \
@@ -240,6 +240,7 @@ CPPFLAGS = \
        -D SIO_HUB                                         \
        -D SPI_CALLBACK_MODE=false                         \
        -D STB_ON_SAL                                      \
+       -D SYSTICK_MODE                                    \
        -D TAL_TYPE=AT86RF233                              \
        -D TC_ASYNC=true                                   \
        -D USART_CALLBACK_MODE=false                       \
