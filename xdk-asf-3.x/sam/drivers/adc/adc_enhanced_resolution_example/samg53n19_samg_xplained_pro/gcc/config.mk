@@ -61,8 +61,10 @@ CSRCS = \
        sam/boards/samg53_xplained_pro/board_init.c        \
        sam/drivers/adc/adc2.c                             \
        sam/drivers/adc/adc_enhanced_resolution_example/adc_enhanced_resolution_example.c \
+       sam/drivers/efc/efc.c                              \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/pmc/sleep.c                            \
+       sam/drivers/supc/supc.c                            \
        sam/drivers/tc/tc.c                                \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
@@ -89,7 +91,9 @@ INC_PATH = \
        sam/drivers/adc                                    \
        sam/drivers/adc/adc_enhanced_resolution_example    \
        sam/drivers/adc/adc_enhanced_resolution_example/samg53n19_samg_xplained_pro \
+       sam/drivers/efc                                    \
        sam/drivers/pmc                                    \
+       sam/drivers/supc                                   \
        sam/drivers/tc                                     \
        sam/drivers/uart                                   \
        sam/drivers/usart                                  \

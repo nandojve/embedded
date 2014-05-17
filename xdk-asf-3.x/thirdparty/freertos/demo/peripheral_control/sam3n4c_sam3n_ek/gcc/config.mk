@@ -55,6 +55,7 @@ CSRCS = \
        common/services/clock/sam3n/sysclk.c               \
        common/services/freertos/sam/freertos_peripheral_control.c \
        common/services/freertos/sam/freertos_spi_master.c \
+       common/services/freertos/sam/freertos_uart_serial.c \
        common/services/freertos/sam/freertos_usart_serial.c \
        common/services/serial/usart_serial.c              \
        common/services/sleepmgr/sam/sleepmgr.c            \
@@ -78,6 +79,7 @@ CSRCS = \
        sam/utils/syscalls/gcc/syscalls.c                  \
        thirdparty/freertos/demo/peripheral_control/demo-tasks/CLI-commands.c \
        thirdparty/freertos/demo/peripheral_control/demo-tasks/SPI-FLASH-task.c \
+       thirdparty/freertos/demo/peripheral_control/demo-tasks/UART-CLI-task.c \
        thirdparty/freertos/demo/peripheral_control/demo-tasks/USART-CLI-task.c \
        thirdparty/freertos/demo/peripheral_control/demo-tasks/USART-echo-tasks.c \
        thirdparty/freertos/demo/peripheral_control/main.c \

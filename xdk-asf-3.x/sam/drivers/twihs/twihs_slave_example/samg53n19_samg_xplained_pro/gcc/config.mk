@@ -58,8 +58,10 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/samg53_xplained_pro/board_init.c        \
+       sam/drivers/efc/efc.c                              \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/pmc/sleep.c                            \
+       sam/drivers/supc/supc.c                            \
        sam/drivers/twihs/twihs.c                          \
        sam/drivers/twihs/twihs_slave_example/twihs_slave_example.c \
        sam/drivers/uart/uart.c                            \
@@ -83,7 +85,9 @@ INC_PATH = \
        common/utils/stdio/stdio_serial                    \
        sam/boards                                         \
        sam/boards/samg53_xplained_pro                     \
+       sam/drivers/efc                                    \
        sam/drivers/pmc                                    \
+       sam/drivers/supc                                   \
        sam/drivers/twihs                                  \
        sam/drivers/twihs/twihs_slave_example/samg53n19_samg_xplained_pro \
        sam/drivers/uart                                   \

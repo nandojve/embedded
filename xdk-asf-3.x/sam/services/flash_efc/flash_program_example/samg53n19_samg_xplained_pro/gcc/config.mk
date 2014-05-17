@@ -61,6 +61,7 @@ CSRCS = \
        sam/drivers/efc/efc.c                              \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/pmc/sleep.c                            \
+       sam/drivers/supc/supc.c                            \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
        sam/services/flash_efc/flash_efc.c                 \
@@ -86,6 +87,7 @@ INC_PATH = \
        sam/boards/samg53_xplained_pro                     \
        sam/drivers/efc                                    \
        sam/drivers/pmc                                    \
+       sam/drivers/supc                                   \
        sam/drivers/uart                                   \
        sam/drivers/usart                                  \
        sam/services/flash_efc                             \

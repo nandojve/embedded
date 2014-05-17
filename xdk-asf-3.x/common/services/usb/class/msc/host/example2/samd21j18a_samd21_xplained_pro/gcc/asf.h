@@ -84,7 +84,7 @@
 // From module: RTC - Real Time Counter in Calendar Mode (Polled APIs)
 #include <rtc_calendar.h>
 
-// From module: SAMD21 USB Dual role interface
+// From module: SAM D21/R21 USB Dual role interface
 #include <usb_dual.h>
 
 // From module: SYSTEM - Clock Management for SAMD21
@@ -111,7 +111,7 @@
 #include <usb.h>
 
 // From module: USB Host MSC (Single Class support)
-#include <uhi_msc_mem.h>
+#include <uhi_msc.h>
 
 // From module: USB Host stack core
 #include <uhc.h>

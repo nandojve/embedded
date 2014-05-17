@@ -55,8 +55,8 @@ CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam0/boards/samd21_xplained_pro/board_init.c       \
        sam0/drivers/port/port.c                           \
-       sam0/drivers/system/clock/clock_samd21/clock.c     \
-       sam0/drivers/system/clock/clock_samd21/gclk.c      \
+       sam0/drivers/system/clock/clock_samd21_r21/clock.c \
+       sam0/drivers/system/clock/clock_samd21_r21/gclk.c  \
        sam0/drivers/system/interrupt/quick_start/qs_system_interrupt.c \
        sam0/drivers/system/interrupt/system_interrupt.c   \
        sam0/drivers/system/pinmux/pinmux.c                \
@@ -77,7 +77,7 @@ INC_PATH = \
        sam0/drivers/port                                  \
        sam0/drivers/system                                \
        sam0/drivers/system/clock                          \
-       sam0/drivers/system/clock/clock_samd21             \
+       sam0/drivers/system/clock/clock_samd21_r21         \
        sam0/drivers/system/interrupt                      \
        sam0/drivers/system/interrupt/quick_start          \
        sam0/drivers/system/interrupt/quick_start/samd21_xplained_pro \

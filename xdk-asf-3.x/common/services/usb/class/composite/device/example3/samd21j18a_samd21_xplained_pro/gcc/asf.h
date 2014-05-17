@@ -75,7 +75,7 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: SAMD21 USB Dual role interface
+// From module: SAM D21/R21 USB Dual role interface
 #include <usb_dual.h>
 
 // From module: SYSTEM - Clock Management for SAMD21

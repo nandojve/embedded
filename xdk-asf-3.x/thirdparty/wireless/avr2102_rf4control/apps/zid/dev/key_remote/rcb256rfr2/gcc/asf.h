@@ -89,4 +89,7 @@
 // From module: Timer/Counter (TC) driver
 #include <tc_megarf.h>
 
+// From module: USB Device HID Multimedia Keyboard Protocol IDs
+#include <usb_hid.h>
+
 #endif // ASF_H

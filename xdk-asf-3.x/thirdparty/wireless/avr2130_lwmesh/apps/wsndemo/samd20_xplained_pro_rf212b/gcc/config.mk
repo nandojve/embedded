@@ -77,6 +77,8 @@ CSRCS = \
        sam0/utils/stdio/write.c                           \
        sam0/utils/syscalls/gcc/syscalls.c                 \
        thirdparty/wireless/addons/sio2host/uart/sio2host.c \
+       thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.c \
+       thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/main.c \
        thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.c \
        thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.c \
        thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.c \
@@ -92,6 +94,7 @@ CSRCS = \
        thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.c \
        thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.c \
        thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.c \
+       thirdparty/wireless/services/sal/at86rf2xx/src/sal.c \
        thirdparty/wireless/services/sleep_mgr/sam0/sleep_mgr.c \
        thirdparty/wireless/services/trx_access/trx_access.c
 
@@ -139,6 +142,7 @@ INC_PATH = \
        thirdparty/wireless/avr2130_lwmesh/source/sys/inc  \
        thirdparty/wireless/services/common_hw_timer       \
        thirdparty/wireless/services/common_hw_timer/sam0  \
+       thirdparty/wireless/services/sal/inc               \
        thirdparty/wireless/services/sleep_mgr             \
        thirdparty/wireless/services/trx_access \
        thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/samd20_xplained_pro_rf212b/gcc
@@ -196,6 +200,7 @@ CPPFLAGS = \
        -D EXTINT_CALLBACK_MODE=true                       \
        -D PHY_AT86RF212B                                  \
        -D RTC_COUNT_ASYNC=true                            \
+       -D SAL_TYPE=AT86RF2xx                              \
        -D SPI_CALLBACK_MODE=false                         \
        -D SYSTICK_MODE                                    \
        -D TC_ASYNC=true                                   \

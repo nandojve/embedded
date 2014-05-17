@@ -50,9 +50,12 @@ TARGET = single_button_ctr_ncp.elf
 CSRCS = \
        common/services/clock/mega/sysclk.c                \
        common/services/serial/usart_serial.c              \
+       common/services/sleepmgr/mega/sleepmgr.c           \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        mega/boards/atmega256rfr2_xplained_pro/init.c      \
+       mega/drivers/ext_int/ext_int_megarf.c              \
+       mega/drivers/macsc/macsc_megarf.c                  \
        mega/drivers/usart/usart_megarf.c                  \
        thirdparty/wireless/addons/sio2host/uart/sio2host.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac.c \
@@ -82,7 +85,6 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/pal/pal.c   \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/src/bmm.c \
        thirdparty/wireless/avr2025_mac/source/resources/queue/src/qmm.c \
-       thirdparty/wireless/avr2025_mac/source/sal/atmegarf_sal/src/sal.c \
        thirdparty/wireless/avr2025_mac/source/stb/src/stb.c \
        thirdparty/wireless/avr2025_mac/source/stb/src/stb_armcrypto.c \
        thirdparty/wireless/avr2025_mac/source/stb/src/stb_help.c \
@@ -102,7 +104,9 @@ CSRCS = \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/single_button_ctr/vendor_data.c \
        thirdparty/wireless/services/common_hw_timer/mega/hw_timer.c \
        thirdparty/wireless/services/mega/drivers/flash/flash.c \
-       thirdparty/wireless/services/mega/drivers/tc/tc_megarf.c
+       thirdparty/wireless/services/mega/drivers/tc/tc_megarf.c \
+       thirdparty/wireless/services/sal/atmegarf_sal/src/sal.c \
+       thirdparty/wireless/services/sleep_mgr/megarf/sleep_mgr.c
 
 # Assembler source files located from the top-level source directory
 ASSRCS = 
@@ -116,11 +120,15 @@ INC_PATH = \
        common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/megarf_usart                \
+       common/services/sleepmgr                           \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
        mega/boards                                        \
        mega/boards/atmega256rfr2_xplained_pro             \
        mega/drivers/cpu                                   \
+       mega/drivers/ext_int                               \
+       mega/drivers/macsc                                 \
+       mega/drivers/sleep                                 \
        mega/drivers/usart                                 \
        mega/utils                                         \
        mega/utils/preprocessor                            \
@@ -132,7 +140,6 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/inc \
        thirdparty/wireless/avr2025_mac/source/resources/queue/inc \
-       thirdparty/wireless/avr2025_mac/source/sal/inc     \
        thirdparty/wireless/avr2025_mac/source/stb/inc     \
        thirdparty/wireless/avr2025_mac/source/tal/atmegarfr2/inc \
        thirdparty/wireless/avr2025_mac/source/tal/inc     \
@@ -145,7 +152,9 @@ INC_PATH = \
        thirdparty/wireless/services/common_hw_timer       \
        thirdparty/wireless/services/common_hw_timer/mega  \
        thirdparty/wireless/services/mega/drivers/flash    \
-       thirdparty/wireless/services/mega/drivers/tc \
+       thirdparty/wireless/services/mega/drivers/tc       \
+       thirdparty/wireless/services/sal/inc               \
+       thirdparty/wireless/services/sleep_mgr \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/single_button_ctr/ncp/atmega256rfr2_xplained_pro/gcc
 
 # Library paths from the top-level source directory

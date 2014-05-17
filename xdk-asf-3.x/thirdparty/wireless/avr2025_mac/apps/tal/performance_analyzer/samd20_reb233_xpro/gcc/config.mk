@@ -75,20 +75,20 @@ CSRCS = \
        sam0/utils/stdio/write.c                           \
        sam0/utils/syscalls/gcc/syscalls.c                 \
        thirdparty/wireless/addons/sio2host/uart/sio2host.c \
+       thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/main.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/init_state.c \
-       thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/main.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/peer_search_initiator.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/peer_search_receptor.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/per_mode_common_utils.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/per_mode_initiator.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/per_mode_receptor.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/perf_api_serial_handler.c \
+       thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/performance_main.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/range_measure.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/user_interface.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/wait_for_event.c \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c \
        thirdparty/wireless/avr2025_mac/source/pal/pal.c   \
-       thirdparty/wireless/avr2025_mac/source/pal/pal_ext_trx.c \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/src/bmm.c \
        thirdparty/wireless/avr2025_mac/source/resources/queue/src/qmm.c \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf233/src/tal.c \

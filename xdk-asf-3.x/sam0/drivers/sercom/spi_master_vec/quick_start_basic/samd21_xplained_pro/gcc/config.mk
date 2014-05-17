@@ -61,8 +61,8 @@ CSRCS = \
        sam0/drivers/sercom/spi/spi_interrupt.c            \
        sam0/drivers/sercom/spi_master_vec/quick_start_basic/qs_spi_master_vec_basic.c \
        sam0/drivers/sercom/spi_master_vec/spi_master_vec.c \
-       sam0/drivers/system/clock/clock_samd21/clock.c     \
-       sam0/drivers/system/clock/clock_samd21/gclk.c      \
+       sam0/drivers/system/clock/clock_samd21_r21/clock.c \
+       sam0/drivers/system/clock/clock_samd21_r21/gclk.c  \
        sam0/drivers/system/interrupt/system_interrupt.c   \
        sam0/drivers/system/pinmux/pinmux.c                \
        sam0/drivers/system/system.c                       \
@@ -87,7 +87,7 @@ INC_PATH = \
        sam0/drivers/sercom/spi_master_vec/quick_start_basic/samd21_xplained_pro/config \
        sam0/drivers/system                                \
        sam0/drivers/system/clock                          \
-       sam0/drivers/system/clock/clock_samd21             \
+       sam0/drivers/system/clock/clock_samd21_r21         \
        sam0/drivers/system/interrupt                      \
        sam0/drivers/system/interrupt/system_interrupt_samd21 \
        sam0/drivers/system/pinmux                         \

@@ -52,14 +52,15 @@ CSRCS = \
        mega/boards/atmegarfx_rcb/helper.c                 \
        mega/boards/atmegarfx_rcb/init.c                   \
        thirdparty/wireless/addons/sio2host/usb_ftdi/sio2host.c \
+       thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/main.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/init_state.c \
-       thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/main.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/peer_search_initiator.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/peer_search_receptor.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/per_mode_common_utils.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/per_mode_initiator.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/per_mode_receptor.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/perf_api_serial_handler.c \
+       thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/performance_main.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/range_measure.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/user_interface.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/wait_for_event.c \

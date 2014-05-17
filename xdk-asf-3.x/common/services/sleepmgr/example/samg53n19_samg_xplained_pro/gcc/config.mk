@@ -58,6 +58,7 @@ CSRCS = \
        common/services/sleepmgr/sam/sleepmgr.c            \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/samg53_xplained_pro/board_init.c        \
+       sam/drivers/efc/efc.c                              \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/pmc/sleep.c                            \
        sam/drivers/rtt/rtt.c                              \
@@ -81,6 +82,7 @@ INC_PATH = \
        common/utils                                       \
        sam/boards                                         \
        sam/boards/samg53_xplained_pro                     \
+       sam/drivers/efc                                    \
        sam/drivers/pmc                                    \
        sam/drivers/rtt                                    \
        sam/drivers/supc                                   \

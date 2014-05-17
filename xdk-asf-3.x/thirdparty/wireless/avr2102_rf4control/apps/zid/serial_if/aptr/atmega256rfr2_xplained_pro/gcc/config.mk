@@ -82,7 +82,6 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/pal/pal.c   \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/src/bmm.c \
        thirdparty/wireless/avr2025_mac/source/resources/queue/src/qmm.c \
-       thirdparty/wireless/avr2025_mac/source/sal/atmegarf_sal/src/sal.c \
        thirdparty/wireless/avr2025_mac/source/stb/src/stb.c \
        thirdparty/wireless/avr2025_mac/source/stb/src/stb_armcrypto.c \
        thirdparty/wireless/avr2025_mac/source/stb/src/stb_help.c \
@@ -101,7 +100,8 @@ CSRCS = \
        thirdparty/wireless/avr2102_rf4control/apps/zid/serial_if/serial_interface.c \
        thirdparty/wireless/services/common_hw_timer/mega/hw_timer.c \
        thirdparty/wireless/services/mega/drivers/flash/flash.c \
-       thirdparty/wireless/services/mega/drivers/tc/tc_megarf.c
+       thirdparty/wireless/services/mega/drivers/tc/tc_megarf.c \
+       thirdparty/wireless/services/sal/atmegarf_sal/src/sal.c
 
 # Assembler source files located from the top-level source directory
 ASSRCS = 
@@ -131,7 +131,6 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/inc \
        thirdparty/wireless/avr2025_mac/source/resources/queue/inc \
-       thirdparty/wireless/avr2025_mac/source/sal/inc     \
        thirdparty/wireless/avr2025_mac/source/stb/inc     \
        thirdparty/wireless/avr2025_mac/source/tal/atmegarfr2/inc \
        thirdparty/wireless/avr2025_mac/source/tal/inc     \
@@ -143,7 +142,8 @@ INC_PATH = \
        thirdparty/wireless/services/common_hw_timer       \
        thirdparty/wireless/services/common_hw_timer/mega  \
        thirdparty/wireless/services/mega/drivers/flash    \
-       thirdparty/wireless/services/mega/drivers/tc \
+       thirdparty/wireless/services/mega/drivers/tc       \
+       thirdparty/wireless/services/sal/inc \
        thirdparty/wireless/avr2102_rf4control/apps/zid/serial_if/aptr/atmega256rfr2_xplained_pro/gcc
 
 # Library paths from the top-level source directory

@@ -59,6 +59,8 @@ CSRCS = \
        common/utils/stdio/stdio_usb/stdio_usb.c           \
        common/utils/stdio/write.c                         \
        thirdparty/wireless/addons/sio2host/usb/sio2host.c \
+       thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.c \
+       thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/main.c \
        thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.c \
        thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.c \
        thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.c \
@@ -74,6 +76,7 @@ CSRCS = \
        thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.c \
        thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.c \
        thirdparty/wireless/services/common_hw_timer/xmega/hw_timer.c \
+       thirdparty/wireless/services/sal/atxmega_sal/src/sal.c \
        thirdparty/wireless/services/sleep_mgr/xmega_a3bu/sleep_mgr.c \
        thirdparty/wireless/services/trx_access/trx_access.c \
        xmega/boards/xmega_a3bu_xplained/init.c            \
@@ -111,6 +114,7 @@ INC_PATH = \
        thirdparty/wireless/avr2130_lwmesh/source/sys/inc  \
        thirdparty/wireless/services/common_hw_timer       \
        thirdparty/wireless/services/common_hw_timer/xmega \
+       thirdparty/wireless/services/sal/inc               \
        thirdparty/wireless/services/sleep_mgr             \
        thirdparty/wireless/services/trx_access            \
        xmega/boards                                       \
@@ -172,7 +176,8 @@ CPPFLAGS = \
        -D BOARD=XMEGA_A3BU_XPLAINED                       \
        -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
        -D IOPORT_XMEGA_COMPAT                             \
-       -D PHY_AT86RF231
+       -D PHY_AT86RF231                                   \
+       -D SAL_TYPE=ATXMEGA_SAL
 
 # Extra flags to use when linking
 LDFLAGS =  \

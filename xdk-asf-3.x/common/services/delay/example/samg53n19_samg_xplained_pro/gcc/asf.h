@@ -59,6 +59,9 @@
 // From module: Delay routines
 #include <delay.h>
 
+// From module: EEFC - Enhanced Embedded Flash Controller
+#include <efc.h>
+
 // From module: GPIO - General purpose Input/Output
 #include <gpio.h>
 
@@ -89,6 +92,9 @@
 
 // From module: SAMG53 startup code
 #include <exceptions.h>
+
+// From module: SUPC - Supply Controller
+#include <supc.h>
 
 // From module: System Clock Control - SAMG implementation
 #include <sysclk.h>

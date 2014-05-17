@@ -98,6 +98,9 @@
 // From module: Part identification macros
 #include <parts.h>
 
+// From module: SAM4S Xplained Pro LED support enabled
+#include <led.h>
+
 // From module: SPI - SAM Implementation
 #include <spi_master.h>
 #include <spi_master.h>

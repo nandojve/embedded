@@ -99,10 +99,8 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/pal/common/drivers/nvm/sam/sam_nvm.c \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c \
        thirdparty/wireless/avr2025_mac/source/pal/pal.c   \
-       thirdparty/wireless/avr2025_mac/source/pal/pal_ext_trx.c \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/src/bmm.c \
        thirdparty/wireless/avr2025_mac/source/resources/queue/src/qmm.c \
-       thirdparty/wireless/avr2025_mac/source/sal/at86rf2xx/src/sal.c \
        thirdparty/wireless/avr2025_mac/source/stb/src/stb.c \
        thirdparty/wireless/avr2025_mac/source/stb/src/stb_armcrypto.c \
        thirdparty/wireless/avr2025_mac/source/stb/src/stb_help.c \
@@ -121,6 +119,7 @@ CSRCS = \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/single_button_ctr/main.c \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/single_button_ctr/vendor_data.c \
        thirdparty/wireless/services/common_hw_timer/sam/hw_timer.c \
+       thirdparty/wireless/services/sal/at86rf2xx/src/sal.c \
        thirdparty/wireless/services/trx_access/trx_access.c
 
 # List of assembler source files.
@@ -161,7 +160,6 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/inc \
        thirdparty/wireless/avr2025_mac/source/resources/queue/inc \
-       thirdparty/wireless/avr2025_mac/source/sal/inc     \
        thirdparty/wireless/avr2025_mac/source/stb/inc     \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf233/inc \
        thirdparty/wireless/avr2025_mac/source/tal/inc     \
@@ -173,6 +171,7 @@ INC_PATH = \
        thirdparty/wireless/avr2102_rf4control/lib/zrc/ctr/config \
        thirdparty/wireless/services/common_hw_timer       \
        thirdparty/wireless/services/common_hw_timer/sam   \
+       thirdparty/wireless/services/sal/inc               \
        thirdparty/wireless/services/trx_access \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/single_button_ctr/ncp/sam4lc4c_rf233_zigbit_ext/gcc
 

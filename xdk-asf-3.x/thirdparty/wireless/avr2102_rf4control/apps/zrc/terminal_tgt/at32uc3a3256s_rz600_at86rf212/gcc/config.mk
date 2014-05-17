@@ -104,10 +104,8 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_tx_coord_realignment_command.c \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c \
        thirdparty/wireless/avr2025_mac/source/pal/pal.c   \
-       thirdparty/wireless/avr2025_mac/source/pal/pal_ext_trx.c \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/src/bmm.c \
        thirdparty/wireless/avr2025_mac/source/resources/queue/src/qmm.c \
-       thirdparty/wireless/avr2025_mac/source/sal/at86rf2xx/src/sal.c \
        thirdparty/wireless/avr2025_mac/source/stb/src/stb.c \
        thirdparty/wireless/avr2025_mac/source/stb/src/stb_armcrypto.c \
        thirdparty/wireless/avr2025_mac/source/stb/src/stb_help.c \
@@ -125,6 +123,7 @@ CSRCS = \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/terminal_tgt/main.c \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/terminal_tgt/vendor_data.c \
        thirdparty/wireless/services/common_hw_timer/uc3/hw_timer.c \
+       thirdparty/wireless/services/sal/at86rf2xx/src/sal.c \
        thirdparty/wireless/services/trx_access/trx_access.c
 
 # List of assembler source files.
@@ -168,7 +167,6 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/inc \
        thirdparty/wireless/avr2025_mac/source/resources/queue/inc \
-       thirdparty/wireless/avr2025_mac/source/sal/inc     \
        thirdparty/wireless/avr2025_mac/source/stb/inc     \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf212/inc \
        thirdparty/wireless/avr2025_mac/source/tal/inc     \
@@ -178,6 +176,7 @@ INC_PATH = \
        thirdparty/wireless/avr2102_rf4control/lib/zrc/tgt/config \
        thirdparty/wireless/services/common_hw_timer       \
        thirdparty/wireless/services/common_hw_timer/uc3   \
+       thirdparty/wireless/services/sal/inc               \
        thirdparty/wireless/services/trx_access \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/terminal_tgt/at32uc3a3256s_rz600_at86rf212/gcc
 

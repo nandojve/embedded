@@ -58,10 +58,12 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/samg53_xplained_pro/board_init.c        \
+       sam/drivers/efc/efc.c                              \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/pmc/sleep.c                            \
        sam/drivers/spi/example/spi_example.c              \
        sam/drivers/spi/spi.c                              \
+       sam/drivers/supc/supc.c                            \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/samg/samg53/source/templates/exceptions.c \
@@ -83,9 +85,11 @@ INC_PATH = \
        common/utils/stdio/stdio_serial                    \
        sam/boards                                         \
        sam/boards/samg53_xplained_pro                     \
+       sam/drivers/efc                                    \
        sam/drivers/pmc                                    \
        sam/drivers/spi                                    \
        sam/drivers/spi/example/samg53n19_samg_xplained_pro \
+       sam/drivers/supc                                   \
        sam/drivers/uart                                   \
        sam/drivers/usart                                  \
        sam/utils                                          \
