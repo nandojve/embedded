@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "PeerToPeer", "PeerToPeer.cppproj", "{499255E5-F0C5-4CF5-9FD4-CC88FF00ECD8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{358E6A17-71B6-4F04-AF5F-22800AD27F80} = {358E6A17-71B6-4F04-AF5F-22800AD27F80}
+		{5163AAC4-210C-4550-B5E4-54D777AA5AB6} = {5163AAC4-210C-4550-B5E4-54D777AA5AB6}
+	EndProjectSection
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "core", "..\core\core.cppproj", "{358E6A17-71B6-4F04-AF5F-22800AD27F80}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "LwMesh", "..\LwMesh\LwMesh.cppproj", "{5163AAC4-210C-4550-B5E4-54D777AA5AB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{499255E5-F0C5-4CF5-9FD4-CC88FF00ECD8}.Debug|AVR.ActiveCfg = Debug|AVR
+		{499255E5-F0C5-4CF5-9FD4-CC88FF00ECD8}.Debug|AVR.Build.0 = Debug|AVR
+		{499255E5-F0C5-4CF5-9FD4-CC88FF00ECD8}.Release|AVR.ActiveCfg = Release|AVR
+		{499255E5-F0C5-4CF5-9FD4-CC88FF00ECD8}.Release|AVR.Build.0 = Release|AVR
+		{358E6A17-71B6-4F04-AF5F-22800AD27F80}.Debug|AVR.ActiveCfg = Debug|AVR
+		{358E6A17-71B6-4F04-AF5F-22800AD27F80}.Debug|AVR.Build.0 = Debug|AVR
+		{358E6A17-71B6-4F04-AF5F-22800AD27F80}.Release|AVR.ActiveCfg = Release|AVR
+		{358E6A17-71B6-4F04-AF5F-22800AD27F80}.Release|AVR.Build.0 = Release|AVR
+		{5163AAC4-210C-4550-B5E4-54D777AA5AB6}.Debug|AVR.ActiveCfg = Debug|AVR
+		{5163AAC4-210C-4550-B5E4-54D777AA5AB6}.Debug|AVR.Build.0 = Debug|AVR
+		{5163AAC4-210C-4550-B5E4-54D777AA5AB6}.Release|AVR.ActiveCfg = Release|AVR
+		{5163AAC4-210C-4550-B5E4-54D777AA5AB6}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

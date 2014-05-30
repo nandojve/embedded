@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.2</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8.CPP</ToolchainName>
+    <ProjectGuid>{5163aac4-210c-4550-b5e4-54d777aa5ab6}</ProjectGuid>
+    <avrdevice>ATmega256RFR2</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>StaticLibrary</OutputType>
+    <Language>CPP</Language>
+    <OutputFileName>lib$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.a</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AvrGccProjectExtensions>
+    </AvrGccProjectExtensions>
+    <AssemblyName>LwMesh</AssemblyName>
+    <Name>LwMesh</Name>
+    <RootNamespace>LwMesh</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress />
+    <UncachedRange />
+    <OverrideVtorValue />
+    <BootSegment>2</BootSegment>
+    <eraseonlaunchrule>1</eraseonlaunchrule>
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.17.0" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGccCpp>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+            <Value>F_CPU=16000000L</Value>
+            <Value>HAL_ATMEGA256RFR2</Value>
+            <Value>ARDUINO=105</Value>
+            <Value>PLATFORM_WM100</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>..</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize more (-O2)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
+        <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+            <Value>F_CPU=16000000L</Value>
+            <Value>HAL_ATMEGA256RFR2</Value>
+            <Value>ARDUINO=105</Value>
+            <Value>PLATFORM_WM100</Value>
+          </ListValues>
+        </avrgcccpp.compiler.symbols.DefSymbols>
+        <avrgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>..</Value>
+          </ListValues>
+        </avrgcccpp.compiler.directories.IncludePaths>
+        <avrgcccpp.compiler.optimization.level>Optimize more (-O2)</avrgcccpp.compiler.optimization.level>
+        <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+        <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+        <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11 -fno-exceptions</avrgcccpp.compiler.miscellaneous.OtherFlags>
+        <avrgcccpp.linker.general.NoSharedLibraries>True</avrgcccpp.linker.general.NoSharedLibraries>
+        <avrgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.Libraries>
+      </AvrGccCpp>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGccCpp>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+            <Value>F_CPU=16000000L</Value>
+            <Value>HAL_ATMEGA256RFR2</Value>
+            <Value>ARDUINO=105</Value>
+            <Value>PLATFORM_WM100</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>..</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Maximum (-g3)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
+        <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+            <Value>F_CPU=16000000L</Value>
+            <Value>HAL_ATMEGA256RFR2</Value>
+            <Value>ARDUINO=105</Value>
+            <Value>PLATFORM_WM100</Value>
+          </ListValues>
+        </avrgcccpp.compiler.symbols.DefSymbols>
+        <avrgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>..</Value>
+          </ListValues>
+        </avrgcccpp.compiler.directories.IncludePaths>
+        <avrgcccpp.compiler.optimization.level>Optimize (-O1)</avrgcccpp.compiler.optimization.level>
+        <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+        <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</avrgcccpp.compiler.optimization.DebugLevel>
+        <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+        <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11 -fno-exceptions</avrgcccpp.compiler.miscellaneous.OtherFlags>
+        <avrgcccpp.linker.general.NoSharedLibraries>True</avrgcccpp.linker.general.NoSharedLibraries>
+        <avrgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.Libraries>
+        <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
+      </AvrGccCpp>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="hal.c">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="hal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="halGpio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="halSleep.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="halTimer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="hal\atmega128rfa1\hal.c">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="hal\atmega128rfa1\halBoard.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\atmega128rfa1\halLed.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="hal\atmega128rfa1\halSleep.c">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="hal\atmega128rfa1\halTimer.c">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="hal\atmega256rfr2\hal.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\atmega256rfr2\halBoard.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\atmega256rfr2\halLed.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\atmega256rfr2\halSleep.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\atmega256rfr2\halTimer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LwMesh.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LwMesh.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwk.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwk.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkCommand.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkDataReq.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkDataReq.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkFrame.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkFrame.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkGroup.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkGroup.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkRoute.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkRoute.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkRouteDiscovery.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkRouteDiscovery.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkRx.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkRx.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkSecurity.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkSecurity.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkTx.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nwkTx.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="phy.c">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="phy.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="phy\atmegarfa1\atmegarfa1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="phy\atmegarfa1\phy.c">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="phy\atmegarfa1\phy.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="phy\atmegarfr2\atmegarfr2.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="phy\atmegarfr2\phy.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="phy\atmegarfr2\phy.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sys.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sys.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sysConfig.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sysEncrypt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sysEncrypt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sysTimer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sysTimer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sysTypes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\assembler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\assembler\gas.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\compiler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\interrupt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\interrupt\interrupt_avr8.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\parts.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\preprocessor\mrepeat.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\preprocessor\preprocessor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\preprocessor\stringz.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\preprocessor\tpaste.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\progmem.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\status_codes.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="hal" />
+    <Folder Include="hal\atmega128rfa1" />
+    <Folder Include="hal\atmega256rfr2" />
+    <Folder Include="phy" />
+    <Folder Include="phy\atmegarfa1" />
+    <Folder Include="phy\atmegarfr2" />
+    <Folder Include="utils" />
+    <Folder Include="utils\assembler" />
+    <Folder Include="utils\interrupt" />
+    <Folder Include="utils\preprocessor" />
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
