@@ -14,7 +14,6 @@
 #include <compiler.h>
 #include <twi_master.h>
 
-#define				MPL115A2_DEVICE		0x60
 #define				SEA_LEVEL_PRESSURE	101.325			// kPA
 #define				ALTITUDE_RATIO		(1.00 / 5.255)
 

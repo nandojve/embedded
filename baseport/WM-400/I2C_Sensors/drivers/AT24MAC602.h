@@ -10,10 +10,15 @@
 #ifndef _AT24MAC602_H_
 #define _AT24MAC602_H_
 
+#include "conf_twim.h"
 #include "AT24C0x.h"
 
-#define			AT24MAC602_MEM_DEVICE						0x57
-#define			AT24MAC602_EUI_DEVICE						0x5F
+#ifndef AT24MAC602_MEM_DEVICE
+	#define			AT24MAC602_MEM_DEVICE		0x57
+#endif
+#ifndef AT24MAC602_EUI_DEVICE
+	#define			AT24MAC602_EUI_DEVICE		0x5F
+#endif
 
 #define			at24mac602_read_byte(data)					at24c0x_read_byte(AT24MAC602_MEM_DEVICE, data)
 #define			at24mac602_read_page(address, data)			at24c0x_read_page(AT24MAC602_MEM_DEVICE, address, data)

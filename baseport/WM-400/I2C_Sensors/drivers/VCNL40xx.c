@@ -10,6 +10,10 @@
 #include "VCNL40xx.h"
 #include "conf_twim.h"
 
+#ifndef VCNL40XX_DEVICE
+	#define			VCNL40XX_DEVICE		0x13
+#endif
+
 static twi_package_t package			=
 {
 	.chip								= VCNL40XX_DEVICE,
