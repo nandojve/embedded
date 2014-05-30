@@ -313,7 +313,7 @@ extern "C" {
 #  include "avr_simulator_uc3/avr_simulator_uc3.h"
 #elif BOARD == USER_BOARD
   // User-reserved area: #include the header file of your board here (if any).
-#  include "user_board.h"
+#  include "vendor_boardtypes.h"
 #elif BOARD == DUMMY_BOARD
 #  include "dummy/dummy_board.h"
 #else
