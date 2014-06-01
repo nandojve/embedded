@@ -50,18 +50,11 @@
 #include "halGpio.h"
 
 /*- Definitions ------------------------------------------------------------*/
-#if defined(PLATFORM_SAMD20_PRO)
-  HAL_GPIO_PIN(PHY_RST,    A, 8);
-  HAL_GPIO_PIN(PHY_IRQ,    B, 13);
-  HAL_GPIO_PIN(PHY_SLP_TR, B, 12);
-  HAL_GPIO_PIN(PHY_CS,     A, 17);
-  HAL_GPIO_PIN(PHY_MISO,   A, 16);
-  HAL_GPIO_PIN(PHY_MOSI,   A, 18);
-  HAL_GPIO_PIN(PHY_SCK,    A, 19);
-  #define HAL_PHY_IRQ_INDEX   13
-#endif
-
-#define				RF_SPI_INSTANCE		RF_SPI_MODULE->SPI
+#define RF_PHY_INT_PIN	2
+HAL_GPIO_PIN(PHY_CS,	 A, 31);
+HAL_GPIO_PIN(PHY_RST,    A, 3);
+HAL_GPIO_PIN(PHY_SLP_TR, B, 3);
+HAL_GPIO_PIN(PHY_IRQ,    B, RF_PHY_INT_PIN);
 
 /*- Prototypes -------------------------------------------------------------*/
 uint8_t HAL_PhySpiWriteByte(uint8_t value);
@@ -74,9 +67,14 @@ void halPhyInit(void);
 *****************************************************************************/
 INLINE uint8_t HAL_PhySpiWriteByteInline(uint8_t value)
 {
-	RF_SPI_INSTANCE.DATA.reg		= value;
-	while(!(RF_SPI_INSTANCE.INTFLAG.reg & SERCOM_SPI_INTFLAG_RXC));
-	return(RF_SPI_INSTANCE.DATA.reg & 0xFF);
+	uint8_t						uc_pcs;
+	static uint16_t				data;
+
+	spi_write(AT86RFX_SPI, value, 0, 0);
+	while((spi_read_status(AT86RFX_SPI) & SPI_SR_RDRF) == 0);
+	spi_read(AT86RFX_SPI, &data, &uc_pcs);
+
+	return(data);
 }
 
 /*************************************************************************//**

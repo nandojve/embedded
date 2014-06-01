@@ -13,6 +13,8 @@
 #ifndef VENDOR_BOARDTYPES_H
 #define VENDOR_BOARDTYPES_H
 
+#include <platform.h>
+
 /* Board types */
 #define KITRFA1					(0x31)
 #define MINIKIT_ATXMEGA_V3R7	(0x32)
@@ -34,6 +36,8 @@
 #define WM200					(0x42)
 #define WM400					(0x43)
 
+#define WM400_BBBS				(0x60)
+
 #if BOARD_TYPE == WM100
 	#include "WM100/inc/wm100.h"
 #elif BOARD_TYPE == WM100_DUINO
@@ -46,6 +50,8 @@
 	#include "WM200/inc/wm200.h"
 #elif BOARD_TYPE == WM400
 	#include "WM400/inc/wm400.h"
+#elif BOARD_TYPE == WM400_BBBS
+	#include "WM400_BBBS/inc/wm400_bbbs.h"
 #elif BOARD_TYPE == KITRFA1
 	#include "KITRFA1/inc/KITRFA1.h"
 #elif BOARD_TYPE == MINIKIT2

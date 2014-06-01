@@ -40,7 +40,7 @@
  * \asf_license_stop
  *
  */
-#include <asf.h>
+#include <timeout.h>
 #include <conf_timeout.h>
 
 /* Check if RTC32 is defined, otherwise use RTC as default */
@@ -86,6 +86,7 @@ static uint8_t timeout_expired;
 static void tick_handler(uint32_t time)
 {
 	uint8_t i;
+	(void) time;
 
 	/* Loop through all timeout channels */
 	for (i = 0; i < TIMEOUT_COUNT; i++) {
@@ -215,6 +216,25 @@ bool timeout_test_and_clear_expired(timeout_id_t id)
 	}
 
 	return false;
+}
+
+/**
+ * \brief Test and clear expired flag for running timeout
+ *
+ * \param id      \ref timeout_id_t
+ * \retval true   Timer have expired; clearing expired flag
+ * \retval false  Timer still running
+ */
+bool timeout_test_expired(timeout_id_t id)
+{
+	/* Check that ID within the TIMEOUT_COUNT range */
+	if(id < TIMEOUT_COUNT)
+	{
+		/* Check if timeout has expired */
+		return(timeout_expired & (1 << id));
+	}
+
+	return(false);
 }
 
 /**

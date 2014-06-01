@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!-- Command specification -->
+<struct>
+	<!-- command name -->
+		<const name="MessageType" type="uint8">0x01</const>
+		<value name="NodeType" type="uint8"/>
+		<value name="FullAddress" type="uint64"/>
+		<value name="ShortAddress" type="uint16"/>
+		<value name="SoftwareVersion" type="uint32"/>
+		<value name="ChannelMask" type="uint32"/>
+		<value name="PanID" type="uint16"/>
+		<value name="WorkingChannel" type="uint8"/>
+		<value name="ParentAddress" type="uint16"/>
+		<value name="LQI" type="uint8"/>
+		<value name="RSSI" type="int8"/>
+    <array unlimited="true" hidden="true">
+      <struct>
+		    <value name="ParamType" type="uint8" hidden="true"/>
+        <switch field="ParamType">
+          <case value="0x01">
+		        <value name="ParamLength" type="uint8" hidden="true"/>
+		        <mathfield name="Battery" type="uint32" convert="x/1000"/>
+		        <value name="Temperature" type="int32"/>
+			    <mathfield name="Light" type="uint32" convert="x/1000"/>
+          </case>
+          <case value="0x20">
+		        <sizeof name="NameSize" value="Name" type="uint8" hidden="true"/> 
+         		<value name="Name" type="string"/>
+          </case>
+        </switch>
+      </struct>
+    </array>  
+</struct>

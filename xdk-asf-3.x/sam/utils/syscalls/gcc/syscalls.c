@@ -69,6 +69,9 @@ extern void _exit(int status);
 extern void _kill(int pid, int sig);
 extern int _getpid(void);
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+
 extern caddr_t _sbrk(int incr)
 {
 	static unsigned char *heap = NULL;
@@ -132,6 +135,8 @@ extern int _getpid(void)
 {
 	return -1;
 }
+
+#pragma GCC diagnostic pop
 
 /// @cond 0
 /**INDENT-OFF**/

@@ -86,4 +86,7 @@
 #define SPIB_SCK						IOPORT_CREATE_PIN(PORTB, 1)
 //@}
 
+// Device List
+#define VCNL40XX_DEVICE					(0x26)
+
 #endif  /* _KITRFA1_H_ */

@@ -113,5 +113,9 @@
  */
 #define TAL_TRANSMIT_POWER_DEFAULT		(TX_PWR_TOLERANCE | 0x14)
 #endif
+
+// Device List
+#define VCNL40XX_DEVICE					(0x26)
+
 //@}
 #endif  /* WM100_DUINO_H */

@@ -183,6 +183,7 @@ ioport_set_pin_peripheral_mode(WM_PORT_TX_PIN, WM_PORT_TX_MUX);
 
 #ifdef CONF_BOARD_AT86RFX
 	#define CONF_BOARD_SPI
+	#define CONF_BOARD_SPI_NPCS1
 //	ioport_set_pin_peripheral_mode(AT86RFX_IRQ0_PIN, AT86RFX_IRQ0_FLAGS);
 //	ioport_set_pin_peripheral_mode(AT86RFX_IRQ1_PIN, AT86RFX_IRQ1_FLAGS);
 

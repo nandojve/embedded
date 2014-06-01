@@ -179,6 +179,7 @@ void timeout_start_periodic(timeout_id_t id, uint16_t period);
 void timeout_start_offset(timeout_id_t id, uint16_t period,
 		uint16_t start_offset);
 bool timeout_test_and_clear_expired(timeout_id_t id);
+bool timeout_test_expired(timeout_id_t id);
 void timeout_stop(timeout_id_t id);
 
 #ifdef __cplusplus

@@ -52,6 +52,8 @@
 #include "twi_megarf.h"
 #include "sysclk.h"
 
+typedef twi_master_options_t twi_options_t;
+
 static inline status_code_t twi_master_setup(volatile void *twi,twi_master_options_t *opt)
 {
 	opt->baud_reg = TWI_CLOCK_RATE(sysclk_get_cpu_hz(), opt->speed);

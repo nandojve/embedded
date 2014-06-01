@@ -165,10 +165,10 @@ void GPIO_1_Handler(void)
 /**
  * GPIO handler 2 (PA 16..23)
  */
-void GPIO_2_Handler(void)
-{
-	gpio_common_handler(IOPORT_GPIOA, (GPIO_INT_GROUP_MASK << 16));
-}
+//void GPIO_2_Handler(void)
+//{
+	//gpio_common_handler(IOPORT_GPIOA, (GPIO_INT_GROUP_MASK << 16));
+//}
 
 /**
  * GPIO handler 3 (PA 24..31)

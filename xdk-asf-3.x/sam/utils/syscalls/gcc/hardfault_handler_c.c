@@ -90,6 +90,9 @@ find the erroneous write.
 
 */
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
+
 // From Joseph Yiu, minor edits by FVH
 // hard fault handler in C,
 // with stack frame location as input parameter
@@ -133,6 +136,8 @@ void HardFault_Handler_C(unsigned int * hardfault_args)
 	//
 	while(1);
 }
+
+#pragma GCC diagnostic pop
 
 /// @cond 0
 /**INDENT-OFF**/

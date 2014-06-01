@@ -3,7 +3,7 @@
  *
  * \brief System types and definitions
  *
- * Copyright (C) 2012-2013, Atmel Corporation. All rights reserved.
+ * Copyright (C) 2012-2014, Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -37,7 +37,10 @@
  *
  * \asf_license_stop
  *
- * $Id: sysTypes.h 8375 2013-07-25 21:26:06Z ataradov $
+ * Modification and other use of this code is subject to Atmel's Limited
+ * License Agreement (license.txt).
+ *
+ * $Id: sysTypes.h 9267 2014-03-18 21:46:19Z ataradov $
  *
  */
 
@@ -53,6 +56,8 @@
   #include <ioavr.h>
   #include <intrinsics.h>
   #include <pgmspace.h>
+
+  #define SYS_MCU_ARCH_AVR
 
   #define PACK
 
@@ -90,21 +95,55 @@
   #error Unsupported compiler
 */
 #else
-	#if !defined(ARMTYPE)
-		#include <avr/io.h>
-		#include <avr/wdt.h>
-		#include <avr/interrupt.h>
-		#include <avr/pgmspace.h>
+  #if defined(ARMTYPE)
+	#define SYS_MCU_ARCH_CORTEX_M
+
+  	#if defined(HAL_ATSAMD20J18)
+    	#define DONT_USE_CMSIS_INIT
+    	#include "samd20j18.h"
+  	#elif defined(HAL_ATSAMD21J18)
+    	#define DONT_USE_CMSIS_INIT
+    	#include "samd21j18a.h"
 	#endif
-	#include "interrupt.h"
-	
+  #else // All AVRs
+    #include <avr/io.h>
+    #include <avr/wdt.h>
+    #include <avr/interrupt.h>
+    #include <avr/pgmspace.h>
+
+    #define SYS_MCU_ARCH_AVR
+  #endif
+  #include "interrupt.h"
+
+  #if defined(SYS_MCU_ARCH_CORTEX_M)
     #define PRAGMA(x)
+
     #define PACK __attribute__ ((packed))
+
     #define INLINE static inline __attribute__ ((always_inline))
-    #define SYS_EnableInterrupts()	Enable_global_interrupt()
-    #define ATOMIC_SECTION_ENTER	{ irqflags_t __irq_flags = cpu_irq_save();
-    #define ATOMIC_SECTION_LEAVE	cpu_irq_restore(__irq_flags); }
+
+    #define SYS_EnableInterrupts() __asm volatile ("cpsie i");
+
+    #define ATOMIC_SECTION_ENTER   { register uint32_t __atomic; \
+                                     __asm volatile ("mrs %0, primask" : "=r" (__atomic) ); \
+                                     __asm volatile ("cpsid i");
+    #define ATOMIC_SECTION_LEAVE   __asm volatile ("msr primask, %0" : : "r" (__atomic) ); }
+
+  #elif defined(SYS_MCU_ARCH_AVR)
+    #define PRAGMA(x)
+
+    #define PACK __attribute__ ((packed))
+
+    #define INLINE static inline __attribute__ ((always_inline))
+
+    #define SYS_EnableInterrupts() sei()
+
+    #define ATOMIC_SECTION_ENTER   { uint8_t __atomic = SREG; cli();
+    #define ATOMIC_SECTION_LEAVE   SREG = __atomic; }
 	#define MMIO_REG(mem_addr, type) (*(volatile type *)(mem_addr))
+
+  #endif
+
 #endif
 
 #if defined(HAL_ATMEGA1281)
@@ -129,6 +168,7 @@
 #elif defined(HAL_ATXMEGA256A3BU)
 
 #elif defined(HAL_ATSAMD20J18)
+#elif defined(HAL_ATSAMD21J18)
 
 #elif defined(HAL_ATSAM4S16C)
 #elif defined(HAL_ATSAM4LC4B)

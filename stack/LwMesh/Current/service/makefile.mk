@@ -2,9 +2,9 @@
 ###############################################################################
 
 #list C source files
-CSRC +=																			\
-	$(PATH_SERVICE)/src/otaClient.c												\
-	$(PATH_SERVICE)/src/otaServer.c
+#CSRC +=																			\
+#	$(PATH_SERVICE)/src/otaClient.c												\
+#	$(PATH_SERVICE)/src/otaServer.c
 
 # List Assembler source files here.
 # Make them always end in a capital .S.  Files ending in a lowercase .s

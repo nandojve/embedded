@@ -45,18 +45,10 @@
 #define _HAL_LED_H_
 
 /*- Includes ---------------------------------------------------------------*/
-#include "hal.h"
-#include "halGpio.h"
+#include <wm400.h>
+#include <ioport.h>
 
 /*- Definitions ------------------------------------------------------------*/
-#if defined(PLATFORM_SAMD20_PRO)
-  HAL_GPIO_PIN(LED0, A, 14);
-  HAL_GPIO_PIN(LED1, B, 0);
-  HAL_GPIO_PIN(LED2, B, 1);
-
-#else
-  #error Unknown platform
-#endif
 
 /*- Implementations --------------------------------------------------------*/
 
@@ -64,59 +56,50 @@
 *****************************************************************************/
 INLINE void HAL_LedInit(void)
 {
-  HAL_GPIO_LED0_out();
-  HAL_GPIO_LED0_set();
-
-  HAL_GPIO_LED1_out();
-  HAL_GPIO_LED1_set();
-
-  HAL_GPIO_LED2_out();
-  HAL_GPIO_LED2_set();
+	// do nothing
 }
 
 /*************************************************************************//**
 *****************************************************************************/
 INLINE void HAL_LedClose(void)
 {
-  HAL_GPIO_LED0_in();
-  HAL_GPIO_LED1_in();
-  HAL_GPIO_LED2_in();
+	// do nothing
 }
 
 /*************************************************************************//**
 *****************************************************************************/
 INLINE void HAL_LedOn(uint8_t i)
 {
-  if (0 == i)
-    HAL_GPIO_LED0_clr();
-  else if (1 == i)
-    HAL_GPIO_LED1_clr();
-  else if (2 == i)
-    HAL_GPIO_LED2_clr();
+	if (0 == i)
+		ioport_set_pin_level(LED_0_PIN, IOPORT_PIN_LEVEL_LOW);
+	else if (1 == i)
+		ioport_set_pin_level(LED_1_PIN, IOPORT_PIN_LEVEL_LOW);
+	else if (2 == i)
+		ioport_set_pin_level(LED_2_PIN, IOPORT_PIN_LEVEL_LOW);
 }
 
 /*************************************************************************//**
 *****************************************************************************/
 INLINE void HAL_LedOff(uint8_t i)
 {
-  if (0 == i)
-    HAL_GPIO_LED0_set();
-  else if (1 == i)
-    HAL_GPIO_LED1_set();
-  else if (2 == i)
-    HAL_GPIO_LED2_set();
+	if (0 == i)
+		ioport_set_pin_level(LED_0_PIN, IOPORT_PIN_LEVEL_HIGH);
+	else if (1 == i)
+		ioport_set_pin_level(LED_1_PIN, IOPORT_PIN_LEVEL_HIGH);
+	else if (2 == i)
+		ioport_set_pin_level(LED_2_PIN, IOPORT_PIN_LEVEL_HIGH);
 }
 
 /*************************************************************************//**
 *****************************************************************************/
 INLINE void HAL_LedToggle(uint8_t i)
 {
-  if (0 == i)
-    HAL_GPIO_LED0_toggle();
-  else if (1 == i)
-    HAL_GPIO_LED1_toggle();
-  else if (2 == i)
-    HAL_GPIO_LED2_toggle();
+	if (0 == i)
+		ioport_toggle_pin_level(LED_0_PIN);
+	else if (1 == i)
+		ioport_toggle_pin_level(LED_1_PIN);
+	else if (2 == i)
+		ioport_toggle_pin_level(LED_2_PIN);
 }
 
 #endif // _HAL_LED_H_

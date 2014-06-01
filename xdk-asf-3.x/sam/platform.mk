@@ -3,6 +3,7 @@
 
 ASF_ROOT_DIR = $(ROOT_DIR)/xdk-asf-3.x
 PLATFORM_DIR = $(ROOT_DIR)/xdk-asf-3.x/$(PLATFORM)
+DEVICES_DIR = $(ROOT_DIR)/devices
 
 # Object files directory
 #     To put object files in current directory, use a dot (.), do NOT make
@@ -80,6 +81,7 @@ endif
 
 ifeq ($(strip $(USE_ASF)),1)
 	include $(ASF_ROOT_DIR)/asf.mk
+	include $(DEVICES_DIR)/devices.mk
 endif
 
 include $(ROOT_DIR)/board/$(BOARD_TYPE)/board.mk
@@ -230,7 +232,7 @@ LDFLAGS += -Wl,--end-group
 LDFLAGS += $(patsubst %,-L%,$(EXTRALIBDIRS))
 LDFLAGS += -Wl,--gc-sections
 ARMTYPE_BASE = $(shell echo $(ARMTYPE) | tr [:upper:] [:lower:])
-ifneq (, $(filter $(USE_SAMBA),1))
+ifneq (, $(filter $(USE_BOOTLOADER),1))
 SAMBA_PREFIX = _samba
 else
 SAMBA_PREFIX =
@@ -343,9 +345,10 @@ GENDEPFLAGS = -Wp,-M,-MP,-MT,$(*F).o,-MF,.dep/$(@F).d
 
 # Combine all necessary flags and optional flags.
 # Add target processor to flags.
-ALL_CFLAGS = -mcpu=$(ARCH) -mthumb -D=__$(shell echo $(MCU) | tr [:lower:] [:upper:])__ -I. $(CFLAGS) $(GENDEPFLAGS)
-ALL_CPPFLAGS = -mcpu=$(ARCH) -mthumb -D=__$(shell echo $(MCU) | tr [:lower:] [:upper:])__ -I. -x c++ $(CPPFLAGS) $(GENDEPFLAGS)
-ALL_ASFLAGS = -mcpu=$(ARCH) -mthumb -D=__$(shell echo $(MCU) | tr [:lower:] [:upper:])__ -D__ASSEMBLY__ -I. $(ASFLAGS)
+MCU_DEFINE = $(shell echo $(MCU) | gawk '{print substr($$1,3,length($$1)-2)}')
+ALL_CFLAGS = -mcpu=$(ARCH) -mthumb -D=__$(shell echo $(MCU_DEFINE) | tr [:lower:] [:upper:])__ -I. $(CFLAGS) $(GENDEPFLAGS)
+ALL_CPPFLAGS = -mcpu=$(ARCH) -mthumb -D=__$(shell echo $(MCU_DEFINE) | tr [:lower:] [:upper:])__ -I. -x c++ $(CPPFLAGS) $(GENDEPFLAGS)
+ALL_ASFLAGS = -mcpu=$(ARCH) -mthumb -D=__$(shell echo $(MCU_DEFINE) | tr [:lower:] [:upper:])__ -D__ASSEMBLY__ -I. $(ASFLAGS)
 
 
 

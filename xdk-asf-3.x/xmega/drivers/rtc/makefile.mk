@@ -1,6 +1,7 @@
 ASF_DRIVERS_RTC_DIR				= $(ASF_DRIVERS_DIR)/rtc
 
-ifeq ($(strip $(ASF_RTC_DRIVER)),1)
+ifneq (, $(filter $(ASF_RTC_DRIVER),1))
+
 #list C source files
 CSRC	+=																		\
 	$(ASF_DRIVERS_RTC_DIR)/rtc.c
@@ -21,4 +22,5 @@ ASRC +=
 #     Each directory must be seperated by a space.
 EXTRAINCDIRS +=																	\
 	$(ASF_DRIVERS_RTC_DIR)
+
 endif

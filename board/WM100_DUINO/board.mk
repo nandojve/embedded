@@ -22,8 +22,10 @@ EXTRAINCDIRS +=																	\
 
 ifeq ($(strip $(PLATFORM)),mega)
 	ifeq ($(strip $(USE_WIRELESS)),1)
-		ifeq ($(strip $(STACK_TYPE)),LwMesh)
-			include $(Board_DIR)/LwMesh/board.mk
+		ifeq ($(strip $(USE_WIRELESS_OLD)),1)
+			ifeq ($(strip $(STACK_TYPE)),LwMesh)
+				include $(Board_DIR)/LwMesh/board.mk
+			endif
 		endif
 	endif
 endif

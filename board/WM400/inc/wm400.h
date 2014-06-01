@@ -90,7 +90,7 @@
  */
 
 //! Name string macro
-#define BOARD_NAME						"WM-400L"
+#define BOARD_NAME						"WM-400L-BBBS"
 #define MCU_SOC_NAME					"ATSAM4LC4B"
 
 //! \name Board oscillator definitions
@@ -279,6 +279,7 @@
  */
 //! @{
 #define AT86RFX_SPI						SPI
+#define AT86RFX_SPI_BAUDRATE			(3000000)
 #define AT86RFX_RST_PIN					PIN_PA10
 #define AT86RFX_IRQ0_PIN				PIN_PA20
 #define AT86RFX_IRQ_PIN					AT86RFX_IRQ0_PIN
@@ -358,6 +359,13 @@
 
 /** @} */
 
-/** @} */
+// Device List
+#define VCNL40XX_DEVICE					(0x13)
+#define CC2D33S_DEVICE					(0x28)
+#define AT30TSE752_TEMP_DEVICE			(0x4A)
+#define AT30TSE752_MEM_DEVICE			(0x52)
+#define AT24MAC602_MEM_DEVICE			(0x57)
+#define AT24MAC602_EUI_DEVICE			(0x5F)
+#define MPL115A2_DEVICE					(0x60)
 
 #endif /* _WM400_H_ */

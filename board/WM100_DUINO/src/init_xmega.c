@@ -50,11 +50,14 @@ void board_init(void)
 	ioport_configure_pin(LED1_GPIO, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 	ioport_configure_pin(LED2_GPIO, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 
-	gpio_configure_pin(GPIO_PUSH_BUTTON_0,IOPORT_DIR_INPUT | IOPORT_PULL_UP);
-	gpio_configure_pin(GPIO_PUSH_BUTTON_1,IOPORT_DIR_INPUT | IOPORT_PULL_UP);
+	gpio_configure_pin(GPIO_PUSH_BUTTON_0, IOPORT_DIR_INPUT | IOPORT_PULL_UP);
+	gpio_configure_pin(GPIO_PUSH_BUTTON_1, IOPORT_DIR_INPUT | IOPORT_PULL_UP);
 
 	ioport_configure_pin(USARTC1_TXD, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 	ioport_configure_pin(USARTC1_RXD, IOPORT_DIR_INPUT);
+
+	gpio_configure_pin(TWIC_SCL, IOPORT_DIR_INPUT | IOPORT_WIRED_AND);
+	gpio_configure_pin(TWIC_SDA, IOPORT_DIR_INPUT | IOPORT_WIRED_AND);
 
 	ioport_configure_pin(SENSORS_MPL115A2_EN, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 }

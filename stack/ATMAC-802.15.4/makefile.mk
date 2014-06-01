@@ -24,6 +24,6 @@ EXTRAINCDIRS +=																	\
 include																			\
 	$(PATH_PAL)/$(PAL_GENERIC_TYPE)/makefile.mk									\
 	$(PATH_RESOURCE)/makefile.mk												\
-	$(PATH_TAL_)/makefile.mk														\
+	$(PATH_TAL)/makefile.mk														\
 	$(PATH_TFA)/makefile.mk														\
 	$(PATH_MAC)/makefile.mk
