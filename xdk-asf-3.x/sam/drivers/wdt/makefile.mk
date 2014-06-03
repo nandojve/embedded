@@ -1,7 +1,7 @@
 ASF_DRIVERS_WDT_DIR				= $(ASF_DRIVERS_DIR)/wdt
 
-ifneq (, $(filter $(ASF_WDT_DRIVER),1))
 ifneq (, $(filter $(ARMTYPE),SAM4L))
+
 #list C source files
 CSRC	+=																		\
 	$(ASF_DRIVERS_WDT_DIR)/wdt_sam4l.c
@@ -26,4 +26,3 @@ ASRC +=
 #     Each directory must be seperated by a space.
 EXTRAINCDIRS +=																	\
 	$(ASF_DRIVERS_WDT_DIR)
-endif

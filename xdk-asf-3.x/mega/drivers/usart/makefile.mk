@@ -1,6 +1,7 @@
 ASF_DRIVERS_USART_DIR					= $(ASF_DRIVERS_DIR)/usart
 
-ifeq ($(strip $(ASF_USART_DRIVER)),1)
+ifneq (, $(filter $(ASF_USART_DRIVER),1))
+
 #list C source files
 CSRC	+=																		\
 	$(ASF_DRIVERS_USART_DIR)/usart_megarf.c
