@@ -5,7 +5,7 @@
     <ProjectVersion>6.2</ProjectVersion>
     <ToolchainName>com.Atmel.AVRGCC8.C</ToolchainName>
     <ProjectGuid>{aa202157-fae5-4b89-ad35-de37d4d6a982}</ProjectGuid>
-    <avrdevice>ATmega128RFA1</avrdevice>
+    <avrdevice>ATmega256RFR2</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
     <Language>C</Language>
@@ -397,6 +397,14 @@
     <Compile Include="config\conf_ast.h">
       <SubType>compile</SubType>
       <Link>config\conf_ast.h</Link>
+    </Compile>
+    <Compile Include="config\conf_flash.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_flash.h</Link>
+    </Compile>
+    <Compile Include="config\conf_sio2host.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_sio2host.h</Link>
     </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>

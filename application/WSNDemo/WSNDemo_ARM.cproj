@@ -524,6 +524,14 @@
       <SubType>compile</SubType>
       <Link>config\conf_ast.h</Link>
     </Compile>
+    <Compile Include="config\conf_flash.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_flash.h</Link>
+    </Compile>
+    <Compile Include="config\conf_sio2host.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_sio2host.h</Link>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>

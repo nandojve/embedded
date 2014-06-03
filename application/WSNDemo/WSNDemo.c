@@ -526,12 +526,10 @@ static void APP_TaskHandler(void)
 
 		appState = APP_STATE_COLLECT;
 	}
-	
+#endif
+
 	case APP_STATE_COLLECT:
 	{
-//		appState = APP_STATE_SEND;
-//		break;
-
 		int16_t				itemp		= 0;
 		status_code_t		ret			= 1; //at30tse752_read_register(AT30TSE52X_TEMP_REG, (uint16_t *) &itemp);
 		temp_collect_ok					= false;
@@ -559,7 +557,6 @@ static void APP_TaskHandler(void)
 	}
 	break;
 
-#endif
 	default:
 		break;
 	}
