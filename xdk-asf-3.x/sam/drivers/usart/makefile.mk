@@ -1,6 +1,8 @@
 ASF_DRIVERS_USART_DIR				= $(ASF_DRIVERS_DIR)/usart
 
 ifneq (, $(filter $(ASF_USART_DRIVER),1))
+ifneq (, $(filter $(ARMTYPE),SAM4L))
+
 #list C source files
 CSRC	+=																		\
 	$(ASF_DRIVERS_USART_DIR)/usart.c
@@ -21,4 +23,6 @@ ASRC +=
 #     Each directory must be seperated by a space.
 EXTRAINCDIRS +=																	\
 	$(ASF_DRIVERS_USART_DIR)
+
+endif
 endif
