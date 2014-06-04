@@ -104,6 +104,9 @@
 #include <twi_master.h>
 #include <delay.h>
 #include "VCNL40xx.h"
+#ifdef PLATFORM_WM400
+#include "AT30TSE752.h"
+#endif
 
 #if (HAL_USB_ENABLED == 1)
 	#include <udi_cdc.h>
@@ -530,18 +533,9 @@ static void APP_TaskHandler(void)
 
 	case APP_STATE_COLLECT:
 	{
-		int16_t				itemp		= 0;
-		status_code_t		ret			= 1; //at30tse752_read_register(AT30TSE52X_TEMP_REG, (uint16_t *) &itemp);
-		temp_collect_ok					= false;
 		vcnl_collect_ok					= false;
-
-		if(ret == STATUS_OK)
-		{
-			temp_collected				= 0;//at30tse752_itemp_to_ftemp(itemp);
-			temp_collect_ok				= true;
-		}
-		
-		ret								= vcnl40xx_start_convertion();
+		temp_collect_ok					= false;
+		status_code_t		ret			= vcnl40xx_start_convertion();
 		if(ret == STATUS_OK)
 		{
 			delay_ms(1);
@@ -551,8 +545,19 @@ static void APP_TaskHandler(void)
 				vcnl40xx_get_raw_data(&vcnl_collected);
 				vcnl_collect_ok			= true;
 			}
-		}
+		}		
 		
+#ifdef PLATFORM_WM400
+		int16_t				itemp		= 0;
+		ret								= at30tse752_read_register(AT30TSE52X_TEMP_REG, (uint16_t *) &itemp);
+
+		if(ret == STATUS_OK)
+		{
+			temp_collected				= at30tse752_itemp_to_ftemp(itemp);
+			temp_collect_ok				= true;
+		}
+#endif
+
 		appState = APP_STATE_SEND;
 	}
 	break;
@@ -584,7 +589,18 @@ void start_iic(void)
 	};
 
 	twi_master_setup(TWIM_MASTER_PORT, &options);
-	
+
+#ifdef PLATFORM_WM400
+	{
+		at30tse75x_config_t	config;
+		at30tse752_getConfig(&config);
+			
+		config.conversion_resolution = AT30TSE52X_12_BITS;
+			
+		at30tse752_setConfig(&config);
+	}
+#endif
+
 	vcnl40xx_init();
 }
 

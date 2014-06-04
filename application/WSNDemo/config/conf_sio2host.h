@@ -44,7 +44,7 @@
 #define CONF_SIO2HOST_H_INCLUDED
 
 #include <platform.h>
-#include <usart_serial.h>
+#include <serial.h>
 #include <stdio_serial.h>
 
 #define SERIAL_RX_BUF_SIZE_HOST    156
