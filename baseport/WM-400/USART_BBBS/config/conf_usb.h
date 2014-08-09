@@ -57,8 +57,8 @@
 #define  USB_DEVICE_MAJOR_VERSION         1
 #define  USB_DEVICE_MINOR_VERSION         0
 #define  USB_DEVICE_POWER                 100
-#define  USB_DEVICE_MANUFACTURE_NAME      "ATMEL ASF"
-#define  USB_DEVICE_PRODUCT_NAME          "CDC"
+#define  USB_DEVICE_MANUFACTURE_NAME      "ATMEL"
+#define  USB_DEVICE_PRODUCT_NAME          "WM Series (Wireless Module CDC Driver)"
 
 #define  USB_DEVICE_ATTR                  \
 	(USB_CONFIG_ATTR_SELF_POWERED)
