@@ -20,7 +20,7 @@
           <case value="0x01">
 		        <value name="ParamLength" type="uint8" hidden="true"/>
 		        <mathfield name="Battery" type="uint32" convert="x/1000"/>
-		        <value name="Temperature" type="int32"/>
+		        <mathfield name="Temperature" type="uint32" convert="x/1000"/>
 			    <mathfield name="Light" type="uint32" convert="x/1000"/>
           </case>
           <case value="0x20">

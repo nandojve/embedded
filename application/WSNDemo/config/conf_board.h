@@ -78,6 +78,7 @@
 	#define	CONF_BOARD_TWIMS1
 	#define CONF_BOARD_SPI
 	#define CONF_BOARD_AT86RFX
+	#define CONF_BOARD_USB_PORT
 	#define IC_TYPE											(0x00)
 
 #elif defined(PLATFORM_SAMD20_PRO)

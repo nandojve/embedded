@@ -107,6 +107,9 @@
 #ifdef PLATFORM_WM400
 #include "AT30TSE752.h"
 #endif
+void start_iic(void);
+
+#define HAL_USB_ENABLED 1
 
 #if (HAL_USB_ENABLED == 1)
 	#include <udi_cdc.h>
@@ -175,17 +178,19 @@ static vcnl40xx_raw_data_t vcnl_collected = { .ambient_light = 0, .proximity = 0
 	static bool appNetworkStatus;
 #endif
 
-#if APP_COORDINATOR
-	static uint8_t rx_data[APP_RX_BUF_SIZE];
-#endif
-
 static AppMessage_t appMsg;
 static SYS_Timer_t appDataSendingTimer;
 #define APP_COMMAND_PENDING 0x01
-void UartBytesReceived(uint16_t bytes, uint8_t *byte );
 
 #if (HAL_USB_ENABLED == 1)
 	static uint8_t sendbuffer[512];
+	void UartBytesReceived(void);
+#else
+	#if APP_COORDINATOR
+		static uint8_t rx_data[APP_RX_BUF_SIZE];
+	#endif
+
+	void UartBytesReceived(uint16_t bytes, uint8_t *byte );
 #endif
 
 /*- Implementations --------------------------------------------------------*/
@@ -567,11 +572,11 @@ static void APP_TaskHandler(void)
 	}
 
 #if (APP_COORDINATOR)
-	uint16_t bytes;
-	
 	#if (HAL_USB_ENABLED == 1)
 		UartBytesReceived();
 	#else
+		uint16_t bytes;
+
 		if ((bytes = sio2host_rx(rx_data, APP_RX_BUF_SIZE)) > 0)
 		{
 			UartBytesReceived(bytes, (uint8_t *)&rx_data);
