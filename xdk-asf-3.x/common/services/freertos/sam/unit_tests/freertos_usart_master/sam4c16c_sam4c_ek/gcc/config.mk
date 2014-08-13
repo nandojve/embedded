@@ -99,6 +99,7 @@ INC_PATH = \
        sam/boards                                         \
        sam/boards/sam4c_ek                                \
        sam/drivers/pdc                                    \
+       sam/drivers/pdc/pdc_uart_example                   \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
@@ -165,6 +166,7 @@ CPPFLAGS = \
        -D BOARD=SAM4C_EK                                  \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_                                 \
+       -D __FREERTOS__                                    \
        -D __SAM4C16C_0__                                  \
        -D printf=iprintf                                  \
        -D scanf=iscanf
