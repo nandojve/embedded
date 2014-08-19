@@ -65,7 +65,7 @@
 // From module: Flash - SAM Flash Service API
 #include <flash_efc.h>
 
-// From module: FreeRTOS - Kernel 7.3.0
+// From module: FreeRTOS mini Real-Time Kernel
 #include <FreeRTOS.h>
 #include <FreeRTOS_CLI.h>
 #include <StackMacros.h>
@@ -128,6 +128,9 @@
 
 // From module: System Clock Control - SAM4S implementation
 #include <sysclk.h>
+
+// From module: TC - Timer Counter
+#include <tc.h>
 
 // From module: UART - Univ. Async Rec/Trans
 #include <uart.h>

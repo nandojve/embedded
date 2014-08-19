@@ -113,6 +113,7 @@ INC_PATH = \
        sam/boards                                         \
        sam/boards/sam3n_ek                                \
        sam/drivers/pdc                                    \
+       sam/drivers/pdc/pdc_uart_example                   \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/spi                                    \
@@ -181,6 +182,7 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3N_EK                                  \
+       -D __FREERTOS__                                    \
        -D __SAM3N4C__                                     \
        -D printf=iprintf                                  \
        -D scanf=iscanf

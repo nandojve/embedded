@@ -82,7 +82,7 @@ CSRCS = \
        sam/utils/syscalls/gcc/syscalls.c                  \
        thirdparty/freertos/freertos-7.3.0/source/FreeRTOS_CLI.c \
        thirdparty/freertos/freertos-7.3.0/source/list.c   \
-       thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm4f/port.c \
+       thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam_cm4f/port.c \
        thirdparty/freertos/freertos-7.3.0/source/portable/memmang/heap_4.c \
        thirdparty/freertos/freertos-7.3.0/source/queue.c  \
        thirdparty/freertos/freertos-7.3.0/source/tasks.c  \
@@ -155,6 +155,7 @@ INC_PATH = \
        sam/drivers/ebi/smc                                \
        sam/drivers/gmac                                   \
        sam/drivers/pdc                                    \
+       sam/drivers/pdc/pdc_uart_example                   \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/rstc                                   \
@@ -172,7 +173,7 @@ INC_PATH = \
        thirdparty/CMSIS/Include                           \
        thirdparty/CMSIS/Lib/GCC                           \
        thirdparty/freertos/freertos-7.3.0/source/include  \
-       thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm4f \
+       thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam_cm4f \
        thirdparty/lwip/lwip-1.4.1/src/include             \
        thirdparty/lwip/lwip-1.4.1/src/include/ipv4        \
        thirdparty/lwip/lwip-1.4.1/src/include/lwip        \
@@ -237,6 +238,7 @@ CPPFLAGS = \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAM4E_EK                                  \
        -D FREERTOS_USED=1                                 \
+       -D __FREERTOS__                                    \
        -D __SAM4E16E__                                    \
        -D printf=iprintf                                  \
        -D scanf=iscanf
