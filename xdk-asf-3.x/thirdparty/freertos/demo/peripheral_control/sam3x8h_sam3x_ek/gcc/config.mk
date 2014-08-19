@@ -120,6 +120,7 @@ INC_PATH = \
        sam/boards                                         \
        sam/boards/sam3x_ek                                \
        sam/drivers/pdc                                    \
+       sam/drivers/pdc/pdc_uart_example                   \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/twi                                    \
@@ -190,6 +191,7 @@ CPPFLAGS = \
        -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3X_EK                                  \
        -D UDD_ENABLE                                      \
+       -D __FREERTOS__                                    \
        -D __SAM3X8H__                                     \
        -D printf=iprintf                                  \
        -D scanf=iscanf

@@ -152,6 +152,7 @@ INC_PATH = \
        sam/components/ethernet_phy/ksz8851snl             \
        sam/drivers/ebi/smc                                \
        sam/drivers/pdc                                    \
+       sam/drivers/pdc/pdc_uart_example                   \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/rstc                                   \
@@ -228,6 +229,7 @@ CPPFLAGS = \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAM4S_EK                                  \
        -D FREERTOS_USED=1                                 \
+       -D __FREERTOS__                                    \
        -D __SAM4S16C__                                    \
        -D printf=iprintf                                  \
        -D scanf=iscanf

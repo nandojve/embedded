@@ -110,7 +110,7 @@ CSRCS = \
        thirdparty/lwip/lwip-1.4.1/src/core/tcp_out.c      \
        thirdparty/lwip/lwip-1.4.1/src/core/udp.c          \
        thirdparty/lwip/lwip-1.4.1/src/netif/etharp.c      \
-       thirdparty/lwip/lwip-port-1.4.1/sam/netif/samd20_spi_ksz8851snl.c \
+       thirdparty/lwip/lwip-port-1.4.1/sam/netif/sam0_spi_ksz8851snl.c \
        thirdparty/lwip/raw_http_basic_example/network/ethernet.c \
        thirdparty/lwip/raw_http_basic_example/network/httpserver/fs.c \
        thirdparty/lwip/raw_http_basic_example/network/httpserver/fsdata.c \
@@ -145,9 +145,6 @@ INC_PATH = \
        sam0/drivers/tc                                    \
        sam0/utils                                         \
        sam0/utils/cmsis/samd20/include                    \
-       sam0/utils/cmsis/samd20/include/component          \
-       sam0/utils/cmsis/samd20/include/instance           \
-       sam0/utils/cmsis/samd20/include/pio                \
        sam0/utils/cmsis/samd20/source                     \
        sam0/utils/header_files                            \
        sam0/utils/preprocessor                            \
