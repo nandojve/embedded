@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief SAM D20/D21 Brown Out Detector Driver
+ * \brief SAM Brown Out Detector Driver
  *
  * Copyright (C) 2013-2014 Atmel Corporation. All rights reserved.
  *
@@ -50,15 +50,19 @@ extern "C" {
 #endif
 
 /**
- * \defgroup asfdoc_sam0_bod_group SAM D20/D21 Brown Out Detector Driver (BOD)
+ * \defgroup asfdoc_sam0_bod_group SAM Brown Out Detector Driver (BOD)
  *
- * This driver for SAM D20/D21 devices provides an interface for the configuration
+ * This driver for SAM devices provides an interface for the configuration
  * and management of the device's Brown Out Detector (BOD) modules, to detect
  * and respond to under-voltage events and take an appropriate action.
  *
  * The following peripherals are used by this module:
- *
  * - SYSCTRL (System Control)
+ *
+ * The following devices can use this module:
+ *  - SAM D20/D21
+ *  - SAM R21
+ *  - SAM D10/D11
  *
  * The outline of this documentation is as follows:
  *  - \ref asfdoc_sam0_bod_prerequisites
@@ -76,10 +80,10 @@ extern "C" {
  *
  * \section asfdoc_sam0_bod_module_overview Module Overview
  *
- * The SAM D20/D21 devices contain a number of Brown Out Detector (BOD) modules. Each
- * BOD monitors the supply voltage for any dips that go below the set threshold
- * for the module. In case of a BOD detection the BOD will either reset the
- * system or raise a hardware interrupt so that a safe power-down sequence can
+ * The SAM devices contain a number of Brown Out Detector (BOD) modules.
+ * Each BOD monitors the supply voltage for any dips that go below the set
+ * threshold for the module. In case of a BOD detection the BOD will either reset
+ * the system or raise a hardware interrupt so that a safe power-down sequence can
  * be attempted.
  *
  *
@@ -89,7 +93,6 @@ extern "C" {
  * to continue executing (in the case of a core power failure) is system
  * specific; care must be taken that all critical BOD detection events can
  * complete within the amount of time available.
- *
  *
  * \section asfdoc_sam0_bod_extra_info Extra Information
  *
@@ -406,6 +409,18 @@ static inline void bod_clear_detected(
  *
  *  - \subpage asfdoc_sam0_bod_basic_use_case
  *
+ *  - \subpage asfdoc_sam0_bod_application_use_case
+ *
+ * \page asfdoc_sam0_bod_application_use_case Application Use Case for BOD - Application
+ * The preferred method of setting BOD33 levels and settings is trough the fuses.
+ * when it is desirable to set it in software, please see the below use case.
+ *
+ * In this use case, a new BOD33 level might be set in SW if the clock settings
+ * are adjusted up after a battery has charged to a higher level. When the battery
+ * discharges, the chip will reset when the battery level is below SW BOD33 level.
+ * Now the chip will run at a lower clock rate and the BOD33 level from fuse.
+ * The chip should always measure the voltage before adjusting the frequency up.
+ *
  * \page asfdoc_sam0_bod_document_revision_history Document Revision History
  *
  * <table>
@@ -413,6 +428,16 @@ static inline void bod_clear_detected(
  *		<th>Doc. Rev.</td>
  *		<th>Date</td>
  *		<th>Comments</td>
+ *	</tr>
+ *	<tr>
+ *		<td>E</td>
+ *		<td>04/2014</td>
+ *		<td>Added support for SAMD10/D11.</td>
+ *	</tr>
+ *	<tr>
+ *		<td>D</td>
+ *		<td>03/2014</td>
+ *		<td>Added support for SAMR21.</td>
  *	</tr>
  *	<tr>
  *		<td>C</td>

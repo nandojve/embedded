@@ -3,16 +3,16 @@
 
 #list C source files
 CSRC +=																			\
-	$(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Src/pal.c							\
-	$(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Src/pal_utils.c					\
-	$(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Src/pal_uart.c						\
-	$(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Src/pal_boot_flash.c				\
-	$(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Src/pal_flash.c
+	$(PATH_PAL)/$(PAL_GENERIC_TYPE)/Generic/Src/pal.c							\
+	$(PATH_PAL)/$(PAL_GENERIC_TYPE)/Generic/Src/pal_utils.c						\
+	$(PATH_PAL)/$(PAL_GENERIC_TYPE)/Generic/Src/pal_uart.c						\
+	$(PATH_PAL)/$(PAL_GENERIC_TYPE)/Generic/Src/pal_boot_flash.c				\
+	$(PATH_PAL)/$(PAL_GENERIC_TYPE)/Generic/Src/pal_flash.c
 
 CSRC +=																			\
-	$(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Drivers/drivers.c							\
-	$(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Drivers/twim_driver.c						\
-	$(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Drivers/rs485_driver.c
+	$(PATH_PAL)/$(PAL_GENERIC_TYPE)/Drivers/drivers.c							\
+	$(PATH_PAL)/$(PAL_GENERIC_TYPE)/Drivers/twim_driver.c						\
+	$(PATH_PAL)/$(PAL_GENERIC_TYPE)/Drivers/rs485_driver.c
 
 # List Assembler source files here.
 # Make them always end in a capital .S.  Files ending in a lowercase .s
@@ -28,9 +28,9 @@ ASRC +=
 ## Include directories for PAL
 EXTRAINCDIRS +=																	\
 	$(PATH_PAL)/Inc/															\
-	$(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Inc								\
-	$(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Drivers
+	$(PATH_PAL)/$(PAL_GENERIC_TYPE)/Generic/Inc									\
+	$(PATH_PAL)/$(PAL_GENERIC_TYPE)/Drivers
 
 # Include Makefiles
 include																			\
-	$(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/makefile.mk
+	$(PATH_PAL)/$(PAL_GENERIC_TYPE)/$(PAL_TYPE)/makefile.mk

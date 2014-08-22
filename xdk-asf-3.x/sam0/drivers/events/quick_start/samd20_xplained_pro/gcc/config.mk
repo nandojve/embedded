@@ -55,6 +55,7 @@ CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam0/boards/samd20_xplained_pro/board_init.c       \
        sam0/drivers/events/events.c                       \
+       sam0/drivers/events/events_hooks.c                 \
        sam0/drivers/events/quick_start/qs_events_basic.c  \
        sam0/drivers/port/port.c                           \
        sam0/drivers/system/clock/clock_samd20/clock.c     \
@@ -87,9 +88,6 @@ INC_PATH = \
        sam0/drivers/system/pinmux                         \
        sam0/utils                                         \
        sam0/utils/cmsis/samd20/include                    \
-       sam0/utils/cmsis/samd20/include/component          \
-       sam0/utils/cmsis/samd20/include/instance           \
-       sam0/utils/cmsis/samd20/include/pio                \
        sam0/utils/cmsis/samd20/source                     \
        sam0/utils/header_files                            \
        sam0/utils/preprocessor                            \
@@ -145,6 +143,7 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM0=true                               \
        -D BOARD=SAMD20_XPLAINED_PRO                       \
+       -D EVENTS_INTERRUPT_HOOKS_MODE=true                \
        -D __SAMD20J18__
 
 # Extra flags to use when linking

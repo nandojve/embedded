@@ -3,7 +3,7 @@
  *
  * \brief Commonly used includes, types and macros.
  *
- * Copyright (c) 2011-2013 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2014 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -156,10 +156,58 @@
 
 
 /*! \name MCU Endianism Handling
+ * mega is a MCU little endianism.
  */
 //! @{
-#define MSB(u16)             (((uint8_t* )&u16)[1])
-#define LSB(u16)             (((uint8_t* )&u16)[0])
+#define  MSB(u16)          (((uint8_t* )&u16)[1])
+#define  LSB(u16)          (((uint8_t* )&u16)[0])
+
+#define  MSW(u32)          (((uint16_t*)&u32)[1])
+#define  LSW(u32)          (((uint16_t*)&u32)[0])
+#define  MSB0W(u32)        (((uint8_t*)&(u32))[3])  //!< Most significant byte of 1st rank of \a u32.
+#define  MSB1W(u32)        (((uint8_t*)&(u32))[2])  //!< Most significant byte of 2nd rank of \a u32.
+#define  MSB2W(u32)        (((uint8_t*)&(u32))[1])  //!< Most significant byte of 3rd rank of \a u32.
+#define  MSB3W(u32)        (((uint8_t*)&(u32))[0])  //!< Most significant byte of 4th rank of \a u32.
+#define  LSB3W(u32)        MSB0W(u32)            //!< Least significant byte of 4th rank of \a u32.
+#define  LSB2W(u32)        MSB1W(u32)            //!< Least significant byte of 3rd rank of \a u32.
+#define  LSB1W(u32)        MSB2W(u32)            //!< Least significant byte of 2nd rank of \a u32.
+#define  LSB0W(u32)        MSB3W(u32)            //!< Least significant byte of 1st rank of \a u32.
+
+#define  MSB0(u32)         (((uint8_t*)&u32)[3])
+#define  MSB1(u32)         (((uint8_t*)&u32)[2])
+#define  MSB2(u32)         (((uint8_t*)&u32)[1])
+#define  MSB3(u32)         (((uint8_t*)&u32)[0])
+#define  LSB0(u32)         MSB3(u32)
+#define  LSB1(u32)         MSB2(u32)
+#define  LSB2(u32)         MSB1(u32)
+#define  LSB3(u32)         MSB0(u32)
+
+#define  LE16(x)        (x)
+#define  le16_to_cpu(x) (x)
+#define  cpu_to_le16(x) (x)
+#define  LE16_TO_CPU(x) (x)
+#define  CPU_TO_LE16(x) (x)
+
+#define  BE16(x)        Swap16(x)
+#define  be16_to_cpu(x) swap16(x)
+#define  cpu_to_be16(x) swap16(x)
+#define  BE16_TO_CPU(x) Swap16(x)
+#define  CPU_TO_BE16(x) Swap16(x)
+
+#define  LE32(x)        (x)
+#define  le32_to_cpu(x) (x)
+#define  cpu_to_le32(x) (x)
+#define  LE32_TO_CPU(x) (x)
+#define  CPU_TO_LE32(x) (x)
+
+#define  BE32(x)        Swap32(x)
+#define  be32_to_cpu(x) swap32(x)
+#define  cpu_to_be32(x) swap32(x)
+#define  BE32_TO_CPU(x) Swap32(x)
+#define  CPU_TO_BE32(x) Swap32(x)
+
+
+
 //! @}
 
 #include "interrupt.h"
@@ -308,7 +356,6 @@ typedef uint8_t                 U8 ;  //!< 8-bit unsigned integer.
 typedef uint16_t                U16;  //!< 16-bit unsigned integer.
 typedef uint32_t                U32;  //!< 32-bit unsigned integer.
 typedef unsigned long long int  U64;  //!< 64-bit unsigned integer.
-
 
 /*! \brief Toggles the endianism of \a u16 (by swapping its bytes).
  *

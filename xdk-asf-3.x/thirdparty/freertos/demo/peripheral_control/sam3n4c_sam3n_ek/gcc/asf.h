@@ -63,8 +63,11 @@
 // From module: FreeRTOS - SPI Interface Layer
 #include <freertos_spi_master.h>
 
-// From module: FreeRTOS - USART Interface Layer
+// From module: FreeRTOS - UART Interface Layer
 #include <freertos_uart_serial.h>
+
+// From module: FreeRTOS - USART Interface Layer
+#include <freertos_usart_serial.h>
 
 // From module: FreeRTOS mini Real-Time Kernel
 #include <FreeRTOS.h>

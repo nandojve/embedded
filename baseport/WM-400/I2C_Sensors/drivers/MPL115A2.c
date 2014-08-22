@@ -11,6 +11,10 @@
 #include "MPL115A2.h"
 #include "conf_twim.h"
 
+#ifndef MPL115A2_DEVICE
+	#define			MPL115A2_DEVICE		0x60
+#endif
+
 static twi_package_t package								=
 {
 	.chip													= MPL115A2_DEVICE,

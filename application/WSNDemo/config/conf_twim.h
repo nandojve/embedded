@@ -43,12 +43,34 @@
 #ifndef _CONF_TWIM_H_
 #define _CONF_TWIM_H_
 
-#define CONF_TWIM_INTLVL        TWI_MASTER_INTLVL_MED_gc
-#define CONF_PMIC_INTLVL        PMIC_MEDLVLEN_bm
+#include <platform.h>
 
-#define TWI_MASTER				TWIE
-#define TWI_MASTER_PORT			PORTE
-#define TWI_SPEED				400000
-#define TWI_MASTER_ADDR			0x00
+#if (PLATFORM == mega)
+	#define TWIM_MASTER_PORT			&TWBR
+	#define TWIM_MASTER_SPEED			100000
+	
+#elif (PLATFORM == xmega)
+	#define CONF_TWIM_INTLVL			TWI_MASTER_INTLVL_MED_gc
+	#define CONF_PMIC_INTLVL			PMIC_MEDLVLEN_bm
+	#define TWIM_MASTER_PORT			PORTE
+	#define TWIM_MASTER_SPEED			100000
+	#define TWIM_MASTER_ADDR			0x00
+	
+#elif defined(ARMTYPE)
+	#if (ARMTYPE == SAM4L)
+		#define CONF_TWIM_IRQn			TWIM1_IRQn
+		#define CONF_TWIM_PORT			TWIM1
+		#define CONF_TWIM_MASTER_SPEED	TWI_STD_MODE_SPEED
+		#define CONF_TWIM_Handler		TWIM1_Handler
+
+		#define TWIM_MASTER_PORT		CONF_TWIM_PORT
+		#define TWIM_MASTER_SPEED		CONF_TWIM_MASTER_SPEED
+		
+	#endif
+	
+#else
+	#error "Invalid Platform!"
+	
+#endif
 
 #endif // _CONF_TWIM_H_

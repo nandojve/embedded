@@ -33,7 +33,9 @@ ASF_THIRDPARTY_QTOUCH_DIR				= $(ASF_THIRDPARTY_DIR)/qtouch
 	include $(ASF_THIRDPARTY_QTOUCH_DIR)/makefile.mk
 endif
 ifeq ($(strip $(USE_WIRELESS)),1)
+ifneq ($(strip $(USE_WIRELESS_OLD)),1)
 ASF_THIRDPARTY_WIRELESS_DIR				= $(ASF_THIRDPARTY_DIR)/wireless
 
 	include $(ASF_THIRDPARTY_WIRELESS_DIR)/makefile.mk
+endif
 endif

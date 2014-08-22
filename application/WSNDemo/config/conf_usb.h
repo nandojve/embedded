@@ -72,8 +72,8 @@
 //											(USB_CONFIG_ATTR_REMOTE_WAKEUP|USB_CONFIG_ATTR_BUS_POWERED)
 
 //! USB Device string definitions (Optional)
-#define  USB_DEVICE_MANUFACTURE_NAME		"ATMEL ASF"
-#define  USB_DEVICE_PRODUCT_NAME			"CDC Virtual Com"
+#define  USB_DEVICE_MANUFACTURE_NAME		"ATMEL"
+#define  USB_DEVICE_PRODUCT_NAME			"WM Series (Wireless Module CDC Driver)"
 // #define  USB_DEVICE_SERIAL_NAME           "12...EF"
 
 
@@ -95,10 +95,10 @@
  * USB Device Callbacks definitions (Optional)
  * @{
  */
-#define  UDC_VBUS_EVENT(b_vbus_high)      driver_vbus_action(b_vbus_high)
-#define  UDC_SOF_EVENT()                  driver_sof_action()
-#define  UDC_SUSPEND_EVENT()              driver_suspend_action()
-#define  UDC_RESUME_EVENT()               driver_resume_action()
+#define  UDC_VBUS_EVENT(b_vbus_high)      //driver_vbus_action(b_vbus_high)
+#define  UDC_SOF_EVENT()                  //driver_sof_action()
+#define  UDC_SUSPEND_EVENT()              //driver_suspend_action()
+#define  UDC_RESUME_EVENT()               //driver_resume_action()
 //! Mandatory when USB_DEVICE_ATTR authorizes remote wakeup feature
 // #define  UDC_REMOTEWAKEUP_ENABLE()        user_callback_remotewakeup_enable()
 // extern void user_callback_remotewakeup_enable(void);
@@ -125,12 +125,12 @@
 #define  UDI_CDC_PORT_NB 1
 
 //! Interface callback definition
-#define  UDI_CDC_ENABLE_EXT(port)         driver_cdc_enable(port)
-#define  UDI_CDC_DISABLE_EXT(port)        driver_cdc_disable(port)
-#define  UDI_CDC_RX_NOTIFY(port)          driver_cdc_rx_notify(port)
+#define  UDI_CDC_ENABLE_EXT(port)         stdio_usb_enable(port)
+#define  UDI_CDC_DISABLE_EXT(port)        stdio_usb_disable(port)
+#define  UDI_CDC_RX_NOTIFY(port)          //driver_cdc_rx_notify(port)
 #define  UDI_CDC_TX_EMPTY_NOTIFY(port)
 #define  UDI_CDC_SET_CODING_EXT(port,cfg) //uart_config(port,cfg)
-#define  UDI_CDC_SET_DTR_EXT(port,set)    driver_cdc_set_dtr(port,set)
+#define  UDI_CDC_SET_DTR_EXT(port,set)    //driver_cdc_set_dtr(port,set)
 #define  UDI_CDC_SET_RTS_EXT(port,set)
 
 //! Define it when the transfer CDC Device to Host is a low rate (<512000 bauds)

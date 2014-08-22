@@ -59,6 +59,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: EEFC - Enhanced Embedded Flash Controller
+#include <efc.h>
+
 // From module: Generic board support
 #include <board.h>
 
@@ -83,6 +86,9 @@
 
 // From module: SAMG53 startup code
 #include <exceptions.h>
+
+// From module: SUPC - Supply Controller
+#include <supc.h>
 
 // From module: Standard serial I/O (stdio) - SAM implementation
 #include <stdio_serial.h>

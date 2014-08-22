@@ -1,12 +1,12 @@
 ASF_COMMON_UTILS_STDIO_DIR			= $(ASF_COMMON_UTILS_DIR)/stdio
 
-ifeq ($(strip $(USE_SIO_MANAGER)),1)
+ifneq (, $(filter $(USE_SIO_MANAGER),1))
 #list C source files
 CSRC	+=																		\
 	$(ASF_COMMON_UTILS_STDIO_DIR)/read.c										\
 	$(ASF_COMMON_UTILS_STDIO_DIR)/write.c
 
-ifeq ($(strip $(SIO2HOST_CHANNEL)),SIO_USB)
+ifneq (, $(filter $(SIO2HOST_CHANNEL),SIO_USB))
 #list C source files
 CSRC	+=																		\
 	$(ASF_COMMON_UTILS_STDIO_DIR)/stdio_usb/stdio_usb.c

@@ -55,14 +55,15 @@ CSRCS = \
        mega/boards/atmega256rfr2_zigbit/init.c            \
        mega/drivers/usart/usart_megarf.c                  \
        thirdparty/wireless/addons/sio2host/uart/sio2host.c \
+       thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/main.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/init_state.c \
-       thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/main.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/peer_search_initiator.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/peer_search_receptor.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/per_mode_common_utils.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/per_mode_initiator.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/per_mode_receptor.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/perf_api_serial_handler.c \
+       thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/performance_main.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/range_measure.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/user_interface.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/wait_for_event.c \
@@ -172,7 +173,8 @@ CPPFLAGS = \
        -D HIGHEST_STACK_LAYER=TAL                         \
        -D HIGH_DATA_RATE_SUPPORT                          \
        -D TAL_TYPE=ATMEGARFR2                             \
-       -D TRX_REG_RAW_VALUE
+       -D TRX_REG_RAW_VALUE                               \
+       -D _DEBUG_=0
 
 # Extra flags to use when linking
 LDFLAGS = 

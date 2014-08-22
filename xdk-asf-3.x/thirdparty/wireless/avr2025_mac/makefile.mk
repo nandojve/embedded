@@ -7,6 +7,7 @@ CFLAGS += -DHIGHEST_STACK_LAYER=$(HIGHEST_STACK_LAYER)
 CFLAGS += -DPAL_GENERIC_TYPE=$(strip $(PLATFORM))
 CFLAGS += -DPAL_TYPE=$(shell echo $(MCU) | tr [:upper:] [:lower:])
 CFLAGS += -DTAL_TYPE=$(TAL_TYPE)
+CFLAGS += -DSAL_TYPE=$(SAL_TYPE)
 
 ifneq (, $(filter $(PLATFORM),xmega sam uc3))
 CFLAGS += -DPAL_USE_SPI_TRX=1

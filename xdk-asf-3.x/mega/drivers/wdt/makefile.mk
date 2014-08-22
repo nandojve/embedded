@@ -1,6 +1,5 @@
 ASF_DRIVERS_WDT_DIR						= $(ASF_DRIVERS_DIR)/wdt
 
-ifeq ($(strip $(ASF_WDT_DRIVER)),1)
 #list C source files
 CSRC	+=																		\
 	$(ASF_DRIVERS_WDT_DIR)/wdt_megarf.c
@@ -21,5 +20,3 @@ ASRC +=
 #     Each directory must be seperated by a space.
 EXTRAINCDIRS +=																	\
 	$(ASF_DRIVERS_WDT_DIR)
-
-endif

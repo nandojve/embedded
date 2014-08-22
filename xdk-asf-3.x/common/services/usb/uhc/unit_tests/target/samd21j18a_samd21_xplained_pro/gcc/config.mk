@@ -58,7 +58,7 @@ CSRCS = \
        common/services/usb/uhc/unit_tests/target/unit_tests.c \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        common/utils/unit_test/suite.c                     \
-       common2/services/delay/sam0/cycle_counter.c        \
+       common2/services/delay/sam0/systick_counter.c      \
        sam0/boards/samd21_xplained_pro/board_init.c       \
        sam0/drivers/extint/extint.c                       \
        sam0/drivers/extint/extint_callback.c              \
@@ -67,8 +67,8 @@ CSRCS = \
        sam0/drivers/sercom/sercom_interrupt.c             \
        sam0/drivers/sercom/usart/usart.c                  \
        sam0/drivers/sercom/usart/usart_interrupt.c        \
-       sam0/drivers/system/clock/clock_samd21/clock.c     \
-       sam0/drivers/system/clock/clock_samd21/gclk.c      \
+       sam0/drivers/system/clock/clock_samd21_r21/clock.c \
+       sam0/drivers/system/clock/clock_samd21_r21/gclk.c  \
        sam0/drivers/system/interrupt/system_interrupt.c   \
        sam0/drivers/system/pinmux/pinmux.c                \
        sam0/drivers/system/system.c                       \
@@ -106,7 +106,7 @@ INC_PATH = \
        sam0/drivers/sercom/usart                          \
        sam0/drivers/system                                \
        sam0/drivers/system/clock                          \
-       sam0/drivers/system/clock/clock_samd21             \
+       sam0/drivers/system/clock/clock_samd21_r21         \
        sam0/drivers/system/interrupt                      \
        sam0/drivers/system/interrupt/system_interrupt_samd21 \
        sam0/drivers/system/pinmux                         \
@@ -114,9 +114,6 @@ INC_PATH = \
        sam0/drivers/usb/stack_interface                   \
        sam0/utils                                         \
        sam0/utils/cmsis/samd21/include                    \
-       sam0/utils/cmsis/samd21/include/component          \
-       sam0/utils/cmsis/samd21/include/instance           \
-       sam0/utils/cmsis/samd21/include/pio                \
        sam0/utils/cmsis/samd21/source                     \
        sam0/utils/header_files                            \
        sam0/utils/preprocessor                            \
@@ -174,6 +171,7 @@ CPPFLAGS = \
        -D ARM_MATH_CM0=true                               \
        -D BOARD=SAMD21_XPLAINED_PRO                       \
        -D EXTINT_CALLBACK_MODE=true                       \
+       -D SYSTICK_MODE                                    \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D UHD_ENABLE                                      \
        -D USART_CALLBACK_MODE=true                        \

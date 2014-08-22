@@ -53,9 +53,11 @@ int main(void)
 
 	start_iic();
 	
-	delay_ms(10);											// Wait wake-up and ready
-	mpl115a2_init();										// Get Coefficients to evaluate data
-	//ioport_set_pin_level(PIN_PA06, IOPORT_PIN_LEVEL_LOW);	// Force MPL115A2 to save energy
+	ioport_set_pin_level(SENSORS_MPL115A2_EN, IOPORT_PIN_LEVEL_LOW);	// Force MPL115A2 to save energy
+	delay_ms(10);														// Wait wake-up and ready
+	ioport_set_pin_level(SENSORS_MPL115A2_EN, IOPORT_PIN_LEVEL_HIGH);	// Force MPL115A2 to save energy
+	mpl115a2_init();													// Get Coefficients to evaluate data
+	ioport_set_pin_level(SENSORS_MPL115A2_EN, IOPORT_PIN_LEVEL_LOW);	// Force MPL115A2 to save energy
 
 	vcnl40xx_init();
 	
@@ -322,8 +324,8 @@ void app_task(TerminalState* state)
 				if(ret != STATUS_OK)
 					printf("CC2D33S fail!\n");
 				
-//				ioport_set_pin_level(PIN_PA06, IOPORT_PIN_LEVEL_HIGH);	// Enable MPL115A2
-//				delay_ms(5);											// Wait wake-up and ready
+				ioport_set_pin_level(SENSORS_MPL115A2_EN, IOPORT_PIN_LEVEL_HIGH);	// Enable MPL115A2
+				delay_ms(5);											// Wait wake-up and ready
 
 				ret								= mpl115a2_start_convertion();
 

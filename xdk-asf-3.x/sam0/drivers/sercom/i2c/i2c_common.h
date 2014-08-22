@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief SAM D20/D21 I2C Common Driver
+ * \brief SAM SERCOM I2C Common Driver
  *
  * Copyright (C) 2012-2014 Atmel Corporation. All rights reserved.
  *
@@ -52,14 +52,14 @@ extern "C" {
 
 /**
  * \if (I2C_MASTER_MODE && I2C_SLAVE_MODE)
- *   \defgroup asfdoc_sam0_sercom_i2c_group SAM D20/D21 I2C Driver (SERCOM I2C)
+ *   \defgroup asfdoc_sam0_sercom_i2c_group SAM I2C Driver (SERCOM I2C)
  * \elseif I2C_MASTER_MODE
- *   \defgroup asfdoc_sam0_sercom_i2c_group SAM D20/D21 I2C Master Mode Driver (SERCOM I2C)
+ *   \defgroup asfdoc_sam0_sercom_i2c_group SAM I2C Master Mode Driver (SERCOM I2C)
  * \elseif I2C_SLAVE_MODE
- *   \defgroup asfdoc_sam0_sercom_i2c_group SAM D20/D21 I2C Slave Mode Driver (SERCOM I2C)
+ *   \defgroup asfdoc_sam0_sercom_i2c_group SAM I2C Slave Mode Driver (SERCOM I2C)
  * \endif
  *
- * This driver for SAM D20/D21 devices provides an interface for the configuration
+ * This driver for SAM devices provides an interface for the configuration
  * and management of the device's SERCOM I<SUP>2</SUP>C module, for the transfer
  * of data via an I<SUP>2</SUP>C bus. The following driver API modes are covered
  * by this manual:
@@ -78,8 +78,12 @@ extern "C" {
  * \endif
  *
  * The following peripheral is used by this module:
- *
  * - SERCOM (Serial Communication Interface)
+ *
+ * The following devices can use this module:
+ *  - SAM D20/D21
+ *  - SAM R21
+ *  - SAM D10/D11
  *
  * The outline of this documentation is as follows:
  * - \ref asfdoc_sam0_sercom_i2c_prerequisites
@@ -110,24 +114,20 @@ extern "C" {
  *		<th>Supported devices</th>
  *	</tr>
  *	<tr>
- *		<td>FEATURE_I2C_SYNC_SCHEME_VERSION_2</td>
- *		<td>SAMD21</td>
- *	</tr>
- *	<tr>
  *		<td>FEATURE_I2C_FAST_MODE_PLUS_AND_HIGH_SPEED</td>
- *		<td>SAMD21</td>
+ *		<td>SAM D21/R21/D10/D11</td>
  *	</tr>
  *	<tr>
  *		<td>FEATURE_I2C_10_BIT_ADDRESS</td>
- *		<td>SAMD21</td>
+ *		<td>SAM D21/R21/D10/D11</td>
  *	</tr>
  *	<tr>
  *		<td>FEATURE_I2C_SCL_STRETCH_MODE</td>
- *		<td>SAMD21</td>
+ *		<td>SAM D21/R21/D10/D11</td>
  *	</tr>
  *	<tr>
  *		<td>FEATURE_I2C_SCL_EXTEND_TIMEOUT</td>
- *		<td>SAMD21</td>
+ *		<td>SAM D21/R21/D10/D11</td>
  *	</tr>
  * </table>
  * \note The specific features are only available in the driver when the
@@ -394,9 +394,7 @@ extern "C" {
  *       supported by the driver now.
  * @{
  */
-#if (SAMD21) || defined(__DOXYGEN__)
-/** Sync scheme version 2 support */
-#  define FEATURE_I2C_SYNC_SCHEME_VERSION_2
+#if (SAMD21) || (SAMR21) || (SAMD10) || (SAMD11) || defined(__DOXYGEN__)
 /** Fast mode plus and high speed support */
 #  define FEATURE_I2C_FAST_MODE_PLUS_AND_HIGH_SPEED
 /** 10 bit address support */
@@ -417,21 +415,6 @@ extern "C" {
 enum i2c_transfer_direction {
 	I2C_TRANSFER_WRITE = 0,
 	I2C_TRANSFER_READ  = 1,
-};
-
-/**
- * \brief I<SUP>2</SUP>C packet for read/write
- *
- * Structure to be used when transferring I<SUP>2</SUP>C packets. Used both for
- * master and slave driver modes.
- */
-struct i2c_packet {
-	/** Address to slave device  */
-	uint8_t address;
-	/** Length of data array */
-	uint16_t data_length;
-	/** Data array containing all data to be transferred */
-	uint8_t *data;
 };
 
 /** @} */
@@ -495,6 +478,12 @@ struct i2c_packet {
  *	</tr>
  *	<tr>
  *		<td>
+ *		\li Added 10-bit addressing and high speed support in SAM D21.
+ *		\li Seperate structure i2c_packet into i2c_master_packet and i2c_slave packet.
+ *		</td>
+ *	</tr>
+ *	<tr>
+ *		<td>
  *		\li Added support for SCL stretch and extended timeout hardware features in SAM D21.
  *		\li Added fast mode plus support in SAM D21.
  *		</td>
@@ -541,6 +530,21 @@ struct i2c_packet {
  *		<th>Doc. Rev.</td>
  *		<th>Date</td>
  *		<th>Comments</td>
+ *	</tr>
+ *	<tr>
+ *		<td>F</td>
+ *		<td>04/2014</td>
+ *		<td>Added SAM D10/D11 support.</td>
+ *	</tr>
+ *	<tr>
+ *		<td>E</td>
+ *		<td>03/2014</td>
+ *		<td>Added SAM R21 support.</td>
+ *	</tr>
+ *	<tr>
+ *		<td>D</td>
+ *		<td>03/2014</td>
+ *		<td>Added 10-bit addressing and high speed support in SAM D21.</td>
  *	</tr>
  *	<tr>
  *		<td>C</td>

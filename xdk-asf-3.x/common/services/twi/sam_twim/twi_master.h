@@ -53,6 +53,7 @@
 #include "sysclk.h"
 #include "status_codes.h"
 #include "twim.h"
+#include "conf_twim.h"
 
 typedef twi_options_t twi_master_options_t;
 

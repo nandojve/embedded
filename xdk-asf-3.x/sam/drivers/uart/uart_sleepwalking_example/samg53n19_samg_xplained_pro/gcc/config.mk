@@ -60,8 +60,10 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/samg53_xplained_pro/board_init.c        \
+       sam/drivers/efc/efc.c                              \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/pmc/sleep.c                            \
+       sam/drivers/supc/supc.c                            \
        sam/drivers/uart/uart.c                            \
        sam/drivers/uart/uart_sleepwalking_example/uart_sleepwalking_example.c \
        sam/drivers/usart/usart.c                          \
@@ -86,7 +88,9 @@ INC_PATH = \
        common/utils/stdio/stdio_serial                    \
        sam/boards                                         \
        sam/boards/samg53_xplained_pro                     \
+       sam/drivers/efc                                    \
        sam/drivers/pmc                                    \
+       sam/drivers/supc                                   \
        sam/drivers/uart                                   \
        sam/drivers/uart/uart_sleepwalking_example         \
        sam/drivers/uart/uart_sleepwalking_example/samg53n19_samg_xplained_pro \

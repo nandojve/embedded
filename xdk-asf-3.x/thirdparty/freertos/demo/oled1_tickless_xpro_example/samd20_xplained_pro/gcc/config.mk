@@ -54,7 +54,7 @@ TARGET_SRAM = freertos_oled1_tickless_xpro_example_sram.elf
 CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        common2/components/display/ssd1306/ssd1306.c       \
-       common2/services/delay/sam0/cycle_counter.c        \
+       common2/services/delay/sam0/systick_counter.c      \
        common2/services/gfx_mono/gfx_mono_framebuffer.c   \
        common2/services/gfx_mono/gfx_mono_generic.c       \
        common2/services/gfx_mono/gfx_mono_text.c          \
@@ -81,13 +81,14 @@ CSRCS = \
        thirdparty/freertos/demo/oled1_tickless_xpro_example/demotasks.c \
        thirdparty/freertos/demo/oled1_tickless_xpro_example/main.c \
        thirdparty/freertos/demo/oled1_tickless_xpro_example/tickless.c \
-       thirdparty/freertos/freertos-7.5.2/Source/croutine.c \
-       thirdparty/freertos/freertos-7.5.2/Source/list.c   \
-       thirdparty/freertos/freertos-7.5.2/Source/portable/GCC/ARM_CM0/port.c \
-       thirdparty/freertos/freertos-7.5.2/Source/portable/MemMang/heap_1.c \
-       thirdparty/freertos/freertos-7.5.2/Source/queue.c  \
-       thirdparty/freertos/freertos-7.5.2/Source/tasks.c  \
-       thirdparty/freertos/freertos-7.5.2/Source/timers.c
+       thirdparty/freertos/freertos-8.0.1/Source/croutine.c \
+       thirdparty/freertos/freertos-8.0.1/Source/event_groups.c \
+       thirdparty/freertos/freertos-8.0.1/Source/list.c   \
+       thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.c \
+       thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.c \
+       thirdparty/freertos/freertos-8.0.1/Source/queue.c  \
+       thirdparty/freertos/freertos-8.0.1/Source/tasks.c  \
+       thirdparty/freertos/freertos-8.0.1/Source/timers.c
 
 # List of assembler source files.
 ASSRCS = 
@@ -115,18 +116,15 @@ INC_PATH = \
        sam0/drivers/tc                                    \
        sam0/utils                                         \
        sam0/utils/cmsis/samd20/include                    \
-       sam0/utils/cmsis/samd20/include/component          \
-       sam0/utils/cmsis/samd20/include/instance           \
-       sam0/utils/cmsis/samd20/include/pio                \
        sam0/utils/cmsis/samd20/source                     \
        sam0/utils/header_files                            \
        sam0/utils/preprocessor                            \
        thirdparty/CMSIS/Include                           \
        thirdparty/CMSIS/Lib/GCC                           \
+       thirdparty/freertos/demo/oled1_tickless_xpro_example \
        thirdparty/freertos/demo/oled1_tickless_xpro_example/samd20_xplained_pro \
-       thirdparty/freertos/demo/oled1_xpro_example        \
-       thirdparty/freertos/freertos-7.5.2/Source/include  \
-       thirdparty/freertos/freertos-7.5.2/Source/portable/GCC/ARM_CM0 \
+       thirdparty/freertos/freertos-8.0.1/Source/include  \
+       thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0 \
        thirdparty/freertos/demo/oled1_tickless_xpro_example/samd20_xplained_pro/gcc
 
 # Additional search paths for libraries.
@@ -180,6 +178,7 @@ CPPFLAGS = \
        -D GFX_MONO_LCD_HEIGHT=64                          \
        -D GFX_MONO_UG_2832HSWEG04=1                       \
        -D SPI_CALLBACK_MODE=true                          \
+       -D SYSTICK_MODE                                    \
        -D TC_ASYNC=true                                   \
        -D USART_CALLBACK_MODE=true                        \
        -D __FREERTOS__                                    \

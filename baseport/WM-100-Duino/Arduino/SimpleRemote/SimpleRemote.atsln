@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "core", "..\core\core.cppproj", "{358E6A17-71B6-4F04-AF5F-22800AD27F80}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "LwMesh", "..\LwMesh\LwMesh.cppproj", "{5163AAC4-210C-4550-B5E4-54D777AA5AB6}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SimpleRemote", "SimpleRemote.cppproj", "{341BF637-D8AA-4961-9F81-17CD4CB914CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{358E6A17-71B6-4F04-AF5F-22800AD27F80}.Debug|AVR.ActiveCfg = Debug|AVR
+		{358E6A17-71B6-4F04-AF5F-22800AD27F80}.Debug|AVR.Build.0 = Debug|AVR
+		{358E6A17-71B6-4F04-AF5F-22800AD27F80}.Release|AVR.ActiveCfg = Release|AVR
+		{358E6A17-71B6-4F04-AF5F-22800AD27F80}.Release|AVR.Build.0 = Release|AVR
+		{5163AAC4-210C-4550-B5E4-54D777AA5AB6}.Debug|AVR.ActiveCfg = Debug|AVR
+		{5163AAC4-210C-4550-B5E4-54D777AA5AB6}.Debug|AVR.Build.0 = Debug|AVR
+		{5163AAC4-210C-4550-B5E4-54D777AA5AB6}.Release|AVR.ActiveCfg = Release|AVR
+		{5163AAC4-210C-4550-B5E4-54D777AA5AB6}.Release|AVR.Build.0 = Release|AVR
+		{341BF637-D8AA-4961-9F81-17CD4CB914CC}.Debug|AVR.ActiveCfg = Debug|AVR
+		{341BF637-D8AA-4961-9F81-17CD4CB914CC}.Debug|AVR.Build.0 = Debug|AVR
+		{341BF637-D8AA-4961-9F81-17CD4CB914CC}.Release|AVR.ActiveCfg = Release|AVR
+		{341BF637-D8AA-4961-9F81-17CD4CB914CC}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

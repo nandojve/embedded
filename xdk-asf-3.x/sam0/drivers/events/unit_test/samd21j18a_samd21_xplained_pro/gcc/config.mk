@@ -56,6 +56,7 @@ CSRCS = \
        common/utils/unit_test/suite.c                     \
        sam0/boards/samd21_xplained_pro/board_init.c       \
        sam0/drivers/events/events.c                       \
+       sam0/drivers/events/events_hooks.c                 \
        sam0/drivers/events/unit_test/unit_test.c          \
        sam0/drivers/port/port.c                           \
        sam0/drivers/rtc/rtc_count.c                       \
@@ -63,8 +64,8 @@ CSRCS = \
        sam0/drivers/sercom/sercom_interrupt.c             \
        sam0/drivers/sercom/usart/usart.c                  \
        sam0/drivers/sercom/usart/usart_interrupt.c        \
-       sam0/drivers/system/clock/clock_samd21/clock.c     \
-       sam0/drivers/system/clock/clock_samd21/gclk.c      \
+       sam0/drivers/system/clock/clock_samd21_r21/clock.c \
+       sam0/drivers/system/clock/clock_samd21_r21/gclk.c  \
        sam0/drivers/system/interrupt/system_interrupt.c   \
        sam0/drivers/system/pinmux/pinmux.c                \
        sam0/drivers/system/system.c                       \
@@ -94,16 +95,13 @@ INC_PATH = \
        sam0/drivers/sercom/usart                          \
        sam0/drivers/system                                \
        sam0/drivers/system/clock                          \
-       sam0/drivers/system/clock/clock_samd21             \
+       sam0/drivers/system/clock/clock_samd21_r21         \
        sam0/drivers/system/interrupt                      \
        sam0/drivers/system/interrupt/system_interrupt_samd21 \
        sam0/drivers/system/pinmux                         \
        sam0/drivers/tc                                    \
        sam0/utils                                         \
        sam0/utils/cmsis/samd21/include                    \
-       sam0/utils/cmsis/samd21/include/component          \
-       sam0/utils/cmsis/samd21/include/instance           \
-       sam0/utils/cmsis/samd21/include/pio                \
        sam0/utils/cmsis/samd21/source                     \
        sam0/utils/header_files                            \
        sam0/utils/preprocessor                            \
@@ -160,6 +158,7 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM0=true                               \
        -D BOARD=SAMD21_XPLAINED_PRO                       \
+       -D EVENTS_INTERRUPT_HOOKS_MODE=true                \
        -D RTC_COUNT_ASYNC=false                           \
        -D TC_ASYNC=false                                  \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \

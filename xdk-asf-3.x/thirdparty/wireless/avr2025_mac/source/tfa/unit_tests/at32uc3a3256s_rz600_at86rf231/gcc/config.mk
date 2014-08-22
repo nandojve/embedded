@@ -81,7 +81,6 @@ CSRCS = \
        common/utils/unit_test/suite.c                     \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c \
        thirdparty/wireless/avr2025_mac/source/pal/pal.c   \
-       thirdparty/wireless/avr2025_mac/source/pal/pal_ext_trx.c \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/src/bmm.c \
        thirdparty/wireless/avr2025_mac/source/resources/queue/src/qmm.c \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf231/src/tal.c \
@@ -196,7 +195,8 @@ CPPFLAGS = \
        -D TAL_TYPE=AT86RF231                              \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D UDD_ENABLE                                      \
-       -D _ASSERT_ENABLE_
+       -D _ASSERT_ENABLE_                                 \
+       -D _DEBUG_=0
 
 # Extra flags to use when linking
 LDFLAGS = \

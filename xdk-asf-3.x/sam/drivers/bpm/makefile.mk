@@ -1,6 +1,5 @@
 ASF_DRIVERS_BPM_DIR				= $(ASF_DRIVERS_DIR)/bpm
 
-ifneq (, $(filter $(ASF_BPM_DRIVER),1))
 ifneq (, $(filter $(ARMTYPE),SAM4L))
 
 #list C source files
@@ -24,5 +23,4 @@ ASRC +=
 EXTRAINCDIRS +=																	\
 	$(ASF_DRIVERS_BPM_DIR)
 
-endif
 endif

@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief SAM D20/D21 SERCOM USART Asynchronous Driver
+ * \brief SAM SERCOM USART Asynchronous Driver
  *
  * Copyright (C) 2012-2014 Atmel Corporation. All rights reserved.
  *
@@ -358,7 +358,7 @@ void usart_abort_job(
 		case USART_TRANSCEIVER_RX:
 			/* Clear the interrupt flag in order to prevent the receive
 			 * complete callback to fire */
-			usart_hw->INTFLAG.reg |= SERCOM_USART_INTFLAG_RXC;
+			usart_hw->INTFLAG.reg = SERCOM_USART_INTFLAG_RXC;
 
 			/* Clear the software reception buffer */
 			module->remaining_rx_buffer_length = 0;
@@ -368,7 +368,7 @@ void usart_abort_job(
 		case USART_TRANSCEIVER_TX:
 			/* Clear the interrupt flag in order to prevent the receive
 			 * complete callback to fire */
-			usart_hw->INTFLAG.reg |= SERCOM_USART_INTFLAG_TXC;
+			usart_hw->INTFLAG.reg = SERCOM_USART_INTFLAG_TXC;
 
 			/* Clear the software reception buffer */
 			module->remaining_tx_buffer_length = 0;
@@ -469,7 +469,7 @@ void _usart_interrupt_handler(
 			(module->tx_buffer_ptr)++;
 
 			if (module->character_size == USART_CHARACTER_SIZE_9BIT) {
-				data_to_send = (*(module->tx_buffer_ptr) << 8);
+				data_to_send |= (*(module->tx_buffer_ptr) << 8);
 				/* Increment 8-bit pointer */
 				(module->tx_buffer_ptr)++;
 			}
@@ -511,7 +511,12 @@ void _usart_interrupt_handler(
 		if (module->remaining_rx_buffer_length) {
 			/* Read out the status code and mask away all but the 4 LSBs*/
 			error_code = (uint8_t)(usart_hw->STATUS.reg & SERCOM_USART_STATUS_MASK);
-
+#if !SAMD20
+			/* CTS status should not be considered as an error */
+			if(error_code & SERCOM_USART_STATUS_CTS) {
+				error_code &= ~SERCOM_USART_STATUS_CTS;
+			}
+#endif
 			/* Check if an error has occurred during the receiving */
 			if (error_code) {
 				/* Check which error occurred */

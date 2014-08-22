@@ -52,14 +52,19 @@
 #include <conf_spi_master_vec.h>
 
 /**
- * \defgroup asfdoc_sam0_sercom_spi_master_vec_group SAM D20/D21 Serial Peripheral Interface Master Driver w/ Vectored I/O (SERCOM SPI)
+ * \defgroup asfdoc_sam0_sercom_spi_master_vec_group SAM Serial Peripheral Interface Master Driver w/ Vectored I/O (SERCOM SPI)
  *
- * This driver for SAM D20/D21 devices provides an interface for the configuration
+ * This driver for SAM devices provides an interface for the configuration
  * and operation of the SERCOM module in SPI master mode and uses vectored I/O
  * for data transfers.
  *
  * The following peripherals are used by this driver:
  * - SERCOM (Serial Communication Interface)
+ *
+ * The following devices can use this driver:
+ *  - SAM D20/D21
+ *  - SAM R21
+ *  - SAM D10/D11
  *
  * The reader is assumed to be familiar with the regular SERCOM SPI driver, and
  * how it is configured and operated. Configuration of this driver is done a
@@ -134,13 +139,13 @@ digraph bufptr_to_spiord {
 	bufptrs:bf1 -> bufs:b1 -> spiord:s1;
 	bufptrs:bf2 -> bufs:b2 -> spiord:s2;
 	bufptrs:bf3 -> bufs:b3 -> spiord:s3;
-	bufptrs:bf4 -> "NULL";
+	bufptrs:bf4 -> "none";
 }
  * \enddot
  *
- * Note that the last descriptor \e must have a NULL-pointer in order for the
- * driver to detect that the end of the buffer list has been reached. This means
- * that for \c N buffers, \c N+1 buffer descriptors are needed.
+ * Note that the last descriptor \e must indicate no next buffer in order for
+ * the driver to detect that the end of the buffer list has been reached. This
+ * means that for \c N buffers, \c N+1 buffer descriptors are needed.
  *
  * Bidirectional transfers are supported without any restrictions on the buffer
  * descriptors, so the number of bytes and buffers to receive and transmit do
@@ -654,6 +659,16 @@ static inline enum status_code spi_master_vec_transceive_buffer_wait(
   *         <th>Doc. Rev.</td>
   *         <th>Date</td>
   *         <th>Comments</td>
+  *	    </tr>
+  *	     <tr>
+  *		      <td>C</td>
+  *		      <td>04/2014</td>
+  *		      <td>Add SAM D10/D11 support.</td>
+  *	    </tr>  
+  *	    <tr>
+  *		      <td>B</td>
+  *		      <td>03/2014</td>
+  *		      <td>Add SAMR21 support.</td>
   *	    </tr>
   *	    <tr>
   *         <td>A</td>

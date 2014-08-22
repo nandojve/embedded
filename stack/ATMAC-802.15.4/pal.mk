@@ -7,10 +7,10 @@ RADIO_DIR = $(ROOT_DIR)/802.15.4/ATMAC-802.15.4
 PATH_PAL = $(RADIO_DIR)/PAL
 PATH_RESOURCE = $(RADIO_DIR)/Resources
 
-_PAL_TYPE = $(strip $(MCU))
-_PAL_GENERIC_TYPE = $(strip $(PLATFORM))
-PAL_GENERIC_TYPE = $(_PAL_GENERIC_TYPE)
-_HIGHEST_STACK_LAYER = PAL
+PAL_TYPE = $(strip $(MCU))
+PAL_GENERIC_TYPE = $(strip $(PLATFORM))
+PAL_GENERIC_TYPE = $(PAL_GENERIC_TYPE)
+HIGHEST_STACK_LAYER = PAL
 
 # List any extra directories to look for include files here.
 #     Each directory must be seperated by a space.

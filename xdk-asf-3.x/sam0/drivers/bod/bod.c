@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief SAM D20/D21 Brown Out Detector Driver
+ * \brief SAM Brown Out Detector Driver
  *
  * Copyright (C) 2013-2014 Atmel Corporation. All rights reserved.
  *
@@ -89,6 +89,10 @@ enum status_code bod_set_config(
 
 			SYSCTRL->BOD33.reg = SYSCTRL_BOD33_LEVEL(conf->level) |
 					temp | SYSCTRL_BOD33_ENABLE;
+
+			while (!(SYSCTRL->PCLKSR.reg & SYSCTRL_PCLKSR_B33SRDY)) {
+				/* Wait for BOD33 register sync ready */
+			}
 			break;
 		default:
 			return STATUS_ERR_INVALID_ARG;

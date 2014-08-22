@@ -59,6 +59,8 @@ CSRCS = \
        common/utils/stdio/stdio_usb/stdio_usb.c           \
        common/utils/stdio/write.c                         \
        thirdparty/wireless/addons/sio2host/usb/sio2host.c \
+       thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.c \
+       thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/main.c \
        thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.c \
        thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.c \
        thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.c \
@@ -74,9 +76,10 @@ CSRCS = \
        thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.c \
        thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.c \
        thirdparty/wireless/services/common_hw_timer/xmega/hw_timer.c \
+       thirdparty/wireless/services/sal/atxmega_sal/src/sal.c \
        thirdparty/wireless/services/sleep_mgr/xmega_a3u/sleep_mgr.c \
        thirdparty/wireless/services/trx_access/trx_access.c \
-       xmega/boards/xmega_rf233_zigbit/init.c             \
+       xmega/boards/xmega_rf212b_zigbit/init.c            \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/spi/spi.c                            \
        xmega/drivers/tc/tc.c                              \
@@ -111,10 +114,11 @@ INC_PATH = \
        thirdparty/wireless/avr2130_lwmesh/source/sys/inc  \
        thirdparty/wireless/services/common_hw_timer       \
        thirdparty/wireless/services/common_hw_timer/xmega \
+       thirdparty/wireless/services/sal/inc               \
        thirdparty/wireless/services/sleep_mgr             \
        thirdparty/wireless/services/trx_access            \
        xmega/boards                                       \
-       xmega/boards/xmega_rf233_zigbit                    \
+       xmega/boards/xmega_rf212b_zigbit                   \
        xmega/drivers/cpu                                  \
        xmega/drivers/nvm                                  \
        xmega/drivers/pmic                                 \
@@ -169,10 +173,11 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=XMEGA_RF233_ZIGBIT                        \
+       -D BOARD=XMEGA_RF212B_ZIGBIT                       \
        -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
        -D IOPORT_XMEGA_COMPAT                             \
-       -D PHY_AT86RF212B
+       -D PHY_AT86RF212B                                  \
+       -D SAL_TYPE=ATXMEGA_SAL
 
 # Extra flags to use when linking
 LDFLAGS =  \

@@ -1,6 +1,6 @@
 ASF_DRIVERS_USB_DIR				= $(ASF_DRIVERS_DIR)/usb
 
-ifeq ($(strip $(ASF_USB_DRIVER)),1)
+ifneq (, $(filter $(ASF_USB_DRIVER),1))
 
 #list C source files
 CSRC	+=																		\

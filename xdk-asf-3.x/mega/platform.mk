@@ -3,6 +3,7 @@
 
 ASF_ROOT_DIR = $(ROOT_DIR)/xdk-asf-3.x
 PLATFORM_DIR = $(ROOT_DIR)/xdk-asf-3.x/$(PLATFORM)
+DEVICES_DIR = $(ROOT_DIR)/devices
 
 # Object files directory
 #     To put object files in current directory, use a dot (.), do NOT make
@@ -74,6 +75,7 @@ endif
 
 ifeq ($(strip $(USE_ASF)),1)
 	include $(ASF_ROOT_DIR)/asf.mk
+	include $(DEVICES_DIR)/devices.mk
 endif
 
 include $(ROOT_DIR)/board/$(BOARD_TYPE)/board.mk

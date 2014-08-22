@@ -86,6 +86,7 @@ static uint8_t timeout_expired;
 static void tick_handler(uint32_t time)
 {
 	uint8_t i;
+	(void) time;
 
 	/* Loop through all timeout channels */
 	for (i = 0; i < TIMEOUT_COUNT; i++) {

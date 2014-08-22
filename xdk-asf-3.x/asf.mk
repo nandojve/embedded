@@ -33,7 +33,7 @@ EXTRAINCDIRS +=																	\
 
 include $(ASF_PLATFORM_DIR)/utils/makefile.mk									\
 		$(ASF_PLATFORM_DIR)/drivers/makefile.mk									\
-		$(ASF_ROOT_DIR)/common/makefile.mk
+		$(ASF_ROOT_DIR)/common/makefile.mk										\
 
 ifneq (, $(filter $(PLATFORM),xmega sam uc3))
 include $(ASF_PLATFORM_DIR)/services/makefile.mk

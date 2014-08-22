@@ -45,11 +45,10 @@
 #define _CONFIG_H_
 
 /*- Definitions ------------------------------------------------------------*/
-#define APP_ADDR											0x8001
-#define APP_PANID											0x1234
+#define APP_ADDR											0x0000
+#define APP_PANID											0xCAFE
 #define APP_SENDING_INTERVAL								2000
 #define APP_ENDPOINT										1
-#define APP_OTA_ENDPOINT									2
 #define APP_SECURITY_KEY									"TestSecurityKey0"
 
 #ifdef PHY_AT86RF212
@@ -60,15 +59,9 @@
   #define APP_CHANNEL										0x0F
 #endif
 
-#define HAL_ENABLE_UART
-#define HAL_UART_CHANNEL									0
-#define HAL_UART_RX_FIFO_SIZE								1
-#define HAL_UART_TX_FIFO_SIZE								100
-//#define HAL_USB_ENABLED										1
-
-//#define APP_ENABLE_OTA
-
-//#define PHY_ENABLE_RANDOM_NUMBER_GENERATOR
+#define PHY_ENABLE_RANDOM_NUMBER_GENERATOR
+#define PHY_ENABLE_ENERGY_DETECTION
+#define PHY_ENABLE_AES_MODULE
 
 #define SYS_SECURITY_MODE									0
 
@@ -81,9 +74,32 @@
 #define NWK_GROUPS_AMOUNT									3
 #define NWK_ROUTE_DISCOVERY_TABLE_SIZE						5
 #define NWK_ROUTE_DISCOVERY_TIMEOUT							1000				// ms
+#define APP_RX_BUF_SIZE										20
 
 #define NWK_ENABLE_ROUTING
 //#define NWK_ENABLE_SECURITY
-//#define NWK_ENABLE_ROUTE_DISCOVERY
+#define NWK_ENABLE_MULTICAST
+#define NWK_ENABLE_ROUTE_DISCOVERY
+//#define NWK_ENABLE_SECURE_COMMANDS
+
+#if APP_ADDR == 0
+	#define APP_CAPTION     "Coordinator"
+	#define APP_NODE_TYPE   0
+	#define APP_COORDINATOR 1
+	#define APP_ROUTER      0
+	#define APP_ENDDEVICE   0
+#elif APP_ADDR < 0x8000
+	#define APP_CAPTION     "Router"
+	#define APP_NODE_TYPE   1
+	#define APP_COORDINATOR 0
+	#define APP_ROUTER      1
+	#define APP_ENDDEVICE   0
+#else
+	#define APP_CAPTION     "End Device"
+	#define APP_NODE_TYPE   2
+	#define APP_COORDINATOR 0
+	#define APP_ROUTER      0
+	#define APP_ENDDEVICE   1
+#endif
 
 #endif // _CONFIG_H_

@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief SAM D20/D21 System Interrupt Driver
+ * \brief SAM System Interrupt Driver
  *
  * Copyright (C) 2012-2014 Atmel Corporation. All rights reserved.
  *
@@ -48,14 +48,18 @@ extern "C" {
 #endif
 
 /**
- * \defgroup asfdoc_sam0_system_interrupt_group SAM D20/D21 System Interrupt Driver (SYSTEM INTERRUPT)
+ * \defgroup asfdoc_sam0_system_interrupt_group SAM System Interrupt Driver (SYSTEM INTERRUPT)
  *
- * This driver for SAM D20/D21 devices provides an interface for the configuration
+ * This driver for SAM devices provides an interface for the configuration
  * and management of internal software and hardware interrupts/exceptions.
  *
  * The following peripherals are used by this module:
- *
  *  - NVIC (Nested Vector Interrupt Controller)
+ *
+ * The following devices can use this module:
+ *  - SAM D20/D21
+ *  - SAM R21
+ *  - SAM D10/D11
  *
  * The outline of this documentation is as follows:
  *  - \ref asfdoc_sam0_system_interrupt_prerequisites
@@ -73,7 +77,7 @@ extern "C" {
  *
  * \section asfdoc_sam0_system_interrupt_module_overview Module Overview
  *
- * The Cortex M0+ core contains an interrupt an exception vector table, which
+ * The ARM&reg; Cortex&reg; M0+ core contains an interrupt an exception vector table, which
  * can be used to configure the device's interrupt handlers; individual
  * interrupts and exceptions can be enabled and disabled, as well as configured
  * with a variable priority.
@@ -98,7 +102,7 @@ extern "C" {
  *
  * \section asfdoc_sam0_system_interrupt_special_considerations Special Considerations
  *
- * Interrupts from peripherals in the SAM D20/D21 devices are on a per-module basis;
+ * Interrupts from peripherals in the SAM devices are on a per-module basis;
  * an interrupt raised from any source within a module will cause a single,
  * module-common handler to execute. It is the user application or driver's
  * responsibility to de-multiplex the module-common interrupt to determine the
@@ -358,6 +362,12 @@ enum system_interrupt_priority_level system_interrupt_get_priority(
  *		<th>Changelog</th>
  *	</tr>
  *	<tr>
+ *		<td>Added support for SAMD10/D11</td>
+ *	</tr>
+ *	<tr>
+ *		<td>Added support for SAMR21</td>
+ *	</tr>
+ *	<tr>
  *		<td>Added support for SAMD21</td>
  *	</tr>
  *	<tr>
@@ -385,6 +395,16 @@ enum system_interrupt_priority_level system_interrupt_get_priority(
  *		<th>Doc. Rev.</td>
  *		<th>Date</td>
  *		<th>Comments</td>
+ *	</tr>
+ *	<tr>
+ *		<td>E</td>
+ *		<td>04/2014</td>
+ *		<td>Add support for SAMD10/D11.</td>
+ *	</tr>
+ *	<tr>
+ *		<td>D</td>
+ *		<td>02/2014</td>
+ *		<td>Add support for SAMR21.</td>
  *	</tr>
  *	<tr>
  *		<td>C</td>

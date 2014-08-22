@@ -9,10 +9,10 @@ PATH_RESOURCE = $(RADIO_DIR)/Resources
 PATH_TAL = $(RADIO_DIR)/TAL
 PATH_TFA = $(RADIO_DIR)/TFA
 
-_PAL_TYPE = $(strip $(MCU))
-_PAL_GENERIC_TYPE = $(strip $(PLATFORM))
-PAL_GENERIC_TYPE = $(_PAL_GENERIC_TYPE)
-_HIGHEST_STACK_LAYER = TAL
+PAL_TYPE = $(strip $(MCU))
+PAL_GENERIC_TYPE = $(strip $(PLATFORM))
+PAL_GENERIC_TYPE = $(PAL_GENERIC_TYPE)
+HIGHEST_STACK_LAYER = TAL
 
 # List any extra directories to look for include files here.
 #     Each directory must be seperated by a space.
@@ -23,7 +23,7 @@ EXTRAINCDIRS +=																	\
 ## Include directories for TAL
 EXTRAINCDIRS +=																	\
 	$(PATH_TAL)/Inc																\
-	$(PATH_TAL)/$(_TAL_TYPE)/Inc
+	$(PATH_TAL)/$(TAL_TYPE)/Inc
 
 # Include Makefiles
 include																			\

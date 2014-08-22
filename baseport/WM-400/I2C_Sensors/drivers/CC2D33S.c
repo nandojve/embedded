@@ -10,6 +10,10 @@
 #include "CC2D33S.h"
 #include "conf_twim.h"
 
+#ifndef CC2D33S_DEVICE
+	#define			CC2D33S_DEVICE		0x28
+#endif
+
 static twi_package_t package			=
 {
 	.chip								= CC2D33S_DEVICE,

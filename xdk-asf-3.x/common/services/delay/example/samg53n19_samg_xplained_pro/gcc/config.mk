@@ -57,10 +57,12 @@ CSRCS = \
        common/services/delay/sam/cycle_counter.c          \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/samg53_xplained_pro/board_init.c        \
+       sam/drivers/efc/efc.c                              \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/pmc/sleep.c                            \
+       sam/drivers/supc/supc.c                            \
        sam/utils/cmsis/samg/samg53/source/templates/exceptions.c \
        sam/utils/cmsis/samg/samg53/source/templates/gcc/startup_samg53.c \
        sam/utils/cmsis/samg/samg53/source/templates/system_samg53.c \
@@ -80,8 +82,10 @@ INC_PATH = \
        common/utils                                       \
        sam/boards                                         \
        sam/boards/samg53_xplained_pro                     \
+       sam/drivers/efc                                    \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
+       sam/drivers/supc                                   \
        sam/utils                                          \
        sam/utils/cmsis/samg/samg53/include                \
        sam/utils/cmsis/samg/samg53/source/templates       \

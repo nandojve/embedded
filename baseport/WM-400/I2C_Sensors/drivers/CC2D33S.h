@@ -16,7 +16,6 @@
 #include <compiler.h>
 #include <twi_master.h>
 
-#define				CC2D33S_DEVICE		0x28
 #define				ONE_BY_TWO_FOURTEEN	0.00006103515625	// 1.0 / 2 ^ 14
 
 typedef enum cc2d33s_measure_mode_tag

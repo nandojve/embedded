@@ -4,7 +4,7 @@
  * @brief This file contains user call back function for
  * tal_rx_frame_cb.
  *
- * Copyright (c) 2013 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2013-2014 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -42,7 +42,7 @@
  */
 
 /*
- * Copyright (c) 2013, Atmel Corporation All rights reserved.
+ * Copyright (c) 2013-2014, Atmel Corporation All rights reserved.
  *
  * Licensed under Atmel's Limited License Agreement --> EULA.txt
  */
@@ -60,12 +60,8 @@
 /* === Prototypes ========================================================== */
 
 /* === Implementation ====================================================== */
-#if (defined __GNUC__)
-void __attribute__((weak))
-#else
-void
-#endif
-tal_rx_frame_cb(frame_info_t *rx_frame)
+
+void tal_rx_frame_cb(frame_info_t *rx_frame)
 {
 	/* Keep compiler happy. */
 	rx_frame = rx_frame;

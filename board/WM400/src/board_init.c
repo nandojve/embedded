@@ -125,6 +125,11 @@ void board_init(void)
 	ioport_set_pin_level(RS485_USART_CTS_PIN, IOPORT_PIN_LEVEL_LOW);
 #endif
 
+#if defined (CONF_BOARD_WM_PORT)
+ioport_set_pin_peripheral_mode(WM_PORT_RX_PIN, WM_PORT_RX_MUX);
+ioport_set_pin_peripheral_mode(WM_PORT_TX_PIN, WM_PORT_TX_MUX);
+#endif
+
 #if defined (CONF_BOARD_TWIMS1)
 	ioport_set_pin_peripheral_mode(TWIMS1_TWI_SCL_PIN, TWIMS1_TWI_SCL_MUX);
 	ioport_set_pin_peripheral_mode(TWIMS1_TWI_SDA_PIN, TWIMS1_TWI_SDA_MUX);
@@ -178,6 +183,7 @@ void board_init(void)
 
 #ifdef CONF_BOARD_AT86RFX
 	#define CONF_BOARD_SPI
+	#define CONF_BOARD_SPI_NPCS1
 //	ioport_set_pin_peripheral_mode(AT86RFX_IRQ0_PIN, AT86RFX_IRQ0_FLAGS);
 //	ioport_set_pin_peripheral_mode(AT86RFX_IRQ1_PIN, AT86RFX_IRQ1_FLAGS);
 

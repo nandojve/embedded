@@ -52,7 +52,7 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: Common SAM D20 compiler driver
+// From module: Common SAM0 compiler driver
 #include <compiler.h>
 #include <status_codes.h>
 
@@ -72,7 +72,7 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: SAMD21 USB Dual role interface
+// From module: SAM D21/R21 USB Dual role interface
 #include <usb_dual.h>
 
 // From module: SERCOM

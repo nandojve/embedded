@@ -52,15 +52,18 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: Common SAM D20 compiler driver
+// From module: Common SAM0 compiler driver
 #include <compiler.h>
 #include <status_codes.h>
 
 // From module: Delay routines
 #include <delay.h>
 
-// From module: EVSYS - Event System
+// From module: EVSYS - Event System Common
 #include <events.h>
+
+// From module: EVSYS - Event System with interupt hooks support
+#include <events_hooks.h>
 
 // From module: Generic board support
 #include <board.h>

@@ -46,6 +46,6 @@
 #include <platform.h>
 
 /** Enable Com Port. */
-#define CONF_BOARD_COM_PORT
+#define CONF_BOARD_WM_PORT
 
 #endif /* CONF_BOARD_H_INCLUDED */

@@ -2,7 +2,7 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectVersion>6.1</ProjectVersion>
+    <ProjectVersion>6.2</ProjectVersion>
     <ToolchainName>com.Atmel.AVRGCC8.C</ToolchainName>
     <ProjectGuid>{aa202157-fae5-4b89-ad35-de37d4d6a982}</ProjectGuid>
     <avrdevice>ATmega256RFR2</avrdevice>
@@ -52,6 +52,7 @@
       <ToolName>JTAGICE mkII</ToolName>
     </com_atmel_avrdbg_tool_jtagicemkii>
     <avrtoolinterface>JTAG</avrtoolinterface>
+    <preserveEEPROM>True</preserveEEPROM>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -333,198 +334,6 @@
       <SubType>compile</SubType>
       <Link>board\WM200\LwMesh\src\init.c</Link>
     </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\atmega128rfa1\inc\phy.h">
-      <SubType>compile</SubType>
-      <Link>stack\phy\atmega128rfa1\inc\phy.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\atmega128rfa1\src\phy.c">
-      <SubType>compile</SubType>
-      <Link>stack\phy\atmega128rfa1\src\phy.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\atmega128rfa1\inc\atmega128rfa1.h">
-      <SubType>compile</SubType>
-      <Link>stack\phy\atmega128rfa1\inc\atmega128rfa1.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\atmega256rfr2\inc\phy.h">
-      <SubType>compile</SubType>
-      <Link>stack\phy\atmega256rfr2\inc\phy.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\atmega256rfr2\src\phy.c">
-      <SubType>compile</SubType>
-      <Link>stack\phy\atmega256rfr2\src\phy.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\atmega256rfr2\inc\atmega256rfr2.h">
-      <SubType>compile</SubType>
-      <Link>stack\phy\atmega256rfr2\inc\atmega256rfr2.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf212\inc\phy.h">
-      <SubType>compile</SubType>
-      <Link>stack\phy\at86rf212\inc\phy.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf212\src\phy.c">
-      <SubType>compile</SubType>
-      <Link>stack\phy\at86rf212\src\phy.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf212\inc\at86rf212.h">
-      <SubType>compile</SubType>
-      <Link>stack\phy\at86rf212\inc\at86rf212.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf231\inc\phy.h">
-      <SubType>compile</SubType>
-      <Link>stack\phy\at86rf231\inc\phy.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf231\src\phy.c">
-      <SubType>compile</SubType>
-      <Link>stack\phy\at86rf231\src\phy.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf231\inc\at86rf231.h">
-      <SubType>compile</SubType>
-      <Link>stack\phy\at86rf231\inc\at86rf231.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf232\inc\phy.h">
-      <SubType>compile</SubType>
-      <Link>stack\phy\at86rf232\inc\phy.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf232\src\phy.c">
-      <SubType>compile</SubType>
-      <Link>stack\phy\at86rf232\src\phy.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf232\inc\at86rf232.h">
-      <SubType>compile</SubType>
-      <Link>stack\phy\at86rf232\inc\at86rf232.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf233\inc\phy.h">
-      <SubType>compile</SubType>
-      <Link>stack\phy\at86rf233\inc\phy.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf233\src\phy.c">
-      <SubType>compile</SubType>
-      <Link>stack\phy\at86rf233\src\phy.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\phy\at86rf233\inc\at86rf233.h">
-      <SubType>compile</SubType>
-      <Link>stack\phy\at86rf233\inc\at86rf233.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwk.h">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\inc\nwk.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwk.c">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\src\nwk.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkDataReq.h">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\inc\nwkDataReq.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkDataReq.c">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\src\nwkDataReq.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkSecurity.h">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\inc\nwkSecurity.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkSecurity.c">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\src\nwkSecurity.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkFrame.h">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\inc\nwkFrame.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkFrame.c">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\src\nwkFrame.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkGroup.h">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\inc\nwkGroup.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkGroup.c">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\src\nwkGroup.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkRoute.h">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\inc\nwkRoute.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkRoute.c">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\src\nwkRoute.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkRouteDiscovery.h">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\inc\nwkRouteDiscovery.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkRouteDiscovery.c">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\src\nwkRouteDiscovery.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkRx.h">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\inc\nwkRx.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkRx.c">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\src\nwkRx.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkTx.h">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\inc\nwkTx.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\src\nwkTx.c">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\src\nwkTx.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\nwk\inc\nwkCommand.h">
-      <SubType>compile</SubType>
-      <Link>stack\nwk\inc\nwkCommand.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\sys\inc\sys.h">
-      <SubType>compile</SubType>
-      <Link>stack\sys\inc\sys.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\sys\src\sys.c">
-      <SubType>compile</SubType>
-      <Link>stack\sys\src\sys.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\sys\inc\sysTypes.h">
-      <SubType>compile</SubType>
-      <Link>stack\sys\inc\sysTypes.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\sys\inc\sysConfig.h">
-      <SubType>compile</SubType>
-      <Link>stack\sys\inc\sysConfig.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\sys\inc\sysTimer.h">
-      <SubType>compile</SubType>
-      <Link>stack\sys\inc\sysTimer.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\sys\src\sysTimer.c">
-      <SubType>compile</SubType>
-      <Link>stack\sys\src\sysTimer.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\sys\inc\sysEncrypt.h">
-      <SubType>compile</SubType>
-      <Link>stack\sys\inc\sysEncrypt.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\sys\src\sysEncrypt.c">
-      <SubType>compile</SubType>
-      <Link>stack\sys\src\sysEncrypt.c</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\service\inc\otaCommon.h">
-      <SubType>compile</SubType>
-      <Link>stack\service\inc\otaCommon.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\service\inc\otaClient.h">
-      <SubType>compile</SubType>
-      <Link>stack\service\inc\otaClient.h</Link>
-    </Compile>
-    <Compile Include="..\..\stack\LwMesh\Current\service\src\otaClient.c">
-      <SubType>compile</SubType>
-      <Link>stack\service\src\otaClient.c</Link>
-    </Compile>
     <Compile Include="config\config.h">
       <SubType>compile</SubType>
       <Link>config\config.h</Link>
@@ -549,6 +358,10 @@
       <SubType>compile</SubType>
       <Link>config\conf_sleepmgr.h</Link>
     </Compile>
+    <Compile Include="config\conf_twi.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_twi.h</Link>
+    </Compile>
     <Compile Include="config\conf_twim.h">
       <SubType>compile</SubType>
       <Link>config\conf_twim.h</Link>
@@ -559,6 +372,7 @@
     </Compile>
     <Compile Include="config\conf_usart_serial.h">
       <SubType>compile</SubType>
+      <Link>config\conf_usart_serial.h</Link>
     </Compile>
     <Compile Include="config\conf_usart_spi.h">
       <SubType>compile</SubType>
@@ -572,10 +386,39 @@
       <SubType>compile</SubType>
       <Link>config\conf_usb.h</Link>
     </Compile>
-    <Compile Include="otaInterface.c">
+    <Compile Include="config\conf_trx_access.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_trx_access.h</Link>
+    </Compile>
+    <Compile Include="config\conf_hw_timer.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_hw_timer.h</Link>
+    </Compile>
+    <Compile Include="config\conf_ast.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_ast.h</Link>
+    </Compile>
+    <Compile Include="config\conf_flash.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_flash.h</Link>
+    </Compile>
+    <Compile Include="config\conf_sio2host.h">
+      <SubType>compile</SubType>
+      <Link>config\conf_sio2host.h</Link>
+    </Compile>
+    <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="WSNDemo.c">
+    <Compile Include="wsndemo.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wsndemo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="commands.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="commands.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
@@ -606,35 +449,6 @@
     <Folder Include="board\WM200\LwMesh\" />
     <Folder Include="board\WM200\LwMesh\inc" />
     <Folder Include="board\WM200\LwMesh\src" />
-    <Folder Include="stack\" />
-    <Folder Include="stack\nwk\" />
-    <Folder Include="stack\phy\" />
-    <Folder Include="stack\phy\atmega128rfa1\" />
-    <Folder Include="stack\phy\atmega128rfa1\inc" />
-    <Folder Include="stack\phy\atmega128rfa1\src" />
-    <Folder Include="stack\phy\atmega256rfr2\" />
-    <Folder Include="stack\phy\atmega256rfr2\inc" />
-    <Folder Include="stack\phy\atmega256rfr2\src" />
-    <Folder Include="stack\phy\at86rf212\" />
-    <Folder Include="stack\phy\at86rf212\inc" />
-    <Folder Include="stack\phy\at86rf212\src" />
-    <Folder Include="stack\phy\at86rf231\" />
-    <Folder Include="stack\phy\at86rf231\inc" />
-    <Folder Include="stack\phy\at86rf231\src" />
-    <Folder Include="stack\phy\at86rf232\" />
-    <Folder Include="stack\phy\at86rf232\inc" />
-    <Folder Include="stack\phy\at86rf232\src" />
-    <Folder Include="stack\phy\at86rf233\" />
-    <Folder Include="stack\phy\at86rf233\inc" />
-    <Folder Include="stack\phy\at86rf233\src" />
-    <Folder Include="stack\nwk\inc" />
-    <Folder Include="stack\nwk\src" />
-    <Folder Include="stack\service\" />
-    <Folder Include="stack\sys\" />
-    <Folder Include="stack\sys\inc" />
-    <Folder Include="stack\sys\src" />
-    <Folder Include="stack\service\inc" />
-    <Folder Include="stack\service\src" />
     <None Include="Makefile_AVR">
       <SubType>compile</SubType>
     </None>

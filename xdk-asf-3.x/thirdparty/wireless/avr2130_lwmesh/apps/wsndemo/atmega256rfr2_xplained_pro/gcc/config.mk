@@ -57,6 +57,8 @@ CSRCS = \
        mega/drivers/macsc/macsc_megarf.c                  \
        mega/drivers/usart/usart_megarf.c                  \
        thirdparty/wireless/addons/sio2host/uart/sio2host.c \
+       thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.c \
+       thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/main.c \
        thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.c \
        thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.c \
        thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.c \
@@ -73,6 +75,7 @@ CSRCS = \
        thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.c \
        thirdparty/wireless/services/common_hw_timer/mega/hw_timer.c \
        thirdparty/wireless/services/mega/drivers/tc/tc_megarf.c \
+       thirdparty/wireless/services/sal/atmegarf_sal/src/sal.c \
        thirdparty/wireless/services/sleep_mgr/megarf/sleep_mgr.c
 
 # Assembler source files located from the top-level source directory
@@ -107,6 +110,7 @@ INC_PATH = \
        thirdparty/wireless/services/common_hw_timer       \
        thirdparty/wireless/services/common_hw_timer/mega  \
        thirdparty/wireless/services/mega/drivers/tc       \
+       thirdparty/wireless/services/sal/inc               \
        thirdparty/wireless/services/sleep_mgr \
        thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/atmega256rfr2_xplained_pro/gcc
 
@@ -154,7 +158,8 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=ATMEGA256RFR2_XPLAINED_PRO                \
-       -D PHY_ATMEGARFR2
+       -D PHY_ATMEGARFR2                                  \
+       -D SAL_TYPE=ATMEGARF_SAL
 
 # Extra flags to use when linking
 LDFLAGS = 

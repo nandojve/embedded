@@ -59,6 +59,9 @@
 // From module: Delay routines
 #include <delay.h>
 
+// From module: EEFC - Enhanced Embedded Flash Controller
+#include <efc.h>
+
 // From module: Generic board support
 #include <board.h>
 
@@ -89,6 +92,9 @@
 
 // From module: SPI - Serial Peripheral Interface
 #include <spi.h>
+
+// From module: SUPC - Supply Controller
+#include <supc.h>
 
 // From module: Standard serial I/O (stdio) - SAM implementation
 #include <stdio_serial.h>

@@ -55,7 +55,7 @@
 // From module: ADC - Analog-to-Digital Converter (Polled APIs)
 #include <adc.h>
 
-// From module: Common SAM D20 compiler driver
+// From module: Common SAM0 compiler driver
 #include <compiler.h>
 #include <status_codes.h>
 
@@ -63,7 +63,7 @@
 #include <dac.h>
 #include <dac_callback.h>
 
-// From module: DMA - Direct Memory Access
+// From module: DMAC - Direct Memory Access Controller
 #include <dma.h>
 #include <dma_crc.h>
 

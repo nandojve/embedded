@@ -5,9 +5,9 @@
 ## Path to main project directory
 
 ifeq ($(strip $(STACK_TYPE)),LwMesh)
-STACK_DIR = $(ROOT_DIR)/stack/$(STACK_TYPE)/$(STACK_VERSION)
+STACK_DIR = $(ROOT_DIR)/stack/LwMesh/$(STACK_VERSION)
 else
-STACK_DIR = $(ROOT_DIR)/stack/$(STACK_TYPE)
+STACK_DIR = $(ROOT_DIR)/stack/ATMAC-802.15.4
 endif
 
 # List any extra directories to look for include files here.

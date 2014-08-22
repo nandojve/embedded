@@ -58,8 +58,6 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/sam4n_xplained_pro/init.c               \
-       sam/drivers/pio/pio.c                              \
-       sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/pmc/sleep.c                            \
        sam/drivers/rtc/example/rtc_example.c              \
@@ -78,7 +76,6 @@ ASSRCS =
 INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
-       common/services/gpio                               \
        common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
@@ -86,7 +83,6 @@ INC_PATH = \
        common/utils/stdio/stdio_serial                    \
        sam/boards                                         \
        sam/boards/sam4n_xplained_pro                      \
-       sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/rtc                                    \
        sam/drivers/rtc/example/sam4n16c_sam4n_xplained_pro \

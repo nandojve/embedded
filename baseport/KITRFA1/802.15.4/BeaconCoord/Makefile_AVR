@@ -1,0 +1,65 @@
+############################################################################################
+# Makefile for the project MAC_Example_3_Beacon Release Using single source files
+############################################################################################
+
+USE_WIRELESS = 1
+STACK_TYPE = ATMAC-802.15.4
+HIGHEST_STACK_LAYER=MAC
+#STACK_TYPE = LwMesh
+STACK_VERSION = Current
+
+USE_ASF = 1
+USB_CLASS_CDC_DEVICE = 0
+ASF_USB_DRIVER = 0
+ASF_TWI_DRIVER = 0
+ASF_TWIM_DRIVER = 0
+ASF_SPI_DRIVER = 0
+ASF_USART_DRIVER = 1
+ASF_EFC_DRIVER = 0
+ASF_RTC_DRIVER = 0
+ASF_TIMEOUT_SERVICE = 0
+ASF_FLASH_EFC_SERVICE = 0
+USE_SIO_MANAGER = 1
+
+# Build specific properties for KITRFA1
+BOARD_TYPE = KITRFA1
+TAL_TYPE = ATMEGARFA1
+SAL_TYPE = ATMEGARF_SAL
+MCU = atmega128rfa1
+PLATFORM = mega
+F_CPU = 16000000
+CFLAGS += -DSIO2HOST_CHANNEL=SIO_SERIAL
+CFLAGS += -DSIO_HUB
+SIO2HOST_CHANNEL = SIO_SERIAL
+
+## General Flags
+PROJECT = BeaconCoord
+FORMAT = ihex
+SINGLESTEP	= -DSINGLESTEPSUPPORT
+CROUTINE = TRUE
+#CFLAGS += -DMAC802_15_4
+#CFLAGS += -DREDUCED_PARAM_CHECK
+#CFLAGS += -DBEACON_SUPPORT
+#CFLAGS += -DMAC_USER_BUILD_FEATURE_CONFIG
+#CFLAGS += -DTRX_REG_RAW_VALUE
+CFLAGS += -DFFD
+CFLAGS += -DSTB_ON_SAL
+
+# Target Flags
+TARGET_DIR = .
+TARGET = $(PROJECT)
+
+# Path variables
+## Path to main project directory
+ROOT_DIR = ../../../..
+
+CSRC	+= BeaconCoord.c
+CSRC	+= app_security.c
+
+# List any extra directories to look for include files here.
+#     Each directory must be seperated by a space.
+EXTRAINCDIRS +=																	\
+	config
+
+include																			\
+	$(ROOT_DIR)/xdk-asf-3.x/$(PLATFORM)/platform.mk

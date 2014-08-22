@@ -1,6 +1,7 @@
 ASF_SERVICES_TIMEOUT_DIR		= $(ASF_SERVICES_DIR)/timeout
 
-ifeq ($(strip $(ASF_TIMEOUT_SERVICE)),1)
+ifneq (, $(filter $(ASF_TIMEOUT_SERVICE),1))
+
 #list C source files
 CSRC	+=																			\
 	$(ASF_SERVICES_TIMEOUT_DIR)/timeout.c
