@@ -112,6 +112,7 @@ INC_PATH = \
        sam/boards                                         \
        sam/boards/sam4c_ek                                \
        sam/drivers/pdc                                    \
+       sam/drivers/pdc/pdc_uart_example                   \
        sam/drivers/pmc                                    \
        sam/drivers/spi                                    \
        sam/drivers/twi                                    \
@@ -180,6 +181,7 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAM4C_EK                                  \
+       -D __FREERTOS__                                    \
        -D __SAM4C16C_0__                                  \
        -D printf=iprintf                                  \
        -D scanf=iscanf

@@ -82,7 +82,7 @@ CSRCS = \
        thirdparty/freertos/demo/peripheral_control/run-time-stats-utils.c \
        thirdparty/freertos/freertos-7.3.0/source/FreeRTOS_CLI.c \
        thirdparty/freertos/freertos-7.3.0/source/list.c   \
-       thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm4f/port.c \
+       thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam_cm4f/port.c \
        thirdparty/freertos/freertos-7.3.0/source/portable/memmang/heap_4.c \
        thirdparty/freertos/freertos-7.3.0/source/queue.c  \
        thirdparty/freertos/freertos-7.3.0/source/tasks.c  \
@@ -106,6 +106,7 @@ INC_PATH = \
        sam/boards/samg53_xplained_pro                     \
        sam/drivers/efc                                    \
        sam/drivers/pdc                                    \
+       sam/drivers/pdc/pdc_uart_example                   \
        sam/drivers/pmc                                    \
        sam/drivers/supc                                   \
        sam/drivers/uart                                   \
@@ -122,7 +123,7 @@ INC_PATH = \
        thirdparty/freertos/demo/peripheral_control/demo-tasks \
        thirdparty/freertos/demo/peripheral_control/samg53n19_samg_xplained_pro \
        thirdparty/freertos/freertos-7.3.0/source/include  \
-       thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm4f \
+       thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam_cm4f \
        thirdparty/freertos/demo/peripheral_control/samg53n19_samg_xplained_pro/gcc
 
 # Additional search paths for libraries.
@@ -178,6 +179,7 @@ CFLAGS =  \
 CPPFLAGS = \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAMG53_XPLAINED_PRO                       \
+       -D __FREERTOS__                                    \
        -D __SAMG53N19__                                   \
        -D printf=iprintf                                  \
        -D scanf=iscanf

@@ -52,7 +52,7 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: Common SAM D20 compiler driver
+// From module: Common SAM0 compiler driver
 #include <compiler.h>
 #include <status_codes.h>
 
@@ -83,7 +83,7 @@
 // From module: RTC - Real Time Counter in Calendar Mode (Polled APIs)
 #include <rtc_calendar.h>
 
-// From module: SD/MMC stack + Memory Control Access (aka ctrl_access, required for file system or USB)
+// From module: SD/MMC Memory Control Access - Enable
 #include <sd_mmc_mem.h>
 
 // From module: SD/MMC stack on SPI interface

@@ -101,6 +101,7 @@ INC_PATH = \
        sam/boards                                         \
        sam/boards/sam3s_ek2                               \
        sam/drivers/pdc                                    \
+       sam/drivers/pdc/pdc_uart_example                   \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
@@ -167,6 +168,7 @@ CPPFLAGS = \
        -D BOARD=SAM3S_EK2                                 \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_                                 \
+       -D __FREERTOS__                                    \
        -D __SAM3SD8C__                                    \
        -D printf=iprintf                                  \
        -D scanf=iscanf

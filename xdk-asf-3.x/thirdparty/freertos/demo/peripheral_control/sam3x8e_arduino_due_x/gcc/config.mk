@@ -119,6 +119,7 @@ INC_PATH = \
        sam/boards                                         \
        sam/boards/arduino_due_x                           \
        sam/drivers/pdc                                    \
+       sam/drivers/pdc/pdc_uart_example                   \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/twi                                    \
@@ -189,6 +190,7 @@ CPPFLAGS = \
        -D ARM_MATH_CM3=true                               \
        -D BOARD=ARDUINO_DUE_X                             \
        -D UDD_ENABLE                                      \
+       -D __FREERTOS__                                    \
        -D __SAM3X8E__                                     \
        -D printf=iprintf                                  \
        -D scanf=iscanf

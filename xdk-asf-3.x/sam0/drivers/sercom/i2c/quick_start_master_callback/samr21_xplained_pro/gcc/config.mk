@@ -55,8 +55,8 @@ CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam0/boards/samr21_xplained_pro/board_init.c       \
        sam0/drivers/port/port.c                           \
-       sam0/drivers/sercom/i2c/i2c_samd21_r21/i2c_master.c \
-       sam0/drivers/sercom/i2c/i2c_samd21_r21/i2c_master_interrupt.c \
+       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11/i2c_master.c \
+       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11/i2c_master_interrupt.c \
        sam0/drivers/sercom/i2c/quick_start_master_callback/qs_i2c_master_callback.c \
        sam0/drivers/sercom/sercom.c                       \
        sam0/drivers/sercom/sercom_interrupt.c             \
@@ -81,7 +81,7 @@ INC_PATH = \
        sam0/drivers/port                                  \
        sam0/drivers/sercom                                \
        sam0/drivers/sercom/i2c                            \
-       sam0/drivers/sercom/i2c/i2c_samd21_r21             \
+       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11     \
        sam0/drivers/sercom/i2c/quick_start_master_callback \
        sam0/drivers/sercom/i2c/quick_start_master_callback/samr21_xplained_pro \
        sam0/drivers/system                                \
@@ -92,9 +92,6 @@ INC_PATH = \
        sam0/drivers/system/pinmux                         \
        sam0/utils                                         \
        sam0/utils/cmsis/samr21/include                    \
-       sam0/utils/cmsis/samr21/include/component          \
-       sam0/utils/cmsis/samr21/include/instance           \
-       sam0/utils/cmsis/samr21/include/pio                \
        sam0/utils/cmsis/samr21/source                     \
        sam0/utils/header_files                            \
        sam0/utils/preprocessor                            \

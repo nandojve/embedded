@@ -1,0 +1,10 @@
+#	modified:   xdk-asf-3.x/common/services/twi/megarf_twi/twi_master.h
+#	modified:   xdk-asf-3.x/common/services/twi/sam_twim/twi_master.h
+#	modified:   xdk-asf-3.x/mega/utils/compiler.h
+#	modified:   xdk-asf-3.x/sam/utils/syscalls/gcc/syscalls.c
+#	modified:   xdk-asf-3.x/thirdparty/CMSIS/Include/core_cmFunc.h
+#	modified:   xdk-asf-3.x/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.c
+#	modified:   xdk-asf-3.x/thirdparty/wireless/avr2130_lwmesh/source/phy/atmegarfa1/src/phy.c
+#	modified:   xdk-asf-3.x/thirdparty/wireless/avr2130_lwmesh/source/phy/atmegarfr2/src/phy.c
+#	modified:   xdk-asf-3.x/xmega/services/timeout/timeout.c
+#	modified:   xdk-asf-3.x/xmega/services/timeout/timeout.h
