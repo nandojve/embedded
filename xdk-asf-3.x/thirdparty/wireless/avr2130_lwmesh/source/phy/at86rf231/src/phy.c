@@ -93,6 +93,23 @@ void PHY_Init(void)
 			(1 << IRQ_MASK_MODE));
 
 	phyWriteRegister(TRX_CTRL_2_REG, (1 << RX_SAFE_MODE));
+
+#ifdef PLATFORM_WM400
+	#if (ANTENNA_DIVERSITY == 1)
+		phyWriteRegister(ANT_DIV_REG, (1 << ANT_DIV_EN) | (1 << ANT_EXT_SW_EN) | (2 << ANT_CTRL));
+		phyWriteRegister(RX_CTRL_REG, (3 << PDT_THRES));
+	#else
+		#if (ANTENNA_DEFAULT != 0)
+			phyWriteRegister(ANT_DIV_REG, (1 << ANT_EXT_SW_EN) | (ANTENNA_DEFAULT << ANT_CTRL));
+		#endif // ANTENNA_DIVERSITY
+	#endif // ANTENNA_DIVERSITY
+	#ifdef EXT_RF_FRONT_END_CTRL
+		uint8_t		reg					= phyReadRegister(TRX_CTRL_1_REG);
+		phyWriteRegister(TRX_CTRL_1_REG, reg | (1 << PA_EXT_EN));
+
+		ioport_set_pin_level(AT86RFX_CSD, IOPORT_PIN_LEVEL_HIGH);
+	#endif // EXT_RF_FRONT_END_CTRL
+#endif // PLATFORM_WM400
 }
 
 /*************************************************************************//**
@@ -151,6 +168,26 @@ void PHY_Sleep(void)
 	phyTrxSetState(TRX_CMD_TRX_OFF);
 	TRX_SLP_TR_HIGH();
 	phyState = PHY_STATE_SLEEP;
+	
+#ifdef PLATFORM_WM400
+	uint8_t reg;
+
+	#if (ANTENNA_DIVERSITY == 1)
+		reg								= phyReadRegister(ANT_DIV_REG);
+		phyWriteRegister(ANT_DIV_REG, reg & ~((1 << ANT_DIV_EN) | (1 << ANT_EXT_SW_EN)));
+	#else
+		#if (ANTENNA_DEFAULT != 0)
+			reg							= phyReadRegister(ANT_DIV_REG);
+			phyWriteRegister(ANT_DIV_REG, reg & ~((1 << ANT_EXT_SW_EN) | (0x03 << ANT_CTRL)));
+		#endif // ANTENNA_DEFAULT
+	#endif // ANTENNA_DIVERSITY
+	#ifdef EXT_RF_FRONT_END_CTRL
+		reg								= phyReadRegister(TRX_CTRL_1_REG);
+		phyWriteRegister(TRX_CTRL_1_REG, reg & ~(1 << PA_EXT_EN));
+
+		ioport_set_pin_level(AT86RFX_CSD, IOPORT_PIN_LEVEL_LOW);
+	#endif // EXT_RF_FRONT_END_CTRL
+#endif // PLATFORM_WM400
 }
 
 /*************************************************************************//**
@@ -166,6 +203,14 @@ void PHY_Wakeup(void)
 *****************************************************************************/
 void PHY_DataReq(uint8_t *data)
 {
+#ifdef PLATFORM_WM400
+	#if (ANTENNA_DIVERSITY == 1)
+	#endif // ANTENNA_DIVERSITY
+	#ifdef EXT_RF_FRONT_END_CTRL
+		ioport_set_pin_level(AT86RFX_CSD, IOPORT_PIN_LEVEL_LOW);
+	#endif // EXT_RF_FRONT_END_CTRL
+#endif // PLATFORM_WM400
+
 	phyTrxSetState(TRX_CMD_TX_ARET_ON);
 
 	phyReadRegister(IRQ_STATUS_REG);
@@ -278,6 +323,29 @@ static void phySetRxState(void)
 *****************************************************************************/
 static void phyTrxSetState(uint8_t state)
 {
+#ifdef PLATFORM_WM400
+	if(phyState == PHY_STATE_SLEEP)
+	{
+		uint8_t reg;
+
+		#if (ANTENNA_DIVERSITY == 1)
+			reg								= phyReadRegister(ANT_DIV_REG);
+			phyWriteRegister(ANT_DIV_REG, reg | ((1 << ANT_DIV_EN) | (1 << ANT_EXT_SW_EN)));
+		#else
+			#if (ANTENNA_DEFAULT != 0)
+				reg							= phyReadRegister(ANT_DIV_REG);
+				phyWriteRegister(ANT_DIV_REG, reg | ((1 << ANT_EXT_SW_EN) | (ANTENNA_DEFAULT << ANT_CTRL)));
+			#endif // ANTENNA_DEFAULT
+		#endif // ANTENNA_DIVERSITY
+		#ifdef EXT_RF_FRONT_END_CTRL
+			reg								= phyReadRegister(TRX_CTRL_1_REG);
+			phyWriteRegister(TRX_CTRL_1_REG, reg | (1 << PA_EXT_EN));
+
+			ioport_set_pin_level(AT86RFX_CSD, IOPORT_PIN_LEVEL_HIGH);
+		#endif // EXT_RF_FRONT_END_CTRL
+	}
+#endif // PLATFORM_WM400
+
 	do { phyWriteRegister(TRX_STATE_REG, TRX_CMD_FORCE_TRX_OFF);
 	} while (TRX_STATUS_TRX_OFF !=
 			(phyReadRegister(TRX_STATUS_REG) & TRX_STATUS_MASK));
@@ -327,6 +395,13 @@ void PHY_TaskHandler(void)
 
 			phyWaitState(TRX_STATUS_RX_AACK_ON);
 		} else if (PHY_STATE_TX_WAIT_END == phyState) {
+#ifdef PLATFORM_WM400
+	#if (ANTENNA_DIVERSITY == 1)
+	#endif // ANTENNA_DIVERSITY
+	#ifdef EXT_RF_FRONT_END_CTRL
+		ioport_set_pin_level(AT86RFX_CSD, IOPORT_PIN_LEVEL_HIGH);
+	#endif // EXT_RF_FRONT_END_CTRL
+#endif // PLATFORM_WM400
 			uint8_t status
 				= (phyReadRegister(TRX_STATE_REG) >>
 					TRAC_STATUS) & 7;

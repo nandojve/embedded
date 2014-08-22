@@ -1,7 +1,7 @@
 /**
  * \file phy.c
  *
- * \brief AT86RF233 PHY implementation
+ * \brief AT86RF231 PHY implementation
  *
  * Copyright (C) 2014, Atmel Corporation. All rights reserved.
  *
@@ -40,7 +40,7 @@
  *
  */
 
-#ifdef PHY_AT86RF233
+#ifdef PHY_AT86RF232
 
 /*- Includes ---------------------------------------------------------------*/
 #include <stdbool.h>
@@ -48,7 +48,7 @@
 #include "sal.h"
 #include "trx_access.h"
 #include "delay.h"
-#include "at86rf233.h"
+#include "at86rf232.h"
 
 /*- Definitions ------------------------------------------------------------*/
 #define PHY_CRC_SIZE    2
@@ -92,8 +92,7 @@ void PHY_Init(void)
 			(1 << TX_AUTO_CRC_ON) | (3 << SPI_CMD_MODE) |
 			(1 << IRQ_MASK_MODE));
 
-	phyWriteRegister(TRX_CTRL_2_REG,
-			(1 << RX_SAFE_MODE) | (1 << OQPSK_SCRAM_EN));
+	phyWriteRegister(TRX_CTRL_2_REG, (1 << RX_SAFE_MODE));
 
 	#if (ANTENNA_DIVERSITY == 1)
 		phyWriteRegister(ANT_DIV_REG, (1 << ANT_DIV_EN) | (1 << ANT_EXT_SW_EN) | (2 << ANT_CTRL));
@@ -416,4 +415,4 @@ void PHY_TaskHandler(void)
 	}
 }
 
-#endif /* PHY_AT86RF233 */
+#endif /* PHY_AT86RF232 */
