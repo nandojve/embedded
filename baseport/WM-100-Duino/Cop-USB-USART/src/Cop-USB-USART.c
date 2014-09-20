@@ -15,7 +15,9 @@
 #include "Terminal.h"
 #include "system_config.h"
 
+#if (VCOM_ENABLE == 1)
 void myterminal_process_command(TerminalState* state, char* command);
+#endif
 
 /**
  * \brief main function
@@ -29,14 +31,16 @@ int main (void)
 	 *   parameters, if any, specified in a conf_board.h file.
 	 */
 	sysclk_init();
-	
+
 	// Initialize System
 	sleepmgr_init();
 	timeout_init();
 	
 	// Initialize Board
 	board_init();
+#if (VCOM_ENABLE == 1)
 	system_config_init();
+#endif
 
 	// Initialize interrupt vector table support.
 	irq_initialize_vectors();
@@ -48,20 +52,25 @@ int main (void)
 	 * a USB CDC protocol. Tunable parameters in a conf_usb.h file must be
 	 * supplied to configure the USB device correctly.
 	 */
-	stdio_usb_init();
+	uart_usb_cdc_init();
+#if (VCOM_ENABLE == 1)
 	vcom_init();
-
 	TerminalState* state = terminal_init(myterminal_process_command);
+#endif
 	
 //	while(*state != TS_BOOT)
 //		terminal_task();
 
 	for(;;)
 	{
+#if (VCOM_ENABLE == 1)
 		vcom_task();
+#endif
+		uart_task();
 	}
 }
 
+#if (VCOM_ENABLE == 1)
 void myterminal_process_command(TerminalState* state, char* command)
 {
 	if(!strncmp(command, "msg", 3))
@@ -87,3 +96,4 @@ void myterminal_process_command(TerminalState* state, char* command)
 		*state = TS_BOOT;
 	}
 }
+#endif

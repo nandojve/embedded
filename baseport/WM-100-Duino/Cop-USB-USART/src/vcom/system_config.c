@@ -4,6 +4,8 @@
 
 #include "system_config.h"
 
+#if (VCOM_ENABLE == 1)
+
 static SystemConfig	systemconfig;
 uint8_t serial_number[22];
 
@@ -59,3 +61,5 @@ void system_config_check(void)
 	if(systemconfig.driver > 1)
 	systemconfig.driver				= DEFAULT_DRIVER;
 }
+
+#endif
