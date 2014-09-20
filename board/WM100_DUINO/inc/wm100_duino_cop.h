@@ -80,4 +80,10 @@
 #define USARTC1_TXD						IOPORT_CREATE_PIN(PORTC, 7)
 //@}
 
+//! \name USB Port Interface
+//@{
+#define USB_SELF_POWERED				1
+#define USB_VBUS_GPIO					PIN2_bp
+//@}
+
 #endif  /* WM100_DUINO_COP_H */
