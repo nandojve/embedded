@@ -44,4 +44,6 @@
 #ifndef CONF_USART_SERIAL_H_INCLUDED
 #define CONF_USART_SERIAL_H_INCLUDED
 
+#define UART_RST_SLAVE_TIMEOUT			1			// One second press
+
 #endif /* CONF_USART_SERIAL_H_INCLUDED */

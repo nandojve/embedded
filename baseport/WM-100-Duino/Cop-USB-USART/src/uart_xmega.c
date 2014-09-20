@@ -46,10 +46,14 @@
 #include "conf_board.h"
 #include "conf_usb.h"
 #include "conf_timeout.h"
+#include "conf_usart_serial.h"
 
 #include "uart.h"
+#include "delay.h"
 
 static uint8_t usart_ctrl_active = true;
+static uint8_t usart_rst_slave_flag = 0;
+static volatile bool driver_b_cdc_enable = false;
 
 void uart_config(uint8_t port, usb_cdc_line_coding_t * cfg)
 {
@@ -147,6 +151,85 @@ void uart_rx_notify(uint8_t port)
 	}
 }
 
+void uart_set_dtr(uint8_t port, bool b_enable)
+{
+	if(b_enable)
+	{
+		irqflags_t flags = cpu_irq_save(); // Protect udi_cdc_state
+		usart_rst_slave_flag = 1;
+		cpu_irq_restore(flags);
+	}
+}
+
+void uart_task(void)
+{
+	if(usart_rst_slave_flag != 0)
+	{
+		LED_Off(LED_VBUS);
+
+		irqflags_t flags = cpu_irq_save();
+		usart_rst_slave_flag = 0;
+		cpu_irq_restore(flags);
+		timeout_start_singleshot(TIMEOUT_RST_SLAVE, UART_RST_SLAVE_TIMEOUT);
+		gpio_configure_pin(GPIO_PUSH_BUTTON_0, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW);
+		gpio_configure_pin(GPIO_PUSH_BUTTON_1, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW);
+	}
+	
+	if(timeout_test_and_clear_expired(TIMEOUT_RST_SLAVE))
+	{
+		gpio_configure_pin(GPIO_PUSH_BUTTON_1, IOPORT_DIR_INPUT | IOPORT_PULL_UP);
+		delay_ms(10);
+		gpio_configure_pin(GPIO_PUSH_BUTTON_0, IOPORT_DIR_INPUT | IOPORT_PULL_UP);
+		LED_On(LED_VBUS);
+	}
+	
+	if(timeout_test_expired(TIMEOUT_RX))
+	{
+		LED_Off(LED_RX);
+	}
+	if(timeout_test_expired(TIMEOUT_TX))
+	{
+		LED_Off(LED_TX);
+	}
+}
+void uart_vbus_action(bool b_high)
+{
+	if(b_high)
+	{
+		// Attach USB Device
+		udc_attach();
+	}
+	else
+	{
+		// VBUS not present
+		udc_detach();	
+	}
+}
+void uart_usb_cdc_init(void)
+{
+	LED_On(LED_VBUS);
+	
+	uart_open(0);
+	
+	// Start USB stack to authorize VBus monitoring
+	stdio_usb_init();
+
+	if(!udc_include_vbus_monitoring())
+	{
+		// VBUS monitoring is not available on this product
+#if (USB_SELF_POWERED == 1)
+		// SO, VBUS is monitoring by I/O PD 2 IRQ
+		PORTD.INTCTRL				|= (PORT_INT0LVL0_bm | PORT_INT0LVL1_bm);	// High Level Int
+		PORTD.INT0MASK				= (1 << USB_VBUS_GPIO);						// VBUS pin
+		PORTD.PIN5CTRL				= PORT_ISC_BOTHEDGES_gc;					// Enable Both Edge Int
+		PMIC.CTRL					|= PMIC_HILVLEN_bm;							// Enable HIGH Level Int
+#else
+		// activate always!
+		driver_vbus_action(true);
+#endif
+	}
+}
+
 ISR(USART_RX_Vect)
 {
 	uint8_t value;
@@ -192,3 +275,12 @@ ISR(USART_DRE_Vect)
 		USART.CTRLA = (register8_t) USART_RXCINTLVL_HI_gc | (register8_t) USART_DREINTLVL_OFF_gc;
 	}
 }
+#if (USB_SELF_POWERED == 1)
+ISR(PORTD_INT0_vect)
+{
+	uint8_t						input						= PORTD_IN;
+	input													&= (1 << USB_VBUS_GPIO);
+	bool						vbus						= (input == (1 << USB_VBUS_GPIO));
+	uart_vbus_action(vbus);
+}
+#endif
