@@ -21,6 +21,8 @@
 #include "terminal.h"
 #include "system_config.h"
 
+#if (VCOM_ENABLE == 1)
+
 // VirtualCOM/USART Select
 static AVRISP_MKII_VCOMSEL_STATE_t		vcomsel_state		= CMD_STATE_NOT_PRESS;
 static volatile	uint8_t					vcomsel_pin_state	= false;
@@ -101,13 +103,5 @@ void vcom_task(void)
 	{
 		terminal_task();
 	}
-	
-	if(timeout_test_expired(TIMEOUT_RX))
-	{
-		LED_Off(LED_RX);
-	}
-	if(timeout_test_expired(TIMEOUT_TX))
-	{
-		LED_Off(LED_TX);
-	}
 }
+#endif

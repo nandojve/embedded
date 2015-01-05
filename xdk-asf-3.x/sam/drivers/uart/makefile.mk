@@ -1,7 +1,7 @@
 ASF_DRIVERS_UART_DIR				= $(ASF_DRIVERS_DIR)/uart
 
 ifneq (, $(filter $(ASF_UART_DRIVER),1))
-ifneq (, $(filter $(ARMTYPE),SAM4S))
+ifneq (, $(filter $(ARMTYPE),SAM4S SAM4E))
 
 #list C source files
 CSRC	+=																		\

@@ -1,0 +1,100 @@
+############################################################################################
+# Makefile for the project MAC_Example_3_Beacon Release Using single source files
+############################################################################################
+
+USE_WIRELESS = 0
+#STACK_TYPE = LwMesh
+#STACK_TYPE = ATMAC-802.15.4
+STACK_TYPE = Cyclone
+#HIGHEST_STACK_LAYER=TAL
+#STACK_VERSION = Current
+STACK_VERSION = 1.5.0
+
+USE_ASF = 1
+ASF_BPM_DRIVER = 0
+ASF_PMC_DRIVER = 1
+ASF_USB_DRIVER = 1
+ASF_PIO_DRIVER = 1
+ASF_UDP_DRIVER = 1
+ASF_TWI_DRIVER = 0
+ASF_TWIM_DRIVER = 0
+ASF_SPI_DRIVER = 0
+ASF_UART_DRIVER = 1
+ASF_USART_DRIVER = 1
+ASF_EFC_DRIVER = 0
+ASF_EIC_DRIVER = 0
+ASF_WDT_DRIVER = 1
+ASF_GMAC_DRIVER = 0
+ASF_TC_DRIVER = 1
+USE_SIO_MANAGER = 1
+
+ASF_FLASH_EFC_SERVICE = 1
+ASF_USART_SERVICE = 1
+ASF_SPI_SERVICE = 0
+
+USB_CLASS_CDC_DEVICE = 1
+
+USE_LWIP = 0
+LWIP_VERSION = 1.4.1
+
+USE_FREERTOS = 0
+FREERTOS_VERSION = 7.3.0
+#FREERTOS_VERSION = 8.1.2
+FREERTOS_HEAP = 4
+
+# Device Drivers
+ASF_DRIVER_COMPONENT_ETHERNET_PHY = 0
+ETHERNET_PHY_MODEL = ksz8051mnl
+
+#DEVICES += 
+
+
+CYCLONE_TCP_MAC = sam4e_eth
+CYCLONE_TCP_PHY = ksz8081
+CYCLONE_RTOS = freertos
+CYCLONE_RTOS_HEAP = 3
+CYCLONE_TCP_FATFS = no
+
+# Build specific properties for EM400EB and RF233
+TAL_TYPE = AT86RF233
+BOARD_TYPE = EM400EB
+ARMTYPE = SAM4E
+MCU = atsam4e16c
+PLATFORM = sam
+F_CPU = 120000000
+CFLAGS += -DARMTYPE=$(ARMTYPE)
+CFLAGS += -DSIO_HUB
+CFLAGS += -DSIO2HOST_CHANNEL=SIO_USB
+SIO2HOST_CHANNEL = SIO_USB
+
+## General Flags
+PROJECT = ftp_client_demo
+FORMAT = ihex
+SINGLESTEP	= -DSINGLESTEPSUPPORT
+CROUTINE = TRUE
+CFLAGS += -DMAC802_15_4
+CFLAGS += -DREDUCED_PARAM_CHECK
+CFLAGS += -DBEACON_SUPPORT
+CFLAGS += -DMAC_USER_BUILD_FEATURE_CONFIG
+CFLAGS += -DTRX_REG_RAW_VALUE
+CFLAGS += -DADC_DRIVER
+
+# Target Flags
+TARGET_DIR = .
+TARGET = $(PROJECT)
+
+# Path variables
+## Path to main project directory
+ROOT_DIR = ../../../..
+
+CSRC	+= src/main.c
+CSRC	+= src/ext_int_driver.c
+CSRC	+= src/debug.c
+
+# List any extra directories to look for include files here.
+#     Each directory must be seperated by a space.
+EXTRAINCDIRS +=																	\
+	config
+
+include																			\
+	$(ROOT_DIR)/xdk-asf-3.x/$(PLATFORM)/platform.mk

@@ -49,21 +49,44 @@
 void board_init(void)
 {
 	/* Enable PSoC USB */
-	PORTC.OUT		= PIN4_bm;
-	PORTC.DIR		= PIN4_bm;
-	PORTC.OUTCLR	= PIN4_bm;
+	//PORTC.OUT		= PIN4_bm;
+	//PORTC.DIR		= PIN4_bm;
+	//PORTC.OUTCLR	= PIN4_bm;
+	//
+	///* Disable Battery Power Source */
+	//PORTE.DIRSET	= PIN0_bm;
+	//PORTE.OUTCLR	= PIN0_bm;
 
 	/* Disable Battery Power Source */
-	PORTE.DIRSET	= PIN0_bm;
-	PORTE.OUTCLR	= PIN0_bm;
+	ioport_configure_pin(BATTERY_INTERFACE, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW);
 
+	/* Enable PSoC USB */
+	ioport_configure_pin(PSoC_ENABLE, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW);
+
+	/* Configure GPIOs */
 	ioport_configure_pin(LED0_GPIO, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 	ioport_configure_pin(GPIO_PUSH_BUTTON_0, IOPORT_DIR_INPUT | IOPORT_LEVEL | IOPORT_PULL_UP);
 
-	ioport_configure_pin(IOPORT_CREATE_PIN(PORTC, 7), IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
-	ioport_configure_pin(IOPORT_CREATE_PIN(PORTC, 6), IOPORT_DIR_INPUT);
+	// Always enable Communication Interfaces
+	ioport_configure_pin(SPIC_SCK, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
+	ioport_configure_pin(SPIC_MISO, IOPORT_DIR_INPUT);
+	ioport_configure_pin(USARTC0_TXD, IOPORT_DIR_OUTPUT	| IOPORT_INIT_HIGH);
+	ioport_configure_pin(USARTC0_RXD, IOPORT_DIR_INPUT);
+	
+	// Always enable Chip Select pin of MicroSD
+	// to unselect this component at default
+	ioport_configure_pin(SD_MMC_SPI_0_CS, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
+	ioport_configure_pin(SD_MMC_0_PWR_GPIO, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
+	ioport_configure_pin(SD_MMC_0_CD_GPIO, IOPORT_DIR_INPUT | IOPORT_LEVEL | IOPORT_PULL_UP);
 
-#ifdef CONF_BOARD_AT86RFX
+#if (defined CONF_BOARD_SD_MMC_SPI)
+	// Enable common SPI for MicroSD and OLED
+	ioport_configure_pin(SD_MMC_SPI_SCK, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
+	ioport_configure_pin(SD_MMC_SPI_MOSI, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
+	ioport_configure_pin(SD_MMC_SPI_MISO, IOPORT_DIR_INPUT);
+#endif
+
+#if (defined CONF_BOARD_AT86RFX)
 	ioport_configure_pin(AT86RFX_SPI_SCK, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 	ioport_configure_pin(AT86RFX_SPI_MOSI, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 	ioport_configure_pin(AT86RFX_SPI_MISO, IOPORT_DIR_INPUT);

@@ -47,11 +47,12 @@
 #define TIMEOUT_CLOCK_SOURCE_HZ		1024
 
 //! Configure timeout channels
-#define TIMEOUT_COUNT               4
+#define TIMEOUT_COUNT               5
 #define TIMEOUT_0					0
 #define TIMEOUT_1					1
 #define TIMEOUT_RX					2
 #define TIMEOUT_TX					3
+#define TIMEOUT_RST_SLAVE			4
 
 //! Tick frequency
 #define TIMEOUT_TICK_HZ             10

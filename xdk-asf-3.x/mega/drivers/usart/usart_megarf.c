@@ -283,7 +283,7 @@ bool usart_set_baudrate(USART_t *usart, uint32_t baud, uint32_t cpu_hz)
 {
 	uint32_t min_rate;
 	uint32_t max_rate;
-	uint32_t ubrr;
+	float ubrr;
 
 	/*
 	 * Check if the hardware supports the given baud rate
@@ -305,9 +305,9 @@ bool usart_set_baudrate(USART_t *usart, uint32_t baud, uint32_t cpu_hz)
 	/* Check if double speed is enabled. */
 	if (usart->UCSRnA & USART_U2X_bm) {
 		baud *= 2;
-		ubrr = (uint32_t)(cpu_hz / 8 / baud) - 1;
+		ubrr = ((float)cpu_hz / 8.0 / (float)baud) - 0.5;
 	} else {
-		ubrr = (uint32_t)(cpu_hz / 16 / baud) - 1;
+		ubrr = ((float)cpu_hz / 16.0 / (float)baud) - 0.5;
 	}
 
 	usart->UBRR = ubrr;

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="aps.managedbuild.project.exe.config.debug.499017247">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="aps.managedbuild.project.exe.config.debug.499017247" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="jtag" artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf *.lis" description="" id="aps.managedbuild.project.exe.config.debug.499017247" name="Debug" parent="aps.managedbuild.project.exe.config.debug">
+					<folderInfo id="aps.managedbuild.project.exe.config.debug.499017247." name="/" resourcePath="">
+						<toolChain id="aps.managedbuild.exe.config.debug.toolchain.1672650068" name="APS Tool Chain" superClass="aps.managedbuild.exe.config.debug.toolchain">
+							<targetPlatform binaryParser="org.eclipse.cdt.core.GNU_ELF" id="aps.managedbuild.exe.config.debug.platform.819852963" name="APS Platform" superClass="aps.managedbuild.exe.config.debug.platform"/>
+							<builder buildPath="${workspace_loc:/ftp_client_demo/Debug}" id="aps.managedbuild.exe.config.debug.builder.933406664" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make for APS" superClass="aps.managedbuild.exe.config.debug.builder"/>
+							<tool id="aps.managedbuild.toolchain.c.compiler.1425741848" name="APS C Compiler" superClass="aps.managedbuild.toolchain.c.compiler">
+								<option defaultValue="aps.c.optimization.level.optimize" id="aps.c.compiler.option.optimization.level.1587831394" name="Optimization Level" superClass="aps.c.compiler.option.optimization.level" valueType="enumerated"/>
+								<option id="aps.c.compiler.option.preprocessor.def.symbols.1092682958" name="Defined symbols (-D)" superClass="aps.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="USE_ETHERTAG"/>
+								</option>
+								<option id="aps.c.compiler.option.include.paths.527768188" name="Include paths (-I)" superClass="aps.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;..\..\src&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\common\freertos\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\common\freertos\portable\gcc\cortus_aps3&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\common&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\drivers&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\core&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\ipv4&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\ipv6&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\dns&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\mdns&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\dhcp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\dhcpv6&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\ftp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\http&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\smtp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\sntp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\icecast&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\std_services&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_crypto&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_ssl&quot;"/>
+								</option>
+								<inputType id="aps.managedbuild.tool.c.compiler.input.1263381406" superClass="aps.managedbuild.tool.c.compiler.input"/>
+							</tool>
+							<tool id="aps.managedbuild.toolchain.cpp.compiler.2046784911" name="APS C++ Compiler" superClass="aps.managedbuild.toolchain.cpp.compiler">
+								<option defaultValue="aps.c.optimization.level.optimize" id="aps.cpp.compiler.option.optimization.level.5453174" name="Optimization Level" superClass="aps.cpp.compiler.option.optimization.level" valueType="enumerated"/>
+								<inputType id="aps.managedbuild.tool.cpp.compiler.input.1137763308" superClass="aps.managedbuild.tool.cpp.compiler.input"/>
+							</tool>
+							<tool id="aps.managedbuild.toolchain.c.linker.1369803156" name="APS Linker" superClass="aps.managedbuild.toolchain.c.linker">
+								<inputType id="aps.managedbuild.tool.c.linker.input.183675820" superClass="aps.managedbuild.tool.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="aps.managedbuild.toolchain.archiver.1362453185" name="APS Archiver" superClass="aps.managedbuild.toolchain.archiver"/>
+							<tool id="aps.managedbuild.toolchain.other.140013783" name="APS Other Tools" superClass="aps.managedbuild.toolchain.other"/>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="aps.managedbuild.project.exe.config.release.1388061843">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="aps.managedbuild.project.exe.config.release.1388061843" moduleId="org.eclipse.cdt.core.settings" name="Release">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="jtag" artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf *.lis" description="" id="aps.managedbuild.project.exe.config.release.1388061843" name="Release" parent="aps.managedbuild.project.exe.config.release">
+					<folderInfo id="aps.managedbuild.project.exe.config.release.1388061843." name="/" resourcePath="">
+						<toolChain id="aps.managedbuild.exe.config.rel.toolchain.141497789" name="APS Tool Chain" superClass="aps.managedbuild.exe.config.rel.toolchain">
+							<targetPlatform binaryParser="org.eclipse.cdt.core.GNU_ELF" id="aps.managedbuild.exe.rel.debug.platform.1367290034" name="APS Platform" superClass="aps.managedbuild.exe.rel.debug.platform"/>
+							<builder buildPath="${workspace_loc:/ftp_client_demo/Release}" id="aps.managedbuild.exe.rel.debug.builder.236174273" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make for APS" superClass="aps.managedbuild.exe.rel.debug.builder"/>
+							<tool id="aps.managedbuild.toolchain.c.compiler.1565399751" name="APS C Compiler" superClass="aps.managedbuild.toolchain.c.compiler">
+								<option defaultValue="aps.c.optimization.level.size" id="aps.c.compiler.option.optimization.level.2027525612" name="Optimization Level" superClass="aps.c.compiler.option.optimization.level" valueType="enumerated"/>
+								<option id="aps.c.compiler.option.preprocessor.def.symbols.1037500750" name="Defined symbols (-D)" superClass="aps.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="USE_ETHERTAG"/>
+								</option>
+								<option id="aps.c.compiler.option.include.paths.558169600" name="Include paths (-I)" superClass="aps.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;..\..\src&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\common\freertos\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\common\freertos\portable\gcc\cortus_aps3&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\common&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\drivers&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\core&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\ipv4&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\ipv6&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\dns&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\mdns&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\dhcp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\dhcpv6&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\ftp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\http&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\smtp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\sntp&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\icecast&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_tcp\std_services&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_crypto&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;..\..\..\..\..\..\cyclone_ssl&quot;"/>
+								</option>
+								<inputType id="aps.managedbuild.tool.c.compiler.input.745176716" superClass="aps.managedbuild.tool.c.compiler.input"/>
+							</tool>
+							<tool id="aps.managedbuild.toolchain.cpp.compiler.855313092" name="APS C++ Compiler" superClass="aps.managedbuild.toolchain.cpp.compiler">
+								<option defaultValue="aps.c.optimization.level.size" id="aps.cpp.compiler.option.optimization.level.534323026" name="Optimization Level" superClass="aps.cpp.compiler.option.optimization.level" valueType="enumerated"/>
+								<inputType id="aps.managedbuild.tool.cpp.compiler.input.1028819862" superClass="aps.managedbuild.tool.cpp.compiler.input"/>
+							</tool>
+							<tool id="aps.managedbuild.toolchain.c.linker.1856238871" name="APS Linker" superClass="aps.managedbuild.toolchain.c.linker">
+								<inputType id="aps.managedbuild.tool.c.linker.input.212025908" superClass="aps.managedbuild.tool.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="aps.managedbuild.toolchain.archiver.1773936813" name="APS Archiver" superClass="aps.managedbuild.toolchain.archiver"/>
+							<tool id="aps.managedbuild.toolchain.other.673069773" name="APS Other Tools" superClass="aps.managedbuild.toolchain.other"/>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="ftp_client_demo.aps.managedbuild.project.exe.1665470971" name="Executable" projectType="aps.managedbuild.project.exe"/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+	</storageModule>
+</cproject>

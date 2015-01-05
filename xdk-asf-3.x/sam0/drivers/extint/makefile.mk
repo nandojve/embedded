@@ -1,6 +1,6 @@
 ASF_DRIVERS_EXTINT_DIR			= $(ASF_DRIVERS_DIR)/extint
 
-ifdef ASF_EXTINT_DRIVER
+ifneq (, $(filter $(ASF_EXTINT_DRIVER),1))
 
 #list C source files
 CSRC	+=																		\

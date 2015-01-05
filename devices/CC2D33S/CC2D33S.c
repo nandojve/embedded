@@ -12,7 +12,7 @@
 #include "CC2D33S.h"
 
 #ifndef CC2D33S_DEVICE
-	#define			CC2D33S_DEVICE		0x28
+	#error "Must be defined CC2D33S_DEVICE constant"
 #endif
 
 static twi_package_t package			=

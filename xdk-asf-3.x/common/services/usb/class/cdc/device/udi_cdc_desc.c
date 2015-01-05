@@ -46,6 +46,8 @@
 #include "udc_desc.h"
 #include "udi_cdc.h"
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 
 /**
  * \defgroup udi_cdc_group_single_desc USB device descriptors for a single interface
@@ -248,6 +250,8 @@ UDC_DESC_STORAGE udc_config_t udc_config = {
 	.conf_bos = NULL,
 #endif
 };
+
+#pragma GCC diagnostic pop
 
 //@}
 //@}

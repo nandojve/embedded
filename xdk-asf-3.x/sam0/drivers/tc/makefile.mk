@@ -1,6 +1,6 @@
 ASF_DRIVERS_TC_DIR				= $(ASF_DRIVERS_DIR)/tc
 
-ifdef ASF_TC_DRIVER
+ifneq (, $(filter $(ASF_TC_DRIVER),1))
 
 #list C source files
 CSRC	+=																		\

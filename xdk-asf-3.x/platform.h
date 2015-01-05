@@ -46,6 +46,7 @@
 
 /* Platform */
 #define mega		(0x01)
+#define mega_rf		(mega)
 #define xmega		(0x02)
 #define avr32		(0x03)
 #define sam			(0x04)

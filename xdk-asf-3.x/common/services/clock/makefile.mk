@@ -2,9 +2,11 @@ ASF_COMMON_SERVICES_CLOCK_DIR	= $(ASF_COMMON_SERVICES_DIR)/clock
 
 #list C source files
 ifneq (, $(filter $(PLATFORM),mega xmega))
-CSRC += $(ASF_COMMON_SERVICES_CLOCK_DIR)/$(PLATFORM)/sysclk.c
+	CSRC += $(ASF_COMMON_SERVICES_CLOCK_DIR)/$(PLATFORM)/sysclk.c
 else
-CSRC += $(ASF_COMMON_SERVICES_CLOCK_DIR)/$(shell echo $(ARMTYPE) | tr [:upper:] [:lower:])/sysclk.c
+	ifneq (, $(filter $(PLATFORM),sam))
+		CSRC += $(ASF_COMMON_SERVICES_CLOCK_DIR)/$(shell echo $(ARMTYPE) | tr [:upper:] [:lower:])/sysclk.c
+	endif
 endif
 
 ifneq (, $(filter $(shell echo $(ARMTYPE) | tr [:upper:] [:lower:]),sam4l uc3l))

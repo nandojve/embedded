@@ -63,4 +63,7 @@ void uart_open(uint8_t port);
  */
 void uart_close(uint8_t port);
 
+void uart_set_dtr(uint8_t port, bool b_enable);
+void uart_task(void);
+
 #endif // _UART_H_

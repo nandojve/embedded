@@ -106,12 +106,12 @@
  * @{
  */
 //! Interface callback definition
-#define  UDI_CDC_ENABLE_EXT(port)		stdio_usb_enable()
-#define  UDI_CDC_DISABLE_EXT(port)		stdio_usb_disable()
-#define  UDI_CDC_RX_NOTIFY(port)		uart_rx_notify(port)
+#define  UDI_CDC_ENABLE_EXT(port)			stdio_usb_enable()
+#define  UDI_CDC_DISABLE_EXT(port)			stdio_usb_disable()
+#define  UDI_CDC_RX_NOTIFY(port)			uart_rx_notify(port)
 #define  UDI_CDC_TX_EMPTY_NOTIFY(port)
-#define  UDI_CDC_SET_CODING_EXT(port,cfg) uart_config(port,cfg)
-#define  UDI_CDC_SET_DTR_EXT(port,set)
+#define  UDI_CDC_SET_CODING_EXT(port,cfg)	uart_config(port,cfg)
+#define  UDI_CDC_SET_DTR_EXT(port,set)		uart_set_dtr(port,set)
 #define  UDI_CDC_SET_RTS_EXT(port,set)
 
 //! Default configuration of communication port

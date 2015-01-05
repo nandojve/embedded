@@ -1,6 +1,8 @@
 ASF_DRIVERS_TWIM_DIR			= $(ASF_DRIVERS_DIR)/twim
 
 ifneq (, $(filter $(ASF_TWIM_DRIVER),1))
+ifneq (, $(filter $(ARMTYPE),SAM4L))
+
 #list C source files
 CSRC	+=																		\
 	$(ASF_DRIVERS_TWIM_DIR)/twim.c
@@ -22,4 +24,5 @@ ASRC +=
 EXTRAINCDIRS +=																	\
 	$(ASF_DRIVERS_TWIM_DIR)
 
+endif
 endif

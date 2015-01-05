@@ -1,8 +1,9 @@
-# ARM SAM D20 Platform Makefile
+# ARM SAM Platform Makefile
 ###############################################################################
 
-ASF_ROOT_DIR = $(ROOT_DIR)/platform
-PLATFORM_DIR = $(ROOT_DIR)/platform/$(PLATFORM)
+ASF_ROOT_DIR = $(ROOT_DIR)/xdk-asf-3.x
+PLATFORM_DIR = $(ROOT_DIR)/xdk-asf-3.x/$(PLATFORM)
+DEVICES_DIR = $(ROOT_DIR)/devices
 
 # Object files directory
 #     To put object files in current directory, use a dot (.), do NOT make
@@ -45,7 +46,8 @@ EXTRAINCDIRS += $(ROOT_DIR)/board
 # gnu89 - c89 plus GCC extensions
 # c99   - ISO C99 standard (not yet fully implemented)
 # gnu99 - c99 plus GCC extensions
-CSTANDARD = -std=gnu99
+# gnu11 - c2011 plus GCC extensions
+CSTANDARD = -std=gnu11
 #CSTANDARD += -fgnu89-inline
 
 # Place -D or -U options here for ASM sources
@@ -71,17 +73,16 @@ CPPDEFS += -Dprintf=iprintf
 CINCS +=
 
 USE_CMSIS = 1
+ARMTYPE_BASE = $(shell echo $(ARMTYPE) | tr [:upper:] [:lower:])
 
-ifdef STACK_TYPE
-	include $(ROOT_DIR)/stack/stack.mk
-endif
+include $(ROOT_DIR)/stack/stack.mk
 
-ifeq ($(strip $(USE_ASF)),1)
+ifneq (, $(filter $(USE_ASF),1))
 	include $(ASF_ROOT_DIR)/asf.mk
+	include $(DEVICES_DIR)/devices.mk
 endif
 
-include $(ROOT_DIR)/board/$(_BOARD_TYPE)/board.mk
-include $(ASF_ROOT_DIR)/resources/makefile.mk
+include $(ROOT_DIR)/board/$(BOARD_TYPE)/board.mk
 include $(ASF_ROOT_DIR)/thirdparty/makefile.mk
 
 ifndef MEM_MODEL
@@ -132,14 +133,6 @@ CFLAGS += $(CWARNINGS)
 CFLAGS += -Wa,-adhlns=$(<:.c=.lst)
 CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
 CFLAGS += $(CSTANDARD)
-CFLAGS += -DSIO_HUB
-CFLAGS += -DTAL_TYPE=$(_TAL_TYPE)
-CFLAGS += -DPAL_GENERIC_TYPE=$(_PAL_GENERIC_TYPE)
-CFLAGS += -DPAL_TYPE=$(shell echo $(_PAL_TYPE) | tr [:lower:] [:upper:])
-CFLAGS += -DBOARD_TYPE=$(_BOARD_TYPE)
-CFLAGS += -DPLATFORM=$(PLATFORM)
-CFLAGS += -DVENDOR_BOARDTYPES=1
-CFLAGS += -DHIGHEST_STACK_LAYER=$(_HIGHEST_STACK_LAYER)
 
 #---------------- Compiler Options C++ ----------------
 #  -g*:          generate debugging information
@@ -227,7 +220,7 @@ EXTRALIBDIRS +=
 #  -Wl,...:     tell GCC to pass this to linker.
 #    -Map:      create map file
 #    --cref:    add cross reference to  map file
-LDFLAGS = -Wl,-Map=$(TARGET).map
+LDFLAGS += -Wl,-Map=$(TARGET).map
 LDFLAGS += -Wl,--start-group
 LDFLAGS += $(MATH_LIB)
 #LDFLAGS += $(PRINTF_LIB)
@@ -235,7 +228,13 @@ LDFLAGS += $(MATH_LIB)
 LDFLAGS += -Wl,--end-group
 LDFLAGS += $(patsubst %,-L%,$(EXTRALIBDIRS))
 LDFLAGS += -Wl,--gc-sections
-LDFLAGS += -Wl,--script=$(PLATFORM_DIR)/linkerScr/$(MCU)_flash.ld
+ifneq (, $(filter $(USE_BOOTLOADER),1))
+LINKER_PREFIX = _samba
+else
+LINKER_PREFIX = _flash
+endif
+#MCU_BASE = $(ARMTYPE_BASE)$(shell echo $(MCU) | gawk '{print substr($$1,length($$1)-2,1)}')
+LDFLAGS += -Wl,--script=$(PLATFORM_DIR)/utils/linker_scripts/$(ARMTYPE_BASE)/gcc/$(MCU)$(LINKER_PREFIX).ld
 LDFLAGS += -Wl,-Map=$(TARGET).map
 LDFLAGS += -Wl,--cref
 LDFLAGS += -Wl,--entry=Reset_Handler
@@ -323,10 +322,10 @@ else
 endif
 
 # Define all object files.
-OBJ = $(CSRC:%.c=$(OBJDIR)/%.o) $(CPPSRC:%.cpp=$(OBJDIR)/%.o) $(ASRC:%.asm=$(OBJDIR)/%.o)
+OBJ += $(CSRC:%.c=$(OBJDIR)/%.o) $(CPPSRC:%.cpp=$(OBJDIR)/%.o) $(ASRC:%.asm=$(OBJDIR)/%.o)
 
 # Define all listing files.
-LST = $(CSRC:%.c=$(OBJDIR)/%.lst) $(CPPSRC:%.cpp=$(OBJDIR)/%.lst) $(ASRC:%.asm=$(OBJDIR)/%.lst)
+LST += $(CSRC:%.c=$(OBJDIR)/%.lst) $(CPPSRC:%.cpp=$(OBJDIR)/%.lst) $(ASRC:%.asm=$(OBJDIR)/%.lst)
 
 
 # Compiler flags to generate dependency files.
@@ -336,9 +335,10 @@ GENDEPFLAGS = -Wp,-M,-MP,-MT,$(*F).o,-MF,.dep/$(@F).d
 
 # Combine all necessary flags and optional flags.
 # Add target processor to flags.
-ALL_CFLAGS = -mcpu=$(ARCH) -mthumb -D=__$(shell echo $(_PAL_TYPE) | tr [:lower:] [:upper:])__ -I. $(CFLAGS) $(GENDEPFLAGS)
-ALL_CPPFLAGS = -mcpu=$(ARCH) -mthumb -D=__$(shell echo $(_PAL_TYPE) | tr [:lower:] [:upper:])__ -I. -x c++ $(CPPFLAGS) $(GENDEPFLAGS)
-ALL_ASFLAGS = -mcpu=$(ARCH) -mthumb -D=__$(shell echo $(_PAL_TYPE) | tr [:lower:] [:upper:])__ -D__ASSEMBLY__ -I. $(ASFLAGS)
+MCU_DEFINE = $(MCU)  #$(shell echo $(MCU) | gawk '{print substr($$1,3,length($$1)-2)}')
+ALL_CFLAGS = -mcpu=$(ARCH) -mthumb -D__$(shell echo $(MCU_DEFINE) | tr [:lower:] [:upper:])__ -I. $(CFLAGS) $(GENDEPFLAGS)
+ALL_CPPFLAGS = -mcpu=$(ARCH) -mthumb -D__$(shell echo $(MCU_DEFINE) | tr [:lower:] [:upper:])__ -I. -x c++ $(CPPFLAGS) $(GENDEPFLAGS)
+ALL_ASFLAGS = -mcpu=$(ARCH) -mthumb -D__$(shell echo $(MCU_DEFINE) | tr [:lower:] [:upper:])__ -D__ASSEMBLY__ -I. $(ASFLAGS)
 
 
 
@@ -354,7 +354,7 @@ all: begin gccversion sizebefore build sizeafter end
 allib: begin gccversion sizebefore buildlib sizeafter end
 
 # build target to build a HEX file.
-build: elf hex srec eep lss sym
+build: elf hex srec bin eep lss sym
 
 # build target to build a library.
 buildlib: lib
@@ -362,6 +362,7 @@ buildlib: lib
 elf: $(TARGET).elf
 hex: $(TARGET).hex
 srec: $(TARGET).srec
+bin: $(TARGET).bin
 eep: $(TARGET).eep
 lss: $(TARGET).lss
 sym: $(TARGET).sym
@@ -406,8 +407,6 @@ sizeafter:
 gccversion :
 	@$(CC) --version
 
-
-
 coff: $(TARGET).elf
 	@echo
 	@echo $(MSG_COFF) $(TARGET).cof
@@ -431,6 +430,11 @@ extcoff: $(TARGET).elf
 	@echo
 	@echo $(MSG_FLASH) $@
 	$(OBJCOPY) -O srec --srec-len 128 $< $@
+
+%.bin: %.elf
+	@echo
+	@echo $(MSG_FLASH) $@
+	$(OBJCOPY) -O binary $< $@
 
 %.eep: %.elf
 	@echo
@@ -513,6 +517,7 @@ clean_list :
 	@echo
 	@echo $(MSG_CLEANING)
 	$(REMOVE) $(TARGET).hex
+	$(REMOVE) $(TARGET).bin
 	$(REMOVE) $(TARGET).srec
 	$(REMOVE) $(TARGET).eep
 	$(REMOVE) $(TARGET).cof
@@ -526,8 +531,9 @@ clean_list :
 	$(REMOVE) $(CSRC:.c=.i)
 	$(REMOVE) $(ASRC:%.asm=$(OBJDIR)/%.o)
 
-	$(REMOVE) $(CSRC:.c=$(OBJDIR)/%.d)
-	$(REMOVE) $(ASRC:.asm=$(OBJDIR)/%.d)
+#	$(REMOVE) $(CSRC:.c=$(OBJDIR)/%.d)
+#	$(REMOVE) $(ASRC:.asm=$(OBJDIR)/%.d)
+	$(REMOVE) .dep/*
 #	$(REMOVEDIR) $(OBJDIR)
 
 rebuild:

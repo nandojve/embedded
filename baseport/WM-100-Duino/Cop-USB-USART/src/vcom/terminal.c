@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include "Terminal.h"
 
+#if (VCOM_ENABLE == 1)
+
 static	TerminalState	term_state		= TS_INIT;
 static	char			term_cmd[CMAXCL];
 static	terminal_user_process_command	user_process_funcion = NULL;
@@ -141,3 +143,5 @@ void terminal_close(void)
 	putc('\r', stdout);
 	putc('\n', stdout);
 }
+
+#endif

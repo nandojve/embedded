@@ -1,6 +1,6 @@
 ASF_COMMON_SERVICES_USB_UDC_DIR	= $(ASF_COMMON_SERVICES_USB_DIR)/udc
 
-ifeq ($(strip $(USB_CLASS_CDC_DEVICE)),1)
+ifneq (, $(filter $(USB_CLASS_CDC_DEVICE),1))
 
 #list C source files
 CSRC	+=																		\

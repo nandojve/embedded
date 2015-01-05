@@ -41,7 +41,7 @@
  *
  */
 
-#include "spi_master.h"
+#include <spi_master.h>
 
 /**
  * \brief Max number when the chip selects are connected to a 4- to 16-bit decoder.

@@ -1,9 +1,9 @@
-ifneq (, $(filter $(ASF_SPI_DRIVER),1))
+ifneq (, $(filter $(ASF_SPI_SERVICE),1))
 
 ASF_COMMON_SERVICES_SPI_DIR				= $(ASF_COMMON_SERVICES_DIR)/spi
 
 #list C source files
-ifeq ($(strip $(PLATFORM)),mega)
+ifneq (, $(filter $(PLATFORM),mega))
 CSRC	+=																		\
 	$(ASF_COMMON_SERVICES_SPI_DIR)/$(PLATFORM)rf_spi/spi_master.c				\
 	$(ASF_COMMON_SERVICES_SPI_DIR)/$(PLATFORM)rf_usart_spi/usart_spi.c
@@ -27,7 +27,7 @@ ASRC +=
 
 # List any extra directories to look for include files here.
 #     Each directory must be seperated by a space.
-ifeq ($(strip $(PLATFORM)),mega)
+ifneq (, $(filter $(PLATFORM),mega))
 EXTRAINCDIRS += 																\
 	$(ASF_COMMON_SERVICES_SPI_DIR)												\
 	$(ASF_COMMON_SERVICES_SPI_DIR)/$(PLATFORM)rf_spi							\

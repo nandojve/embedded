@@ -1,7 +1,7 @@
 ASF_DRIVERS_PMC_DIR				= $(ASF_DRIVERS_DIR)/pmc
 
 ifneq (, $(filter $(ASF_PMC_DRIVER),1))
-ifneq (, $(filter $(ARMTYPE),SAM4S))
+ifneq (, $(filter $(ARMTYPE),SAM4S SAM4E))
 
 #list C source files
 CSRC	+=																		\

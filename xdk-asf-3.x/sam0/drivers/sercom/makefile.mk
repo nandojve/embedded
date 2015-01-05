@@ -1,17 +1,20 @@
 ASF_DRIVERS_SERCOM_DIR			= $(ASF_DRIVERS_DIR)/sercom
 
-ifdef ASF_SERCOM_DRIVER
+ifneq (, $(filter $(ASF_SERCOM_DRIVER),1))
 
 #list C source files
 CSRC	+=																		\
 	$(ASF_DRIVERS_SERCOM_DIR)/sercom.c											\
-	$(ASF_DRIVERS_SERCOM_DIR)/sercom_interrupt.c								\
-	$(ASF_DRIVERS_SERCOM_DIR)/i2c/master.c										\
-	$(ASF_DRIVERS_SERCOM_DIR)/i2c/master_interrupt.c							\
-	$(ASF_DRIVERS_SERCOM_DIR)/i2c/slave.c										\
-	$(ASF_DRIVERS_SERCOM_DIR)/i2c/slave_interrupt.c								\
+	$(ASF_DRIVERS_SERCOM_DIR)/sercom_interrupt.c
+
+#	$(ASF_DRIVERS_SERCOM_DIR)/i2c/i2c_master.c									\
+	$(ASF_DRIVERS_SERCOM_DIR)/i2c/i2c_master_interrupt.c						\
+	$(ASF_DRIVERS_SERCOM_DIR)/i2c/i2c_slave.c									\
+	$(ASF_DRIVERS_SERCOM_DIR)/i2c/i2c_slave_interrupt.c							\
 	$(ASF_DRIVERS_SERCOM_DIR)/spi/spi.c											\
 	$(ASF_DRIVERS_SERCOM_DIR)/spi/spi_interrupt.c								\
+#
+CSRC	+=																		\
 	$(ASF_DRIVERS_SERCOM_DIR)/usart/usart.c										\
 	$(ASF_DRIVERS_SERCOM_DIR)/usart/usart_interrupt.c
 

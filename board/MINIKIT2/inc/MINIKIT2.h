@@ -57,24 +57,58 @@
 
 /**
  * \name LEDs
- *
- * LED0 and LED1 are single yellow LEDs that are active low..
- * LED2 and LED3 are inside one package (Led red and green close
- * to USB connector) but can be controlled individually.
- * LED2 has a red color and is active low. This LED can be
- * used for general purposes.
- * LED3 has a green color and is active high. By default this
- * LED is on since it shall indicate that power is applied to the
- * board. By pulling the gate of a N-FET low it is possible to
- * turn off the LED if needed.
  */
+//@{
 #define LED0_GPIO						IOPORT_CREATE_PIN(PORTE, 1)
 #define LED0							LED0_GPIO
+//! Number of LEDs.
 #define LED_COUNT                       1
+//@}
 
+/**
+ * \name Push buttons
+ *
+ * BUTTON_0 and BUTTON_1 are the SW0 and SW1 mecanical buttons
+ * on the righ side of board.
+ */
+//@{
 #define GPIO_PUSH_BUTTON_0              IOPORT_CREATE_PIN(PORTA, 2)
+//@}
+
+//! \name Battery interfaces
+//@{
+#define BATTERY_INTERFACE				IOPORT_CREATE_PIN(PORTE, 0)
+//@}
+
+//! \name Communication interfaces
+//@{
+#define TWIC_SDA                        IOPORT_CREATE_PIN(PORTC, 0)
+#define TWIC_SCL                        IOPORT_CREATE_PIN(PORTC, 1)
+#define USARTC0_RXD                     IOPORT_CREATE_PIN(PORTC, 2)
+#define USARTC0_TXD                     IOPORT_CREATE_PIN(PORTC, 3)
+#define PSoC_ENABLE                     IOPORT_CREATE_PIN(PORTC, 4)
+#define SPIC_MOSI                       IOPORT_CREATE_PIN(PORTC, 5)
+#define SPIC_MISO                       IOPORT_CREATE_PIN(PORTC, 6)
+#define SPIC_SCK                        IOPORT_CREATE_PIN(PORTC, 7)
+//@}
+
+//! \name SPI microSD
+//@{
+#define SD_MMC_SPI_MEM_CNT				1
+#define SD_MMC_0_PWR_GPIO				IOPORT_CREATE_PIN(PORTA, 6)
+#define SD_MMC_0_CD_GPIO				IOPORT_CREATE_PIN(PORTA, 7)
+#define SD_MMC_0_CD_DETECT_VALUE		0
+//#define SD_MMC_SPI_USES_USART_SPI_SERVICE // To signal that is a USART in SPI mode
+//#define SD_MMC_SPI						&USARTD0
+#define SD_MMC_SPI						&SPIE
+#define SD_MMC_SPI_SCK					IOPORT_CREATE_PIN(PORTE, 7)
+#define SD_MMC_SPI_MISO					IOPORT_CREATE_PIN(PORTE, 6)
+#define SD_MMC_SPI_MOSI					IOPORT_CREATE_PIN(PORTE, 5)
+#define SD_MMC_SPI_0_CS					IOPORT_CREATE_PIN(PORTE, 4)
+//@}
 
 // name Connections of the AT86RFX transceiver
+//@{
 #define AT86RFX_SPI						&SPID
 #define AT86RFX_RST_PIN					IOPORT_CREATE_PIN(PORTD, 0)
 #define AT86RFX_MISC_PIN				IOPORT_CREATE_PIN(PORTD, 3)
@@ -110,5 +144,6 @@
  *  This macro restores the transceiver interrupt status
  */
 #define LEAVE_TRX_REGION()				PORTD.INTCTRL = irq_mask; }
+//@}
 
 #endif /* MINIKIT2_H */

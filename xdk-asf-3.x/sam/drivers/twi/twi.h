@@ -45,6 +45,7 @@
 #define TWI_H_INCLUDED
 
 #include "compiler.h"
+#include "status_codes.h"
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -74,6 +75,20 @@ extern "C" {
 /**
  * @}
  */
+
+/**
+ * \name TWI transfer speed definitions
+ *  @{
+ */
+/** TWI Standard Mode */
+#define TWI_STD_MODE_SPEED         ( 100000 /* kbit/s */)
+/** TWI Fast Mode */
+#define TWI_FAST_MODE_SPEED        ( 400000 /* kbit/s */)
+/** TWI Fast Mode Plus */
+#define TWI_FAST_MODE_PLUS_SPEED   (1000000 /* kbit/s */)
+/** TWI High Speed Mode */
+#define TWI_HIGH_SPEED_MODE_SPEED  (3400000 /* kbit/s */)
+/* @} */
  
 /**
  * \brief Input parameters when initializing the TWI module mode.
