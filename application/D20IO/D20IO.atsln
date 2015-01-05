@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "D20IO", "D20IO.cproj", "{6DF05E44-CACC-4444-BCA5-8EAB22B77249}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DF05E44-CACC-4444-BCA5-8EAB22B77249}.Debug|ARM.ActiveCfg = Debug|ARM
+		{6DF05E44-CACC-4444-BCA5-8EAB22B77249}.Debug|ARM.Build.0 = Debug|ARM
+		{6DF05E44-CACC-4444-BCA5-8EAB22B77249}.Release|ARM.ActiveCfg = Release|ARM
+		{6DF05E44-CACC-4444-BCA5-8EAB22B77249}.Release|ARM.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

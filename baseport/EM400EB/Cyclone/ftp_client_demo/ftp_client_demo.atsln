@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "ftp_client_demo", "ftp_client_demo.cproj", "{A7CBE05B-9881-4D6C-9387-38050233304D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7CBE05B-9881-4D6C-9387-38050233304D}.Debug|ARM.ActiveCfg = Debug|ARM
+		{A7CBE05B-9881-4D6C-9387-38050233304D}.Debug|ARM.Build.0 = Debug|ARM
+		{A7CBE05B-9881-4D6C-9387-38050233304D}.Release|ARM.ActiveCfg = Release|ARM
+		{A7CBE05B-9881-4D6C-9387-38050233304D}.Release|ARM.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
