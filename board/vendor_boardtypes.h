@@ -37,6 +37,7 @@
 #define WM400					(0x43)
 
 #define WM400_BBBS				(0x60)
+#define EM400EB					(0x61)
 
 #if BOARD_TYPE == WM100
 	#include "WM100/inc/wm100.h"
@@ -52,6 +53,8 @@
 	#include "WM400/inc/wm400.h"
 #elif BOARD_TYPE == WM400_BBBS
 	#include "WM400_BBBS/inc/wm400_bbbs.h"
+#elif BOARD_TYPE == EM400EB
+	#include "EM400EB/inc/em400eb.h"
 #elif BOARD_TYPE == KITRFA1
 	#include "KITRFA1/inc/KITRFA1.h"
 #elif BOARD_TYPE == MINIKIT2

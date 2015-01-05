@@ -1,11 +1,7 @@
-ASF_COMMON_SERVICES_USB_UDC_DIR	= $(ASF_COMMON_SERVICES_USB_DIR)/udc
-
-ifneq (, $(filter $(USB_CLASS_CDC_DEVICE),1))
+ASF_UTILS_CMSIS_SAM4E_DIR				= $(ASF_UTILS_CMSIS_DIR)/sam4e
 
 #list C source files
-CSRC	+=																		\
-	$(ASF_COMMON_SERVICES_USB_UDC_DIR)/udc.c
-endif
+CSRC	+=
 
 # List C++ source files here. (C dependencies are automatically generated.)
 CPPSRC += 
@@ -21,5 +17,10 @@ ASRC +=
 
 # List any extra directories to look for include files here.
 #     Each directory must be seperated by a space.
-EXTRAINCDIRS += 																\
-	$(ASF_COMMON_SERVICES_USB_UDC_DIR)
+EXTRAINCDIRS +=																	\
+	$(ASF_UTILS_CMSIS_SAM4E_DIR)/include										\
+	$(ASF_UTILS_CMSIS_SAM4E_DIR)/include/component								\
+	$(ASF_UTILS_CMSIS_SAM4E_DIR)/include/instance								\
+	$(ASF_UTILS_CMSIS_SAM4E_DIR)/include/pio
+
+include $(ASF_UTILS_CMSIS_SAM4E_DIR)/source/makefile.mk

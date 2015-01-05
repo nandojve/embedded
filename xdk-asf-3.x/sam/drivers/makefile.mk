@@ -26,6 +26,7 @@ include																			\
 		$(ASF_DRIVERS_DIR)/bpm/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/chipid/makefile.mk									\
 		$(ASF_DRIVERS_DIR)/flashcalw/makefile.mk								\
+		$(ASF_DRIVERS_DIR)/gmac/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/gpio/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/efc/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/eic/makefile.mk										\
@@ -34,6 +35,7 @@ include																			\
 		$(ASF_DRIVERS_DIR)/pmc/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/spi/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/tc/makefile.mk										\
+		$(ASF_DRIVERS_DIR)/twi/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/twim/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/udp/makefile.mk										\
 		$(ASF_DRIVERS_DIR)/usbc/makefile.mk										\

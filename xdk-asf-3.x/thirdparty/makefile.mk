@@ -19,20 +19,30 @@ ASRC +=
 #     Each directory must be seperated by a space.
 EXTRAINCDIRS +=
 
-ifeq ($(strip $(USE_CMSIS)),1)
+ifneq (, $(filter $(USE_CMSIS),1))
 	include $(ASF_THIRDPARTY_DIR)/CMSIS/makefile.mk
 endif
-ifeq ($(strip $(USE_FATFS)),1)
+ifneq (, $(filter $(USE_FATFS),1))
 ASF_THIRDPARTY_FATFS_DIR				= $(ASF_THIRDPARTY_DIR)/fatfs
 
 	include $(ASF_THIRDPARTY_FATFS_DIR)/makefile.mk
 endif
-ifeq ($(strip $(USE_QTOUCH)),1)
+ifneq (, $(filter $(USE_FREERTOS),1))
+ASF_THIRDPARTY_FREERTOS_DIR				= $(ASF_THIRDPARTY_DIR)/freertos
+
+	include $(ASF_THIRDPARTY_FREERTOS_DIR)/makefile.mk
+endif
+ifneq (, $(filter $(USE_LWIP),1))
+ASF_THIRDPARTY_LWIP_DIR					= $(ASF_THIRDPARTY_DIR)/lwip
+
+	include $(ASF_THIRDPARTY_LWIP_DIR)/makefile.mk
+endif
+ifneq (, $(filter $(USE_QTOUCH),1))
 ASF_THIRDPARTY_QTOUCH_DIR				= $(ASF_THIRDPARTY_DIR)/qtouch
 
 	include $(ASF_THIRDPARTY_QTOUCH_DIR)/makefile.mk
 endif
-ifeq ($(strip $(USE_WIRELESS)),1)
+ifneq (, $(filter $(USE_WIRELESS),1))
 ifneq ($(strip $(USE_WIRELESS_OLD)),1)
 ASF_THIRDPARTY_WIRELESS_DIR				= $(ASF_THIRDPARTY_DIR)/wireless
 

@@ -1,11 +1,10 @@
-ASF_COMMON_SERVICES_USB_UDC_DIR	= $(ASF_COMMON_SERVICES_USB_DIR)/udc
-
-ifneq (, $(filter $(USB_CLASS_CDC_DEVICE),1))
+ASF_UTILS_CMSIS_SAM4E_SOURCE_TEMPLATES_DIR					= $(ASF_UTILS_CMSIS_SAM4E_SOURCE_DIR)/templates
 
 #list C source files
 CSRC	+=																		\
-	$(ASF_COMMON_SERVICES_USB_UDC_DIR)/udc.c
-endif
+	$(ASF_UTILS_CMSIS_SAM4E_SOURCE_TEMPLATES_DIR)/system_sam4e.c				\
+	$(ASF_UTILS_CMSIS_SAM4E_SOURCE_TEMPLATES_DIR)/exceptions.c					\
+	$(ASF_UTILS_CMSIS_SAM4E_SOURCE_TEMPLATES_DIR)/gcc/startup_sam4e.c
 
 # List C++ source files here. (C dependencies are automatically generated.)
 CPPSRC += 
@@ -21,5 +20,5 @@ ASRC +=
 
 # List any extra directories to look for include files here.
 #     Each directory must be seperated by a space.
-EXTRAINCDIRS += 																\
-	$(ASF_COMMON_SERVICES_USB_UDC_DIR)
+EXTRAINCDIRS +=																	\
+	$(ASF_UTILS_CMSIS_SAM4E_SOURCE_TEMPLATES_DIR)

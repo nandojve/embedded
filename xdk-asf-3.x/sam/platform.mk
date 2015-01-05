@@ -46,7 +46,8 @@ EXTRAINCDIRS += $(ROOT_DIR)/board
 # gnu89 - c89 plus GCC extensions
 # c99   - ISO C99 standard (not yet fully implemented)
 # gnu99 - c99 plus GCC extensions
-CSTANDARD = -std=gnu99
+# gnu11 - c2011 plus GCC extensions
+CSTANDARD = -std=gnu11
 #CSTANDARD += -fgnu89-inline
 
 # Place -D or -U options here for ASM sources
@@ -73,13 +74,9 @@ CINCS +=
 
 USE_CMSIS = 1
 
-ifeq ($(strip $(USE_WIRELESS_OLD)),1)
-ifdef STACK_TYPE
-	include $(ROOT_DIR)/stack/stack.mk
-endif
-endif
+include $(ROOT_DIR)/stack/stack.mk
 
-ifeq ($(strip $(USE_ASF)),1)
+ifneq (, $(filter $(USE_ASF),1))
 	include $(ASF_ROOT_DIR)/asf.mk
 	include $(DEVICES_DIR)/devices.mk
 endif
@@ -237,11 +234,15 @@ SAMBA_PREFIX = _samba
 else
 SAMBA_PREFIX =
 endif
-ifeq ($(strip $(ARMTYPE_BASE)),sam4s)
+ifneq (, $(filter $(ARMTYPE_BASE),sam4s))
 MCU_BASE = $(shell echo $(MCU) | gawk '{print substr($$1,1,length($$1)-1)}')
 LDFLAGS += -Wl,--script=$(PLATFORM_DIR)/utils/linker_scripts/$(ARMTYPE_BASE)/$(MCU_BASE)/gcc/flash$(SAMBA_PREFIX).ld
 endif
-ifeq ($(strip $(ARMTYPE_BASE)),sam4l)
+ifneq (, $(filter $(ARMTYPE_BASE),sam4e))
+MCU_BASE = $(shell echo $(MCU) | gawk '{print substr($$1,3,length($$1)-3)}')
+LDFLAGS += -Wl,--script=$(PLATFORM_DIR)/utils/linker_scripts/$(ARMTYPE_BASE)/$(MCU_BASE)/gcc/flash$(SAMBA_PREFIX).ld
+endif
+ifneq (, $(filter $(ARMTYPE_BASE),sam4l))
 MCU_BASE = $(ARMTYPE_BASE)$(shell echo $(MCU) | gawk '{print substr($$1,length($$1)-1,1)}')
 LDFLAGS += -Wl,--script=$(PLATFORM_DIR)/utils/linker_scripts/$(ARMTYPE_BASE)/$(MCU_BASE)/gcc/flash$(SAMBA_PREFIX).ld
 endif
@@ -346,9 +347,9 @@ GENDEPFLAGS = -Wp,-M,-MP,-MT,$(*F).o,-MF,.dep/$(@F).d
 # Combine all necessary flags and optional flags.
 # Add target processor to flags.
 MCU_DEFINE = $(shell echo $(MCU) | gawk '{print substr($$1,3,length($$1)-2)}')
-ALL_CFLAGS = -mcpu=$(ARCH) -mthumb -D=__$(shell echo $(MCU_DEFINE) | tr [:lower:] [:upper:])__ -I. $(CFLAGS) $(GENDEPFLAGS)
-ALL_CPPFLAGS = -mcpu=$(ARCH) -mthumb -D=__$(shell echo $(MCU_DEFINE) | tr [:lower:] [:upper:])__ -I. -x c++ $(CPPFLAGS) $(GENDEPFLAGS)
-ALL_ASFLAGS = -mcpu=$(ARCH) -mthumb -D=__$(shell echo $(MCU_DEFINE) | tr [:lower:] [:upper:])__ -D__ASSEMBLY__ -I. $(ASFLAGS)
+ALL_CFLAGS = -mcpu=$(ARCH) -mthumb -D__$(shell echo $(MCU_DEFINE) | tr [:lower:] [:upper:])__ -I. $(CFLAGS) $(GENDEPFLAGS)
+ALL_CPPFLAGS = -mcpu=$(ARCH) -mthumb -D__$(shell echo $(MCU_DEFINE) | tr [:lower:] [:upper:])__ -I. -x c++ $(CPPFLAGS) $(GENDEPFLAGS)
+ALL_ASFLAGS = -mcpu=$(ARCH) -mthumb -D__$(shell echo $(MCU_DEFINE) | tr [:lower:] [:upper:])__ -D__ASSEMBLY__ -I. $(ASFLAGS)
 
 
 
@@ -416,8 +417,6 @@ sizeafter:
 # Display compiler version information.
 gccversion :
 	@$(CC) --version
-
-
 
 coff: $(TARGET).elf
 	@echo

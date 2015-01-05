@@ -1,9 +1,9 @@
 /**
  * \file
  *
- * \brief SRAM Linker script for SAM.
+ * \brief Linker script for running in internal FLASH on the SAMD20J18
  *
- * Copyright (c) 2012-2013 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2013 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -41,6 +41,7 @@
  *
  */
 
+
 OUTPUT_FORMAT("elf32-littlearm", "elf32-littlearm", "elf32-littlearm")
 OUTPUT_ARCH(arm)
 SEARCH_DIR(.)
@@ -48,14 +49,15 @@ SEARCH_DIR(.)
 /* Memory Spaces Definitions */
 MEMORY
 {
-  rom (rx)  : ORIGIN = 0x00400000, LENGTH = 0x00100000
-  ram (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00020000
+  rom (rx)  : ORIGIN = 0x00001000, LENGTH = 0x00040000
+  ram (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00008000
 }
 
 /* The stack size used by the application. NOTE: you need to adjust according to your application. */
-__stack_size__ = DEFINED(__stack_size__) ? __stack_size__ : 0x3000;
+__stack_size__ = DEFINED(__stack_size__) ? __stack_size__ : 0x2000;
 __ram_end__ = ORIGIN(ram) + LENGTH(ram) - 4;
 
+/* Section Definitions */
 SECTIONS
 {
     .text :
@@ -83,7 +85,7 @@ SECTIONS
         KEEP (*(.init_array))
         __init_array_end = .;
 
-        . = ALIGN(0x4);
+        . = ALIGN(4);
         KEEP (*crtbegin.o(.ctors))
         KEEP (*(EXCLUDE_FILE (*crtend.o) .ctors))
         KEEP (*(SORT(.ctors.*)))
@@ -105,7 +107,15 @@ SECTIONS
 
         . = ALIGN(4);
         _efixed = .;            /* End of text section */
-    } > ram
+    } > rom
+
+    /* .ARM.exidx is sorted, so has to go in its own output section.  */
+    PROVIDE_HIDDEN (__exidx_start = .);
+    .ARM.exidx :
+    {
+      *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+    } > rom
+    PROVIDE_HIDDEN (__exidx_end = .);
 
     . = ALIGN(4);
     _etext = .;
@@ -142,14 +152,6 @@ SECTIONS
         . = ALIGN(8);
         _estack = .;
     } > ram
-
-    /* .ARM.exidx is sorted, so has to go in its own output section.  */
-    PROVIDE_HIDDEN (__exidx_start = .);
-    .ARM.exidx :
-    {
-      *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-    } > ram
-    PROVIDE_HIDDEN (__exidx_end = .);
 
     . = ALIGN(4);
     _end = . ;

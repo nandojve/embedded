@@ -19,4 +19,4 @@ ASRC +=
 #     Each directory must be seperated by a space.
 EXTRAINCDIRS +=
 
-include $(ASF_UTILS_CMSIS_DIR)/samd20/makefile.mk
+include $(ASF_UTILS_CMSIS_DIR)/$(ARMTYPE_BASE)/makefile.mk

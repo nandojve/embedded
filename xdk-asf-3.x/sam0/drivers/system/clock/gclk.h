@@ -1,9 +1,9 @@
 /**
  * \file
  *
- * \brief SAM Generic Clock Driver
+ * \brief SAM D20 Generic Clock Driver
  *
- * Copyright (C) 2012-2014 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2012-2013 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -44,7 +44,7 @@
 #define SYSTEM_CLOCK_GCLK_H_INCLUDED
 
 /**
- * \addtogroup asfdoc_sam0_system_clock_group
+ * \addtogroup asfdoc_samd20_system_clock_group
  *
  * @{
  */
@@ -141,7 +141,7 @@ enum gclk_generator {
  * the user application.
  */
 struct system_gclk_gen_config {
-	/** Source clock input channel index, please see the \ref system_clock_source. */
+	/** Source clock input channel index. */
 	uint8_t source_clock;
 	/** If \c true, the generator output level is high when disabled. */
 	bool high_when_disabled;
@@ -163,6 +163,9 @@ struct system_gclk_gen_config {
 struct system_gclk_chan_config {
 	/** Generic Clock Generator source channel. */
 	enum gclk_generator source_generator;
+	/** If \c true the clock configuration will be locked until the device is
+	 *  reset. */
+	bool write_lock;
 };
 
 /** \name Generic Clock management
@@ -243,9 +246,6 @@ void system_gclk_gen_enable(
 void system_gclk_gen_disable(
 		const uint8_t generator);
 
-bool system_gclk_gen_is_enabled(
-		const uint8_t generator);
-
 /** @} */
 
 
@@ -276,6 +276,7 @@ static inline void system_gclk_chan_get_config_defaults(
 
 	/* Default configuration values */
 	config->source_generator = GCLK_GENERATOR_0;
+	config->write_lock       = false;
 }
 
 void system_gclk_chan_set_config(
@@ -286,15 +287,6 @@ void system_gclk_chan_enable(
 		const uint8_t channel);
 
 void system_gclk_chan_disable(
-		const uint8_t channel);
-
-bool system_gclk_chan_is_enabled(
-		const uint8_t channel);
-
-void system_gclk_chan_lock(
-		const uint8_t channel);
-
-bool system_gclk_chan_is_locked(
 		const uint8_t channel);
 
 /** @} */

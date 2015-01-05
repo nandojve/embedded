@@ -1,6 +1,6 @@
 ASF_DRIVERS_WDT_DIR				= $(ASF_DRIVERS_DIR)/wdt
 
-ifdef ASF_WDT_DRIVER
+ifneq (, $(filter $(ASF_WDT_DRIVER),1))
 
 #list C source files
 CSRC	+=																		\

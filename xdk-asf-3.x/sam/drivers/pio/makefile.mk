@@ -1,7 +1,7 @@
 ASF_DRIVERS_PIO_DIR				= $(ASF_DRIVERS_DIR)/pio
 
 ifneq (, $(filter $(ASF_PIO_DRIVER),1))
-ifneq (, $(filter $(ARMTYPE),SAM4S))
+ifneq (, $(filter $(ARMTYPE),SAM4S SAM4E))
 
 #list C source files
 CSRC	+=																		\

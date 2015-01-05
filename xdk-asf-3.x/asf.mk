@@ -7,6 +7,12 @@ CFLAGS += -DPLATFORM=$(PLATFORM)
 CFLAGS += -Wpointer-arith
 CFLAGS += -fdata-sections
 
+ifneq (, $(filter $(ARMTYPE),SAM4E))
+CFLAGS += -mfloat-abi=softfp -mfpu=fpv4-sp-d16
+CPPFLAGS += -mfloat-abi=softfp -mfpu=fpv4-sp-d16
+ASFLAGS += -mfloat-abi=softfp -mfpu=fpv4-sp-d16
+endif
+
 ifneq (, $(filter $(PLATFORM),xmega))
 CFLAGS += -DIOPORT_XMEGA_COMPAT
 endif
@@ -31,10 +37,15 @@ ASRC +=
 EXTRAINCDIRS +=																	\
 	$(ASF_ROOT_DIR)
 
-include $(ASF_PLATFORM_DIR)/utils/makefile.mk									\
-		$(ASF_PLATFORM_DIR)/drivers/makefile.mk									\
-		$(ASF_ROOT_DIR)/common/makefile.mk										\
+include $(ASF_PLATFORM_DIR)/drivers/makefile.mk									\
+		$(ASF_ROOT_DIR)/common/makefile.mk
 
 ifneq (, $(filter $(PLATFORM),xmega sam uc3))
-include $(ASF_PLATFORM_DIR)/services/makefile.mk
+	include $(ASF_PLATFORM_DIR)/services/makefile.mk
 endif
+
+ifneq (, $(filter $(PLATFORM),sam))
+	include $(ASF_PLATFORM_DIR)/components/makefile.mk
+endif
+
+include $(ASF_PLATFORM_DIR)/utils/makefile.mk

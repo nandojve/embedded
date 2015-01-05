@@ -28,6 +28,7 @@ EXTRAINCDIRS +=																	\
 	$(ASF_DRIVERS_SYSTEM_DIR)													\
 	$(ASF_DRIVERS_SYSTEM_DIR)/clock												\
 	$(ASF_DRIVERS_SYSTEM_DIR)/interrupt											\
+	$(ASF_DRIVERS_SYSTEM_DIR)/interrupt/system_interrupt_$(ARMTYPE_BASE)		\
 	$(ASF_DRIVERS_SYSTEM_DIR)/pinmux
 
 #endif

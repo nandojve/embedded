@@ -200,7 +200,8 @@ static enum status_code _usart_set_config(
 	}
 
 	/* Set whether module should run in standby. */
-	if (config->run_in_standby || system_is_debugger_present()) {
+//	if (config->run_in_standby || system_is_debugger_present()) {
+	if (config->run_in_standby) {
 		ctrla |= SERCOM_USART_CTRLA_RUNSTDBY;
 	}
 

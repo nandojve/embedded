@@ -1,6 +1,6 @@
 ASF_DRIVERS_PORT_DIR			= $(ASF_DRIVERS_DIR)/port
 
-#ifdef ASF_PORT_DRIVER
+#ifneq (, $(filter $(ASF_PORT_DRIVER),1))
 
 #list C source files
 CSRC	+=																		\

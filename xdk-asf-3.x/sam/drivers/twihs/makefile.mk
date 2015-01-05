@@ -1,11 +1,9 @@
-ASF_COMMON_SERVICES_USB_UDC_DIR	= $(ASF_COMMON_SERVICES_USB_DIR)/udc
+ASF_DRIVERS_TWIM_DIR			= $(ASF_DRIVERS_DIR)/twim
 
-ifneq (, $(filter $(USB_CLASS_CDC_DEVICE),1))
-
+ifneq (, $(filter $(ASF_TWIM_DRIVER),1))
 #list C source files
 CSRC	+=																		\
-	$(ASF_COMMON_SERVICES_USB_UDC_DIR)/udc.c
-endif
+	$(ASF_DRIVERS_TWIM_DIR)/twim.c
 
 # List C++ source files here. (C dependencies are automatically generated.)
 CPPSRC += 
@@ -21,5 +19,7 @@ ASRC +=
 
 # List any extra directories to look for include files here.
 #     Each directory must be seperated by a space.
-EXTRAINCDIRS += 																\
-	$(ASF_COMMON_SERVICES_USB_UDC_DIR)
+EXTRAINCDIRS +=																	\
+	$(ASF_DRIVERS_TWIM_DIR)
+
+endif

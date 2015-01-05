@@ -48,14 +48,15 @@ SEARCH_DIR(.)
 /* Memory Spaces Definitions */
 MEMORY
 {
-  rom (rx)  : ORIGIN = 0x00400000, LENGTH = 0x00080000
-  ram (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00020000
+	rom (rx)  : ORIGIN = 0x00004000, LENGTH = 0x0003C000 /* flash, 256K - 4k */
+	ram (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00020000 /* sram, 128Kib */
 }
 
 /* The stack size used by the application. NOTE: you need to adjust according to your application. */
 __stack_size__ = DEFINED(__stack_size__) ? __stack_size__ : 0x3000;
 __ram_end__ = ORIGIN(ram) + LENGTH(ram) - 4;
 
+/* Section Definitions */
 SECTIONS
 {
     .text :

@@ -52,6 +52,8 @@ void board_init(void)
 
 	gpio_configure_pin(GPIO_PUSH_BUTTON_0, IOPORT_DIR_INPUT | IOPORT_PULL_UP);
 	gpio_configure_pin(GPIO_PUSH_BUTTON_1, IOPORT_DIR_INPUT | IOPORT_PULL_UP);
+	
+	ioport_configure_pin(TRANSCEIVER_EN, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 
 	ioport_configure_pin(USARTC1_TXD, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 	ioport_configure_pin(USARTC1_RXD, IOPORT_DIR_INPUT);
@@ -60,4 +62,6 @@ void board_init(void)
 	gpio_configure_pin(TWIC_SDA, IOPORT_DIR_INPUT | IOPORT_WIRED_AND);
 
 	ioport_configure_pin(SENSORS_MPL115A2_EN, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
+	ioport_configure_pin(SENSORS_CC2D33S_READY, IOPORT_DIR_INPUT);
+	ioport_configure_pin(SENSORS_VCNL40XX_INT, IOPORT_DIR_INPUT);
 }

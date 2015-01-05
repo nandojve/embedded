@@ -163,6 +163,7 @@ void uart_set_dtr(uint8_t port, bool b_enable)
 
 void uart_task(void)
 {
+#if (UART_RST_SVALE_ENABLED == 1)
 	if(usart_rst_slave_flag != 0)
 	{
 		LED_Off(LED_VBUS);
@@ -182,6 +183,7 @@ void uart_task(void)
 		gpio_configure_pin(GPIO_PUSH_BUTTON_0, IOPORT_DIR_INPUT | IOPORT_PULL_UP);
 		LED_On(LED_VBUS);
 	}
+#endif
 	
 	if(timeout_test_expired(TIMEOUT_RX))
 	{
